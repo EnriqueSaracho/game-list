@@ -4,11 +4,13 @@ import { Home } from "./pages/home";
 import { Auth } from "./pages/auth";
 import { AddGame } from "./pages/add-game";
 import { SavedGames } from "./pages/saved-games";
+import { Navbar } from "./components/navbar";
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/auth" element={<Auth />} />
