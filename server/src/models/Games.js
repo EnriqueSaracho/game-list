@@ -47,19 +47,19 @@ const GameSchema = new mongoose.Schema(
       min: 1,
       max: 5,
     },
-  },
-  {
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true },
   }
+  // {
+  //   toJSON: { virtuals: true },
+  //   toObject: { virtuals: true },
+  // }
 );
 
-GameSchema.virtual("rating").get(() => {
-  if (!this.graphics || !this.world || !this.gameplay || !this.story) {
-    return null;
-  }
-  const total = this.graphics + this.world + this.gameplay + this.story;
-  return Math.round(total / 4);
-});
+// GameSchema.virtual("rating").get(() => {
+//   if (!this.graphics || !this.world || !this.gameplay || !this.story) {
+//     return null;
+//   }
+//   const total = this.graphics + this.world + this.gameplay + this.story;
+//   return Math.round(total / 4);
+// });
 
 export const GameModel = new mongoose.model("games", GameSchema);
