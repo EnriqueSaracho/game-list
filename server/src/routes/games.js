@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import { GameModel } from "../models/Games.js";
+import { UserModel } from "../models/Users.js";
 
 const router = express.Router();
 
@@ -27,13 +28,12 @@ router.post("/", async (req, res) => {
 
 // Save a game
 router.put("/", async (req, res) => {
-  {
-    userId, gameId;
-  }
-
   try {
-    const response = await game.save();
-    res.json(response);
+    const game = await GameModel.findById(req.body.gameID);
+    const user = await UserModel.findById(req.body.userID);
+    user.savedGames.push(game);
+    await user.save();
+    res.json({ savedGames: user.savedGames });
   } catch (err) {
     res.json(err);
   }
