@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Save a game
+// Save a game API
 router.put("/", async (req, res) => {
   try {
     const game = await GameModel.findById(req.body.gameID);
@@ -34,6 +34,29 @@ router.put("/", async (req, res) => {
     user.savedGames.push(game);
     await user.save();
     res.json({ savedGames: user.savedGames });
+  } catch (err) {
+    res.json(err);
+  }
+});
+
+// Show ids of saved games API
+router.get("/savedGames/ids", async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.body.userID);
+    res.json({ savedGames: user?.savedGames });
+  } catch (err) {
+    res.json(err);
+  }
+});
+
+// Show saved games API
+router.get("/savedGames", async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.body.userID);
+    const savedGames = await GameModel.find({
+      _id: { $in: user.savedGames },
+    });
+    res.json({ savedGames });
   } catch (err) {
     res.json(err);
   }
