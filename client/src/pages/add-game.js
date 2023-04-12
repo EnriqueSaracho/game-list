@@ -1,36 +1,100 @@
+import { useState } from "react";
+import axios from "axios";
+import { useGetUserID } from "../hooks/useGetUserID.js";
+import { useNavigate } from "react-router-dom";
+
 export const AddGame = () => {
+  // Hook: logged in userID
+  const userID = useGetUserID();
+
+  // State Object: keeps track of every input in the form.
+  const [game, setGame] = useState({
+    name: "",
+    publisher: "",
+    releaseDate: new Date().toISOString().substr(0, 10),
+    imageUrl: "",
+    user: userID,
+  });
+
+  // Hook: useNavigate hook to travel across pages
+  const navigate = useNavigate();
+
+  // Function: changes State Object on input change.
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setGame({ ...game, [name]: value });
+  };
+
+  // Function: sends form data to API.
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post("http://localhost:3001/games", game);
+      alert("Game added");
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <div className="add-game">
       <h2>Add Game</h2>
-      <form>
+
+      {/* Add-Game form */}
+      <form onSubmit={onSubmit}>
         <label htmlFor="name">Name: </label>
-        <input type="text" id="name" required />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          onChange={handleChange}
+        />
 
         <label htmlFor="publisher">Publisher: </label>
-        <input type="date" id="publisher" />
+        <input
+          type="text"
+          id="publisher"
+          name="publisher"
+          onChange={handleChange}
+        />
 
         <label htmlFor="release-date">Release date: </label>
-        <input type="date" id="release-date" />
+        <input
+          type="date"
+          id="release-date"
+          name="releaseDate"
+          onChange={handleChange}
+        />
 
         <label htmlFor="image-url">Image URL: </label>
-        <input type="text" id="image-url" />
+        <input
+          type="text"
+          id="image-url"
+          name="imageUrl"
+          onChange={handleChange}
+        />
+        <button type="submit">Add Game</button>
+      </form>
+    </div>
+  );
+};
 
-        <fieldset>
-          <legend>Status</legend>
-          <input type="radio" id="not-played" name="status" />
-          <label htmlFor="not-played">Not played</label>
-          <input type="radio" id="in-progress" name="status" />
-          <label htmlFor="in-progress">In progress</label>
-          <input type="radio" id="paused" name="status" />
-          <label htmlFor="paused">Paused</label>
-          <input type="radio" id="completed" name="status" />
-          <label htmlFor="completed">Completed</label>
-          <input type="radio" id="abandoned" name="status" />
-          <label htmlFor="abandoned">Abandoned</label>
-        </fieldset>
+{
+  /* <p>Status</p>
+        <input type="radio" id="not-played" name="status" />
+        <label htmlFor="not-played">Not played</label>
+        <input type="radio" id="in-progress" name="status" />
+        <label htmlFor="in-progress">In progress</label>
+        <input type="radio" id="paused" name="status" />
+        <label htmlFor="paused">Paused</label>
+        <input type="radio" id="completed" name="status" />
+        <label htmlFor="completed">Completed</label>
+        <input type="radio" id="abandoned" name="status" />
+        <label htmlFor="abandoned">Abandoned</label>
 
-        <fieldset>
-          <legend>Genres</legend>
+        <div>
+          <p>Genres</p>
           <input type="checkbox" id="action" />
           <label htmlFor="action">Action</label>
           <input type="checkbox" id="adventure" />
@@ -63,10 +127,10 @@ export const AddGame = () => {
           </label>
           <input type="checkbox" id="survival" />
           <label htmlFor="survival">Survival</label>
-        </fieldset>
+        </div>
 
-        <fieldset>
-          <legend>Platforms</legend>
+        <div>
+          <p>Platforms</p>
           <input type="checkbox" id="microsoft-windows" />
           <label htmlFor="microsoft-windows">Microsoft Windows</label>
           <input type="checkbox" id="macos" />
@@ -127,54 +191,5 @@ export const AddGame = () => {
           </label>
           <input type="checkbox" id="sony-playstation-5" />
           <label htmlFor="sony-playstation-5">Sony PlayStation 5</label>
-        </fieldset>
-
-        <h4>Rating</h4>
-        <fieldset>
-          <legend>Graphics</legend>
-          <label htmlFor="character-design">Character Design: </label>
-          <input type="range" id="character-design" min="1" max="5" />
-          <label htmlFor="textures">Textures: </label>
-          <input type="range" id="textures" min="1" max="5" />
-          <label htmlFor="frames">Frames: </label>
-          <input type="range" id="frames" min="1" max="5" />
-          <label htmlFor="animations">Animations: </label>
-          <input type="range" id="animations" min="1" max="5" />
-        </fieldset>
-        <fieldset>
-          <legend>World</legend>
-          <label htmlFor="soundtrack">Soundtrack: </label>
-          <input type="range" id="soundtrack" min="1" max="5" />
-          <label htmlFor="world-building">World Building: </label>
-          <input type="range" id="world-building" min="1" max="5" />
-          <label htmlFor="lore">Lore: </label>
-          <input type="range" id="lore" min="1" max="5" />
-          <label htmlFor="attention-to-detail">Attention to detail: </label>
-          <input type="range" id="attention-to-detail" min="1" max="5" />
-          <label htmlFor="realism">Realism: </label>
-          <input type="range" id="realism" min="1" max="5" />
-        </fieldset>
-        <fieldset>
-          <legend>Gameplay</legend>
-          <label htmlFor="progression">Progression: </label>
-          <input type="range" id="progression" min="1" max="5" />
-          <label htmlFor="satisfaction">Satistaction: </label>
-          <input type="range" id="satisfaction" min="1" max="5" />
-          <label htmlFor="unrepetitiveness">Unrepetitiveness: </label>
-          <input type="range" id="unrepetitiveness" min="1" max="5" />
-        </fieldset>
-        <fieldset>
-          <legend>Story</legend>
-          <label htmlFor="main-character">Main Character: </label>
-          <input type="range" id="main-character" min="1" max="5" />
-          <label htmlFor="side-characters">Side Characters: </label>
-          <input type="range" id="side-characters" min="1" max="5" />
-          <label htmlFor="main-story">Main Story: </label>
-          <input type="range" id="main-story" min="1" max="5" />
-          <label htmlFor="side-content">Side Content: </label>
-          <input type="range" id="side-content" min="1" max="5" />
-        </fieldset>
-      </form>
-    </div>
-  );
-};
+        </div> */
+}
