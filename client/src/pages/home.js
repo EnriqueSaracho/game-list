@@ -11,7 +11,7 @@ export const Home = () => {
       try {
         const response = await axios.get("http://localhost:3001/games");
         setGames(response.data);
-        console.log(response.data);
+        console.log(games);
       } catch (err) {
         console.log(err);
       }
@@ -24,7 +24,7 @@ export const Home = () => {
       <ul>
         {games.map((game) => (
           <li key={game._id}>
-            <img src={game.imageURL} alt={game.name} />
+            <img src={game.imageUrl} alt={game.name} />
             <h2>{game.name}</h2>
             <h4>Publisher: {game.publisher}</h4>
             <h4>
