@@ -1,7 +1,7 @@
 import express from "express";
-import mongoose from "mongoose";
 import { GameModel } from "../models/Games.js";
 import { UserModel } from "../models/Users.js";
+import { verifyToken } from "./users.js";
 
 const router = express.Router();
 
@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 });
 
 // Add a game to the list
-router.post("/", async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
   const game = new GameModel(req.body);
   try {
     const response = await game.save();
@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
 });
 
 // Save a game API
-router.put("/", async (req, res) => {
+router.put("/", verifyToken, async (req, res) => {
   try {
     const game = await GameModel.findById(req.body.gameID);
     const user = await UserModel.findById(req.body.userID);

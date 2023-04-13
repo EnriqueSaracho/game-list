@@ -43,3 +43,16 @@ router.post("/login", async (req, res) => {
 router.post("/login");
 
 export { router as userRouter };
+
+// Function: exported to the games route, is used in every request that requires being logged in.
+export const verifyToken = (req, res, next) => {
+  const token = req.headers.authorization;
+  if (token) {
+    jwt.verify(token, secret, (err) => {
+      if (err) return res.sendStatus(403);
+      next();
+    });
+  } else {
+    res.sendStatus(401);
+  }
+};

@@ -2,8 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID.js";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 export const AddGame = () => {
+  // State Object: cookies
+  const [cookies] = useCookies(["access_token"]);
+
   // Hook: logged in userID
   const userID = useGetUserID();
 
@@ -31,7 +35,9 @@ export const AddGame = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3001/games", game);
+      await axios.post("http://localhost:3001/games", game, {
+        headers: { authorization: cookies.access_token },
+      });
       alert("Game added");
       navigate("/");
     } catch (err) {

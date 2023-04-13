@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID.js";
+import { useCookies } from "react-cookie";
 
 export const Home = () => {
   // State Object: keeps track of all the games in database.
@@ -9,6 +10,8 @@ export const Home = () => {
   const [savedGames, setSavedGames] = useState([]);
   // Logged in userID
   const userID = useGetUserID();
+  // State Object: cookies
+  const [cookies] = useCookies(["access_token"]);
 
   // On Render Function: get the games from database.
   useEffect(() => {
@@ -26,7 +29,7 @@ export const Home = () => {
     const fetchSavedGame = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/games//savedGames/ids/${userID}`
+          `http://localhost:3001/games/savedGames/ids/${userID}`
         );
         setSavedGames(response.data.savedGames);
       } catch (err) {
@@ -36,16 +39,20 @@ export const Home = () => {
 
     // Can't have an "on render" async function, so we call the async function inside the "on render" one.
     fetchGame();
-    fetchSavedGame();
+    if (cookies.access_token) fetchSavedGame();
   }, []);
 
   // Function: save a game to the user.
   const saveGame = async (gameID) => {
     try {
-      const response = await axios.put("http://localhost:3001/games", {
-        gameID,
-        userID,
-      });
+      const response = await axios.put(
+        "http://localhost:3001/games",
+        {
+          gameID,
+          userID,
+        },
+        { headers: { authorization: cookies.access_token } }
+      );
       setSavedGames(response.data.savedGames);
     } catch (err) {
       console.log(err);
