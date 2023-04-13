@@ -50,9 +50,9 @@ router.get("/savedGames/ids/:userID", async (req, res) => {
 });
 
 // Show saved games API
-router.get("/savedGames", async (req, res) => {
+router.get("/savedGames/:userID", async (req, res) => {
   try {
-    const user = await UserModel.findById(req.body.userID);
+    const user = await UserModel.findById(req.params.userID);
     const savedGames = await GameModel.find({
       _id: { $in: user.savedGames },
     });
