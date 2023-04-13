@@ -5,6 +5,9 @@ const GameSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  franchise: {
+    type: String,
+  },
   publisher: {
     type: String,
   },

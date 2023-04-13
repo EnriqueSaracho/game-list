@@ -53,6 +53,14 @@ export const AddGame = () => {
           onChange={handleChange}
         />
 
+        <label htmlFor="franchise">Franchise: </label>
+        <input
+          type="text"
+          id="franchise"
+          name="franchise"
+          onChange={handleChange}
+        />
+
         <label htmlFor="publisher">Publisher: </label>
         <input
           type="text"
