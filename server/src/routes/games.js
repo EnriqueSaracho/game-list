@@ -40,9 +40,9 @@ router.put("/", async (req, res) => {
 });
 
 // Show ids of saved games API
-router.get("/savedGames/ids", async (req, res) => {
+router.get("/savedGames/ids/:userID", async (req, res) => {
   try {
-    const user = await UserModel.findById(req.body.userID);
+    const user = await UserModel.findById(req.params.userID);
     res.json({ savedGames: user?.savedGames });
   } catch (err) {
     res.json(err);
