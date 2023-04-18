@@ -1,5 +1,7 @@
+// Importing mongoose module to file.
 import mongoose from "mongoose";
 
+// Creating 'GameSchema' schema.
 const GameSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -26,6 +28,7 @@ const GameSchema = new mongoose.Schema({
     default: "not-played",
     required: true,
   },
+  // This below are field ideas yet to be implemented.
   // genres: {
   //   type: [String],
   // },
@@ -122,4 +125,5 @@ const GameSchema = new mongoose.Schema({
   // },
 });
 
+// Creating 'GameModel' for 'games' MongoDB collection, using 'GameSchema'.
 export const GameModel = new mongoose.model("games", GameSchema);
