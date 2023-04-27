@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,9 @@ export const Auth = () => {
 };
 
 const Login = () => {
+  // eslint-disable-next-line no-unused-vars
   const [_, setCookies] = useCookies(["access_token"]);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,14 +23,15 @@ const Login = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+
     try {
-      const response = axios.post("http://localhost:3001/auth/login", {
+      const response = await axios.post("http://localhost:3001/auth/login", {
         username,
         password,
       });
 
-      setCookies("access_token", (await response).data.token);
-      window.localStorage.setItem("userID", (await response).data.userID);
+      setCookies("access_token", response.data.token);
+      window.localStorage.setItem("userID", response.data.userID);
       navigate("/");
     } catch (err) {
       console.error(err);
@@ -53,8 +56,12 @@ const Register = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+
     try {
-      axios.post("http://localhost:3001/auth/register", { username, password });
+      await axios.post("http://localhost:3001/auth/register", {
+        username,
+        password,
+      });
       alert("Registration Completed, Now Login.");
     } catch (err) {
       console.error(err);

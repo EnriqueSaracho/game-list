@@ -30,31 +30,31 @@ router.post("/register", async (req, res) => {
   res.json({ message: "User Registered Successfully!" });
 });
 
-// Login API endpoint
+// Router handler: Login API endpoint
 router.post("/login", async (req, res) => {
+  // Fields destructured from the request body.
   const { username, password } = req.body;
-  const user = await UserModel.findOne({ username });
 
+  // Cheking if the user exists.
+  const user = await UserModel.findOne({ username });
   if (!user) {
     return res.json({ message: "User Doesn't Exist" });
   }
 
+  // Checking password validity.
   const isPasswordValid = await bcrypt.compare(password, user.password);
-
   if (!isPasswordValid) {
-    res.json({ message: "Username or Password is Incorrect!" });
+    return res.json({ message: "Username or Password is Incorrect!" });
   }
 
   // .env Key: secret key from the .env file (to be assigned to the token)
   const secret = process.env.secret;
-
   // token
   const token = jwt.sign({ id: user._id }, secret);
   res.json({ token, userID: user._id });
 });
 
-router.post("/login");
-
+// Exporting 'userRouter'.
 export { router as userRouter };
 
 // Function: exported to the games route, is used in every request that requires being logged in.
@@ -65,6 +65,7 @@ export const verifyToken = (req, res, next) => {
   // token: from the req headers
   const token = req.headers.authorization;
 
+  // Verifying the token.
   if (token) {
     jwt.verify(token, secret, (err) => {
       if (err) {

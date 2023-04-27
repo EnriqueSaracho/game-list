@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID.js";
 import { useCookies } from "react-cookie";
 
+// Page: Home.
 export const Home = () => {
   // State Object: keeps track of all the games in database.
   const [games, setGames] = useState([]);

@@ -1,11 +1,17 @@
+// Importing 'express' module.
 import express from "express";
+
+// Importing models.
 import { GameModel } from "../models/Games.js";
 import { UserModel } from "../models/Users.js";
+
+// Importing 'verifyToken' function.
 import { verifyToken } from "./users.js";
 
+// Object: router.
 const router = express.Router();
 
-// Home API (gets all games)
+// Route handler: Home API (gets all games).
 router.get("/", async (req, res) => {
   try {
     const response = await GameModel.find({});
@@ -15,9 +21,11 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Add a game to the list
-router.post("/", verifyToken, async (req, res) => {
+// Route handler: Add a game to the list.
+router.post("/", async (req, res) => {
+  // Creating new game in model.
   const game = new GameModel(req.body);
+  // Saving the game.
   try {
     const response = await game.save();
     res.json(response);
@@ -26,8 +34,8 @@ router.post("/", verifyToken, async (req, res) => {
   }
 });
 
-// Save a game API
-router.put("/", verifyToken, async (req, res) => {
+// Route handler: Save a game API.
+router.put("/", async (req, res) => {
   try {
     const game = await GameModel.findById(req.body.gameID);
     const user = await UserModel.findById(req.body.userID);
@@ -39,7 +47,7 @@ router.put("/", verifyToken, async (req, res) => {
   }
 });
 
-// Show ids of saved games API
+// Route handler: Show ids of saved games API.
 router.get("/savedGames/ids/:userID", async (req, res) => {
   try {
     const user = await UserModel.findById(req.params.userID);
@@ -49,7 +57,7 @@ router.get("/savedGames/ids/:userID", async (req, res) => {
   }
 });
 
-// Show saved games API
+// Route handler: Show saved games API.
 router.get("/savedGames/:userID", async (req, res) => {
   try {
     const user = await UserModel.findById(req.params.userID);
@@ -62,4 +70,5 @@ router.get("/savedGames/:userID", async (req, res) => {
   }
 });
 
+// Exporting router to index.js.
 export { router as gamesRouter };
