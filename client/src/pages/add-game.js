@@ -1,16 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { useGetUserID } from "../hooks/useGetUserID.js";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
 
 export const AddGame = () => {
-  // State Object: cookies
-  const [cookies] = useCookies(["access_token"]);
-
-  // Hook: logged in userID
-  const userID = useGetUserID();
-
   // State Object: keeps track of every input in the form.
   const [game, setGame] = useState({
     name: "",
@@ -18,7 +10,6 @@ export const AddGame = () => {
     releaseDate: new Date().toISOString().substr(0, 10),
     imageUrl: "",
     status: "",
-    user: userID,
   });
 
   // Hook: useNavigate hook to travel across pages
@@ -28,16 +19,13 @@ export const AddGame = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setGame({ ...game, [name]: value });
-    console.log(game);
   };
 
   // Function: sends form data to API.
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3001/games", game, {
-        headers: { authorization: cookies.access_token },
-      });
+      await axios.post("http://localhost:3001/games", game);
       alert("Game added");
       navigate("/");
     } catch (err) {

@@ -8,7 +8,6 @@ import { config } from "dotenv";
 config({ path: "./config.env" });
 
 // Importing routers from '/routes'.
-import { userRouter } from "./routes/users.js";
 import { gamesRouter } from "./routes/games.js";
 
 // Creating express app.
@@ -19,7 +18,6 @@ app.use(express.json());
 app.use(cors());
 
 // Mounting routers to respective paths.
-app.use("/auth", userRouter);
 app.use("/games", gamesRouter);
 
 // Creating 'uri' variable from 'config.env' key.
