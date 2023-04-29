@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;600;700&display=swap");
+
+:root {
+  --primary: #1753c6;
+  --secondary: #ffffff;
+  --other: #4c4c4c;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* App */
+body {
+  position: relative;
+  top: 80px;
+  background: linear-gradient(
+    160deg,
+    #12439e,
+    #1753c6 5%,
+    #1754c6c7 30%,
+    #1753c6
+  );
+  background-attachment: fixed;
+  color: var(--secondary);
+  font-family: "Inter Tight", sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.blur {
+  position: fixed;
+  top: 60px;
+  height: 20px;
+  width: 100%;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+}
+
+/* Navigation bar */
+.navbar {
+  height: 60px;
+  background-color: var(--secondary);
+  color: var(--primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--primary);
+  display: block;
+  padding-left: 50px;
+  font-size: 1.7em;
+}
+
+/* Home */
+.add-btn {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  position: fixed;
+  top: 90px;
+  left: 30px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 3em;
+  text-align: center;
+  color: var(--secondary);
+  backdrop-filter: blur(10px);
+  opacity: 0.65;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
+.game-list {
+  width: 80%;
+  margin: 20px auto;
+  margin-bottom: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.game {
+  background-color: var(--secondary);
+  border-radius: 20px;
+  margin-bottom: 23px;
+  color: var(--other);
+  display: flex;
+}
+
+.game-img {
+  width: 280px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px 0 0 20px;
+}
+
+.game-info {
+  padding: 20px;
+}
+
+.game-title {
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.game-text {
+  font-weight: 600;
 }

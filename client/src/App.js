@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
+        <div className="blur"></div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/add-game" element={<AddGame />} />

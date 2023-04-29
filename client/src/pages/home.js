@@ -1,5 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { BsPlusCircleFill } from "react-icons/bs";
+
 // Page: Home.
 export const Home = () => {
   // State Object: keeps track of all the games in database.
@@ -22,17 +25,21 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Games</h1>
-      <ul>
+    <div className="home">
+      <Link to="/add-game" className="add-btn">
+        <BsPlusCircleFill />
+      </Link>
+      <ul className="game-list">
         {games.map((game) => (
-          <li key={game._id}>
-            <img src={game.imageUrl} alt={game.name} />
-            <h2>{game.name}</h2>
-            <h4>Publisher: {game.publisher}</h4>
-            <h4>
-              Release Date: {new Date(game.releaseDate).toLocaleDateString()}
-            </h4>
+          <li key={game._id} className="game">
+            <img src={game.imageUrl} alt={game.name} className="game-img" />
+            <div className="game-info">
+              <h2 className="game-title">{game.name}</h2>
+              <h4 className="game-text">Publisher: {game.publisher}</h4>
+              <h4 className="game-text">
+                Release Date: {new Date(game.releaseDate).toLocaleDateString()}
+              </h4>
+            </div>
           </li>
         ))}
       </ul>
