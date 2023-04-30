@@ -19,22 +19,18 @@ const GameSchema = new mongoose.Schema({
   imageUrl: {
     type: String,
   },
-  user: {
-    type: String,
-  },
   status: {
     type: String,
     enum: ["not-played", "in-progress", "paused", "completed", "abandoned"],
     default: "not-played",
     required: true,
   },
-  // This below are field ideas yet to be implemented.
-  // genres: {
-  //   type: [String],
-  // },
-  // platforms: {
-  //   type: [String],
-  // },
+  genres: {
+    type: [String],
+  },
+  platforms: {
+    type: [String],
+  },
   // graphics: {
   //   characterDesign: {
   //     type: Number,

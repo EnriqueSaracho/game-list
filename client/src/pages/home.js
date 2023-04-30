@@ -26,7 +26,7 @@ export const Home = () => {
 
   return (
     <div className="home">
-      <Link to="/add-game" className="add-btn">
+      <Link to="/add-game" className="btn">
         <BsPlusCircleFill />
       </Link>
       <ul className="game-list">
@@ -35,10 +35,16 @@ export const Home = () => {
             <img src={game.imageUrl} alt={game.name} className="game-img" />
             <div className="game-info">
               <h2 className="game-title">{game.name}</h2>
-              <h4 className="game-text">Publisher: {game.publisher}</h4>
-              <h4 className="game-text">
-                Release Date: {new Date(game.releaseDate).toLocaleDateString()}
-              </h4>
+              <p>
+                Release Date:{" "}
+                {new Date(game.releaseDate).toLocaleDateString("en-GB")}
+              </p>
+              <p>Publisher: {game.publisher}</p>
+              <p>Franchise: {game.franchise}</p>
+              <p>Status: {game.status}</p>
+              <p>Genres: {game.genres}</p>
+              <p>Platforms: {game.platforms}</p>
+              <h3>Rating: </h3>
             </div>
           </li>
         ))}
