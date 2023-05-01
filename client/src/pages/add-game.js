@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from "react-router-dom";
 
 export const AddGame = () => {
   const [game, setGame] = useState({
@@ -15,6 +16,8 @@ export const AddGame = () => {
     status: "",
     genres: [],
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -32,7 +35,7 @@ export const AddGame = () => {
         genres: [...game.genres.filter((genre) => genre !== value)],
       });
     }
-    console.log(game.genres); // {CONSOLE.LOG}
+    console.log(game); // {CONSOLE.LOG}
   };
 
   const onSubmit = async (event) => {
@@ -40,6 +43,7 @@ export const AddGame = () => {
     try {
       await axios.post("http://localhost:3001/games", game);
       alert("Game added");
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
