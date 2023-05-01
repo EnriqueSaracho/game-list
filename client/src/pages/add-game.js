@@ -20,22 +20,22 @@ export const AddGame = () => {
   const navigate = useNavigate();
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setGame({ ...game, [name]: value });
-    console.log(game); // {CONSOLE.LOG}
-  };
-
-  const handleOptionChange = (event) => {
     const { name, value, checked } = event.target;
-    if (checked) {
-      setGame({ ...game, [name]: [...game[name], value] });
+
+    if (name === "genres") {
+      if (checked) {
+        setGame({ ...game, [name]: [...game[name], value] });
+      } else {
+        setGame({
+          ...game,
+          [name]: [...game[name].filter((option) => option !== value)],
+        });
+      }
     } else {
-      setGame({
-        ...game,
-        [name]: [...game[name].filter((option) => option !== value)],
-      });
+      setGame({ ...game, [name]: value });
     }
-    console.log(game[name]); // {CONSOLE.LOG}
+
+    console.log(game); // {CONSOLE.LOG}
   };
 
   const onSubmit = async (event) => {
@@ -164,7 +164,7 @@ export const AddGame = () => {
               id="action"
               name="genres"
               value={"Action"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="action">Action</label>
           </div>
@@ -175,7 +175,7 @@ export const AddGame = () => {
               id="adventure"
               name="genres"
               value={"Adventure"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="adventure">Adventure</label>
           </div>
@@ -186,7 +186,7 @@ export const AddGame = () => {
               id="role-playing"
               name="genres"
               value={"Role-Playing (RPG)"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="role-playing">Role Playing (RPG)</label>
           </div>
@@ -197,7 +197,7 @@ export const AddGame = () => {
               id="strategy"
               name="genres"
               value={"Strategy"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="strategy">Strategy</label>
           </div>
@@ -208,7 +208,7 @@ export const AddGame = () => {
               id="simulation"
               name="genres"
               value={"Simulation"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="simulation">Simulation</label>
           </div>
@@ -219,7 +219,7 @@ export const AddGame = () => {
               id="sports"
               name="genres"
               value={"Sports"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="sports">Sports</label>
           </div>
@@ -230,7 +230,7 @@ export const AddGame = () => {
               id="racing"
               name="genres"
               value={"Racing"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="racing">Racing</label>
           </div>
@@ -241,7 +241,7 @@ export const AddGame = () => {
               id="fighting"
               name="genres"
               value={"Fighting"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="fighting">Fighting</label>
           </div>
@@ -252,7 +252,7 @@ export const AddGame = () => {
               id="platformer"
               name="genres"
               value={"Platformer"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="platformer">Platformer</label>
           </div>
@@ -263,7 +263,7 @@ export const AddGame = () => {
               id="puzzle"
               name="genres"
               value={"Puzzle"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="puzzle">Puzzle</label>
           </div>
@@ -274,7 +274,7 @@ export const AddGame = () => {
               id="massively-multiplayer-online"
               name="genres"
               value={"Massively Multiplayer Online (MMO)"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="massively-multiplayer-online">
               Massively Multiplayer Online (MMO)
@@ -287,7 +287,7 @@ export const AddGame = () => {
               id="horror"
               name="genres"
               value={"Horror"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="horror">Horror</label>
           </div>
@@ -298,7 +298,7 @@ export const AddGame = () => {
               id="first-person-shooter"
               name="genres"
               value={"First Person Shooter (FPS)"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="first-person-shooter">
               First Person Shooter (FPS)
@@ -311,7 +311,7 @@ export const AddGame = () => {
               id="survival"
               name="genres"
               value={"Survival"}
-              onChange={handleOptionChange}
+              onChange={handleChange}
             />
             <label htmlFor="survival">Survival</label>
           </div>
