@@ -25,17 +25,17 @@ export const AddGame = () => {
     console.log(game); // {CONSOLE.LOG}
   };
 
-  const handleGenreChange = (event) => {
-    const { value, checked } = event.target;
+  const handleOptionChange = (event) => {
+    const { name, value, checked } = event.target;
     if (checked) {
-      setGame({ ...game, genres: [...game.genres, value] });
+      setGame({ ...game, [name]: [...game[name], value] });
     } else {
       setGame({
         ...game,
-        genres: [...game.genres.filter((genre) => genre !== value)],
+        [name]: [...game[name].filter((option) => option !== value)],
       });
     }
-    console.log(game); // {CONSOLE.LOG}
+    console.log(game[name]); // {CONSOLE.LOG}
   };
 
   const onSubmit = async (event) => {
@@ -164,7 +164,7 @@ export const AddGame = () => {
               id="action"
               name="genres"
               value={"Action"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="action">Action</label>
           </div>
@@ -175,7 +175,7 @@ export const AddGame = () => {
               id="adventure"
               name="genres"
               value={"Adventure"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="adventure">Adventure</label>
           </div>
@@ -186,7 +186,7 @@ export const AddGame = () => {
               id="role-playing"
               name="genres"
               value={"Role-Playing (RPG)"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="role-playing">Role Playing (RPG)</label>
           </div>
@@ -197,7 +197,7 @@ export const AddGame = () => {
               id="strategy"
               name="genres"
               value={"Strategy"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="strategy">Strategy</label>
           </div>
@@ -208,7 +208,7 @@ export const AddGame = () => {
               id="simulation"
               name="genres"
               value={"Simulation"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="simulation">Simulation</label>
           </div>
@@ -219,7 +219,7 @@ export const AddGame = () => {
               id="sports"
               name="genres"
               value={"Sports"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="sports">Sports</label>
           </div>
@@ -230,7 +230,7 @@ export const AddGame = () => {
               id="racing"
               name="genres"
               value={"Racing"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="racing">Racing</label>
           </div>
@@ -241,7 +241,7 @@ export const AddGame = () => {
               id="fighting"
               name="genres"
               value={"Fighting"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="fighting">Fighting</label>
           </div>
@@ -252,7 +252,7 @@ export const AddGame = () => {
               id="platformer"
               name="genres"
               value={"Platformer"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="platformer">Platformer</label>
           </div>
@@ -263,7 +263,7 @@ export const AddGame = () => {
               id="puzzle"
               name="genres"
               value={"Puzzle"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="puzzle">Puzzle</label>
           </div>
@@ -274,7 +274,7 @@ export const AddGame = () => {
               id="massively-multiplayer-online"
               name="genres"
               value={"Massively Multiplayer Online (MMO)"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="massively-multiplayer-online">
               Massively Multiplayer Online (MMO)
@@ -287,7 +287,7 @@ export const AddGame = () => {
               id="horror"
               name="genres"
               value={"Horror"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="horror">Horror</label>
           </div>
@@ -298,7 +298,7 @@ export const AddGame = () => {
               id="first-person-shooter"
               name="genres"
               value={"First Person Shooter (FPS)"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="first-person-shooter">
               First Person Shooter (FPS)
@@ -311,7 +311,7 @@ export const AddGame = () => {
               id="survival"
               name="genres"
               value={"Survival"}
-              onChange={handleGenreChange}
+              onChange={handleOptionChange}
             />
             <label htmlFor="survival">Survival</label>
           </div>
