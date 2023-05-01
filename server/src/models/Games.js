@@ -21,8 +21,7 @@ const GameSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["not-played", "in-progress", "paused", "completed", "abandoned"],
-    default: "not-played",
+    default: "Not played",
     required: true,
   },
   genres: {

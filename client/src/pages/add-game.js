@@ -1,43 +1,50 @@
-import { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { BsFillXCircleFill } from "react-icons/bs";
+import { useState } from "react";
+import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export const AddGame = () => {
-  // State Object: keeps track of every input in the form.
   const [game, setGame] = useState({
     name: "",
+    franchise: "",
     publisher: "",
     releaseDate: new Date(),
-    // releaseDate: new Date().toISOString().substr(0, 10),
     imageUrl: "",
     status: "",
+    genres: [],
   });
 
-  // Hook: useNavigate hook to travel across pages
-  const navigate = useNavigate();
-
-  // Function: changes State Object on input change.
   const handleChange = (event) => {
     const { name, value } = event.target;
     setGame({ ...game, [name]: value });
-    console.log(game);
+    console.log(game); // {CONSOLE.LOG}
   };
 
-  // Function: sends form data to API.
+  const handleGenreChange = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setGame({ ...game, genres: [...game.genres, value] });
+    } else {
+      setGame({
+        ...game,
+        genres: [...game.genres.filter((genre) => genre !== value)],
+      });
+    }
+    console.log(game.genres); // {CONSOLE.LOG}
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
       await axios.post("http://localhost:3001/games", game);
       alert("Game added");
-      navigate("/");
     } catch (err) {
       console.error(err);
     }
   };
+
   return (
     <div className="add-game">
       <Link to="/" className="btn">
@@ -45,144 +52,267 @@ export const AddGame = () => {
       </Link>
       <h2 className="add-game-title">Add a new game</h2>
 
-      {/* Add-Game form */}
-      <form onSubmit={onSubmit} className="add-game-form">
-        <label htmlFor="name" className="label-t1">
-          Title:
-        </label>
-        <input
-          autoComplete="off"
-          className="input-t1"
-          type="text"
-          id="name"
-          name="name"
-          required
-          onChange={handleChange}
-        />
+      {/* Add Game Form */}
+      <form onSubmit={onSubmit}>
+        <label htmlFor="name">Title:</label>
+        <input type="text" id="name" name="name" onChange={handleChange} />
 
-        <label htmlFor="franchise" className="label-t1">
-          Franchise:
-        </label>
+        <label htmlFor="franchise">Franchise:</label>
         <input
-          autoComplete="off"
-          className="input-t1"
           type="text"
           id="franchise"
           name="franchise"
           onChange={handleChange}
         />
 
-        <label htmlFor="publisher" className="label-t1">
-          Publisher:
-        </label>
+        <label htmlFor="publisher">Publisher:</label>
         <input
-          autoComplete="off"
-          className="input-t1"
           type="text"
           id="publisher"
           name="publisher"
           onChange={handleChange}
         />
 
-        <label htmlFor="release-date" className="label-t1">
-          Release date:
-        </label>
+        <label htmlFor="release-date">Release date:</label>
         <DatePicker
-          className="input-t1"
           id="release-date"
           name="releaseDate"
           dateFormat="dd/MM/yyyy"
           selected={game.releaseDate}
           onChange={(date) => {
             setGame({ ...game, releaseDate: date });
-            console.log(game);
-          }} // For the DatePicker, the handleChange function doesn't work because it doesn't provide an event.
+          }}
         />
 
-        <label htmlFor="image-url" className="label-t1">
-          Image URL:
-        </label>
+        <label htmlFor="image-url">Image URL:</label>
         <input
-          autoComplete="off"
-          className="input-t1"
           type="text"
           id="image-url"
           name="imageUrl"
           onChange={handleChange}
         />
 
-        <p className="label-t1">Status:</p>
-        <div className="input-option-container">
-          <input
-            className="input-option input-radio"
-            type="radio"
-            id="not-played"
-            name="status"
-            value={"not-played"}
-            onChange={handleChange}
-          />
-          <label htmlFor="not-played" className="label-option">
-            Not played
-          </label>
+        {/* Status */}
+        <p>Status:</p>
+        <div>
+          <div>
+            <input
+              type="radio"
+              id="not-played"
+              name="status"
+              value={"Not played"}
+              onChange={handleChange}
+            />
+            <label htmlFor="not-played">Not played</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="in-progress"
+              name="status"
+              value={"In progress"}
+              onChange={handleChange}
+            />
+            <label htmlFor="in-progress">In progress</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="paused"
+              name="status"
+              value={"Paused"}
+              onChange={handleChange}
+            />
+            <label htmlFor="paused">Paused</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="completed"
+              name="status"
+              value={"Completed"}
+              onChange={handleChange}
+            />
+            <label htmlFor="completed">Completed</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="abandoned"
+              name="status"
+              value={"Abandoned"}
+              onChange={handleChange}
+            />
+            <label htmlFor="Abandoned">Abandoned</label>
+          </div>
         </div>
 
-        <div className="input-option-container">
-          <input
-            className="input-option input-radio"
-            type="radio"
-            id="in-progress"
-            name="status"
-            value={"in-progress"}
-            onChange={handleChange}
-          />
-          <label htmlFor="in-progress" className="label-option">
-            In Progress
-          </label>
+        {/* Genres */}
+        <p>Genres:</p>
+        <div>
+          <div>
+            <input
+              type="checkbox"
+              id="action"
+              name="genres"
+              value={"Action"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="action">Action</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="adventure"
+              name="genres"
+              value={"Adventure"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="adventure">Adventure</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="role-playing"
+              name="genres"
+              value={"Role-Playing (RPG)"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="role-playing">Role Playing (RPG)</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="strategy"
+              name="genres"
+              value={"Strategy"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="strategy">Strategy</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="simulation"
+              name="genres"
+              value={"Simulation"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="simulation">Simulation</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="sports"
+              name="genres"
+              value={"Sports"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="sports">Sports</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="racing"
+              name="genres"
+              value={"Racing"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="racing">Racing</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="fighting"
+              name="genres"
+              value={"Fighting"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="fighting">Fighting</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="platformer"
+              name="genres"
+              value={"Platformer"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="platformer">Platformer</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="puzzle"
+              name="genres"
+              value={"Puzzle"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="puzzle">Puzzle</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="massively-multiplayer-online"
+              name="genres"
+              value={"Massively Multiplayer Online (MMO)"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="massively-multiplayer-online">
+              Massively Multiplayer Online (MMO)
+            </label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="horror"
+              name="genres"
+              value={"Horror"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="horror">Horror</label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="first-person-shooter"
+              name="genres"
+              value={"First Person Shooter (FPS)"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="first-person-shooter">
+              First Person Shooter (FPS)
+            </label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="survival"
+              name="genres"
+              value={"Survival"}
+              onChange={handleGenreChange}
+            />
+            <label htmlFor="survival">Survival</label>
+          </div>
         </div>
 
-        <div className="input-option-container">
-          <input
-            className="input-option input-radio"
-            type="radio"
-            id="paused"
-            name="status"
-            value={"paused"}
-            onChange={handleChange}
-          />
-          <label htmlFor="paused" className="label-option">
-            Paused
-          </label>
-        </div>
-
-        <div className="input-option-container">
-          <input
-            className="input-option input-radio"
-            type="radio"
-            id="completed"
-            name="status"
-            value={"completed"}
-            onChange={handleChange}
-          />
-          <label htmlFor="completed" className="label-option">
-            Completed
-          </label>
-        </div>
-
-        <div className="input-option-container">
-          <input
-            className="input-option input-radio"
-            type="radio"
-            id="abandoned"
-            name="status"
-            value={"abandoned"}
-            onChange={handleChange}
-          />
-          <label htmlFor="abandoned" className="label-option">
-            Abandoned
-          </label>
-        </div>
-
-        <br />
         <button type="submit">Add Game</button>
       </form>
     </div>

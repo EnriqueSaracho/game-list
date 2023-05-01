@@ -118,6 +118,14 @@ body {
   margin-bottom: 100px;
 }
 
+.input-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 350px;
+  margin-bottom: 10px;
+}
+
 .add-game-title {
   font-size: 2.5em;
   font-weight: 300;
@@ -172,6 +180,7 @@ body {
   appearance: none;
   height: 40px;
   width: 40px;
+  border-radius: 3px;
   transition: all 0.15s ease-out 0s;
   background: var(--transparent);
   color: #fff;
