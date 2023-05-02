@@ -44,7 +44,7 @@ export const Home = () => {
               <p>Status: {game.status}</p>
               <p>Genres: {game.genres}</p>
               <p>Platforms: {game.platforms}</p>
-              <h3>Rating: </h3>
+              <h3>Rating: {game.rating}</h3>
             </div>
           </li>
         ))}
