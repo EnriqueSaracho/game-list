@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BsPlusCircleFill } from "react-icons/bs";
+import StarRatingComponent from "react-star-rating-component";
 
 // Page: Home.
 export const Home = () => {
@@ -44,7 +45,15 @@ export const Home = () => {
               <p>Status: {game.status}</p>
               <p>Genres: {game.genres}</p>
               <p>Platforms: {game.platforms}</p>
-              <h3>Rating: {game.rating}</h3>
+              <h3>
+                Rating:
+                <StarRatingComponent
+                  name="rating"
+                  editing={false}
+                  starCount={5}
+                  value={game.rating}
+                />
+              </h3>
             </div>
           </li>
         ))}
