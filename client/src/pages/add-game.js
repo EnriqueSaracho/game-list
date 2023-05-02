@@ -15,6 +15,7 @@ export const AddGame = () => {
     imageUrl: "",
     status: "",
     genres: [],
+    platforms: [],
   });
 
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ export const AddGame = () => {
   const handleChange = (event) => {
     const { name, value, checked } = event.target;
 
-    if (name === "genres") {
+    if (name === "genres" || name === "platforms") {
       if (checked) {
         setGame({ ...game, [name]: [...game[name], value] });
       } else {
@@ -97,8 +98,8 @@ export const AddGame = () => {
         />
 
         {/* Status */}
-        <p>Status:</p>
         <div>
+          <p>Status:</p>
           <div>
             <input
               type="radio"
@@ -156,8 +157,8 @@ export const AddGame = () => {
         </div>
 
         {/* Genres */}
-        <p>Genres:</p>
         <div>
+          <p>Genres:</p>
           <div>
             <input
               type="checkbox"
@@ -314,6 +315,184 @@ export const AddGame = () => {
               onChange={handleChange}
             />
             <label htmlFor="survival">Survival</label>
+          </div>
+        </div>
+
+        {/* Platforms */}
+        <div>
+          <p>Platforms:</p>
+          <div>
+            <p>Nintendo</p>
+            <div>
+              <input
+                type="checkbox"
+                id="nintendo-64"
+                name="platforms"
+                value={"Nintendo 64"}
+                onChange={handleChange}
+              />
+              <label htmlFor="nintendo-64">Nintendo 64</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="gamecube"
+                name="platforms"
+                value={"GameCube"}
+                onChange={handleChange}
+              />
+              <label htmlFor="gamecube">GameCube</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="wii"
+                name="platforms"
+                value={"Wii"}
+                onChange={handleChange}
+              />
+              <label htmlFor="wii">Wii</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="wii-u"
+                name="platforms"
+                value={"Wii U"}
+                onChange={handleChange}
+              />
+              <label htmlFor="wii-u">Wii U</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="switch"
+                name="platforms"
+                value={"Switch"}
+                onChange={handleChange}
+              />
+              <label htmlFor="switch">Switch</label>
+            </div>
+          </div>
+
+          <div>
+            <p>PlayStation</p>
+            <div>
+              <input
+                type="checkbox"
+                id="playstation"
+                name="platforms"
+                value={"PlayStation"}
+                onChange={handleChange}
+              />
+              <label htmlFor="playstation">PlayStation</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="playstation-2"
+                name="platforms"
+                value={"PlayStation 2"}
+                onChange={handleChange}
+              />
+              <label htmlFor="playstation-2">PlayStation 2</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="playstation-3"
+                name="platforms"
+                value={"PlayStation 3"}
+                onChange={handleChange}
+              />
+              <label htmlFor="playstation-3">PlayStation 3</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="playstation-4"
+                name="platforms"
+                value={"PlayStation 4"}
+                onChange={handleChange}
+              />
+              <label htmlFor="playstation-4">PlayStation 4</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="playstation-5"
+                name="platforms"
+                value={"PlayStation 5"}
+                onChange={handleChange}
+              />
+              <label htmlFor="playstation-5">PlayStation 5</label>
+            </div>
+          </div>
+
+          <div>
+            <p>Microsoft</p>
+            <div>
+              <input
+                type="checkbox"
+                id="playstation"
+                name="platforms"
+                value={"PlayStation"}
+                onChange={handleChange}
+              />
+              <label htmlFor="playstation">Windows</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="playstation"
+                name="platforms"
+                value={"PlayStation"}
+                onChange={handleChange}
+              />
+              <label htmlFor="playstation">Xbox</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="playstation"
+                name="platforms"
+                value={"PlayStation"}
+                onChange={handleChange}
+              />
+              <label htmlFor="playstation">Xbox 360</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="playstation"
+                name="platforms"
+                value={"PlayStation"}
+                onChange={handleChange}
+              />
+              <label htmlFor="playstation">Xbox One</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="playstation"
+                name="platforms"
+                value={"PlayStation"}
+                onChange={handleChange}
+              />
+              <label htmlFor="playstation">Xbox Series X/S</label>
+            </div>
           </div>
         </div>
 
