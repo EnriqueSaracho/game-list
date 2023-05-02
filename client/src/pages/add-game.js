@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import StarRatingComponent from "react-star-rating-component";
+import { IoIosStar } from "react-icons/io";
 
 export const AddGame = () => {
   const [game, setGame] = useState({
@@ -60,454 +61,584 @@ export const AddGame = () => {
       <h2 className="add-game-title">Add a new game</h2>
 
       {/* Add Game Form */}
-      <form onSubmit={onSubmit}>
-        <label htmlFor="name">Title:</label>
-        <input type="text" id="name" name="name" onChange={handleChange} />
+      <form onSubmit={onSubmit} className="add-game-form">
+        <div>
+          <label htmlFor="name" className="label-t1">
+            Title:
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            onChange={handleChange}
+            className="input-t1"
+          />
 
-        <label htmlFor="franchise">Franchise:</label>
-        <input
-          type="text"
-          id="franchise"
-          name="franchise"
-          onChange={handleChange}
-        />
+          <label htmlFor="franchise" className="label-t1">
+            Franchise:
+          </label>
+          <input
+            type="text"
+            id="franchise"
+            name="franchise"
+            onChange={handleChange}
+            className="input-t1"
+          />
 
-        <label htmlFor="publisher">Publisher:</label>
-        <input
-          type="text"
-          id="publisher"
-          name="publisher"
-          onChange={handleChange}
-        />
+          <label htmlFor="publisher" className="label-t1">
+            Publisher:
+          </label>
+          <input
+            type="text"
+            id="publisher"
+            name="publisher"
+            onChange={handleChange}
+            className="input-t1"
+          />
 
-        <label htmlFor="release-date">Release date:</label>
-        <DatePicker
-          id="release-date"
-          name="releaseDate"
-          dateFormat="dd/MM/yyyy"
-          selected={game.releaseDate}
-          onChange={(date) => {
-            setGame({ ...game, releaseDate: date });
-          }}
-        />
+          <label htmlFor="release-date" className="label-t1">
+            Release date:
+          </label>
+          <DatePicker
+            id="release-date"
+            name="releaseDate"
+            dateFormat="dd/MM/yyyy"
+            selected={game.releaseDate}
+            onChange={(date) => {
+              setGame({ ...game, releaseDate: date });
+            }}
+            className="input-t1"
+          />
 
-        <label htmlFor="image-url">Image URL:</label>
-        <input
-          type="text"
-          id="image-url"
-          name="imageUrl"
-          onChange={handleChange}
-        />
+          <label htmlFor="image-url" className="label-t1">
+            Image URL:
+          </label>
+          <input
+            type="text"
+            id="image-url"
+            name="imageUrl"
+            onChange={handleChange}
+            className="input-t1"
+          />
+        </div>
 
         {/* Status */}
-        <div>
-          <p>Status:</p>
-          <div>
+        <p className="options-title">Status:</p>
+        <div className="input-container">
+          <div className="input-option-container">
             <input
               type="radio"
               id="not-played"
               name="status"
               value={"Not played"}
               onChange={handleChange}
+              className="input-option input-radio"
             />
-            <label htmlFor="not-played">Not played</label>
+            <label htmlFor="not-played" className="label-option">
+              Not played
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="radio"
               id="in-progress"
               name="status"
               value={"In progress"}
               onChange={handleChange}
+              className="input-option input-radio"
             />
-            <label htmlFor="in-progress">In progress</label>
+            <label htmlFor="in-progress" className="label-option">
+              In progress
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="radio"
               id="paused"
               name="status"
               value={"Paused"}
               onChange={handleChange}
+              className="input-option input-radio"
             />
-            <label htmlFor="paused">Paused</label>
+            <label htmlFor="paused" className="label-option">
+              Paused
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="radio"
               id="completed"
               name="status"
               value={"Completed"}
               onChange={handleChange}
+              className="input-option input-radio"
             />
-            <label htmlFor="completed">Completed</label>
+            <label htmlFor="completed" className="label-option">
+              Completed
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="radio"
               id="abandoned"
               name="status"
               value={"Abandoned"}
               onChange={handleChange}
+              className="input-option input-radio"
             />
-            <label htmlFor="Abandoned">Abandoned</label>
+            <label htmlFor="abandoned" className="label-option">
+              Abandoned
+            </label>
           </div>
         </div>
 
         {/* Genres */}
-        <div>
-          <p>Genres:</p>
-          <div>
+        <p className="options-title">Genres:</p>
+        <div className="input-container">
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="action"
               name="genres"
               value={"Action"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="action">Action</label>
+            <label htmlFor="action" className="label-option">
+              Action
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="adventure"
               name="genres"
               value={"Adventure"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="adventure">Adventure</label>
+            <label htmlFor="adventure" className="label-option">
+              Adventure
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="role-playing"
               name="genres"
               value={"Role-Playing (RPG)"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="role-playing">Role Playing (RPG)</label>
+            <label htmlFor="role-playing" className="label-option">
+              Role Playing (RPG)
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="strategy"
               name="genres"
               value={"Strategy"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="strategy">Strategy</label>
+            <label htmlFor="strategy" className="label-option">
+              Strategy
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="simulation"
               name="genres"
               value={"Simulation"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="simulation">Simulation</label>
+            <label htmlFor="simulation" className="label-option">
+              Simulation
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="sports"
               name="genres"
               value={"Sports"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="sports">Sports</label>
+            <label htmlFor="sports" className="label-option">
+              Sports
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="racing"
               name="genres"
               value={"Racing"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="racing">Racing</label>
+            <label htmlFor="racing" className="label-option">
+              Racing
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="fighting"
               name="genres"
               value={"Fighting"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="fighting">Fighting</label>
+            <label htmlFor="fighting" className="label-option">
+              Fighting
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="platformer"
               name="genres"
               value={"Platformer"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="platformer">Platformer</label>
+            <label htmlFor="platformer" className="label-option">
+              Platformer
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="puzzle"
               name="genres"
               value={"Puzzle"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="puzzle">Puzzle</label>
+            <label htmlFor="puzzle" className="label-option">
+              Puzzle
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="massively-multiplayer-online"
               name="genres"
               value={"Massively Multiplayer Online (MMO)"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="massively-multiplayer-online">
+            <label
+              htmlFor="massively-multiplayer-online"
+              className="label-option"
+            >
               Massively Multiplayer Online (MMO)
             </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="horror"
               name="genres"
               value={"Horror"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="horror">Horror</label>
+            <label htmlFor="horror" className="label-option">
+              Horror
+            </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="first-person-shooter"
               name="genres"
               value={"First Person Shooter (FPS)"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="first-person-shooter">
+            <label htmlFor="first-person-shooter" className="label-option">
               First Person Shooter (FPS)
             </label>
           </div>
 
-          <div>
+          <div className="input-option-container">
             <input
               type="checkbox"
               id="survival"
               name="genres"
               value={"Survival"}
               onChange={handleChange}
+              className="input-option"
             />
-            <label htmlFor="survival">Survival</label>
+            <label htmlFor="survival" className="label-option">
+              Survival
+            </label>
           </div>
         </div>
 
         {/* Platforms */}
-        <div>
-          <p>Platforms:</p>
+        <p className="options-title">Platforms:</p>
+        <div className="input-super-container">
           <div>
-            <p>Nintendo</p>
-            <div>
+            <p className="label-t1">Nintendo</p>
+            <div className="input-option-container">
               <input
                 type="checkbox"
                 id="nintendo-64"
                 name="platforms"
                 value={"Nintendo 64"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="nintendo-64">Nintendo 64</label>
+              <label htmlFor="nintendo-64" className="label-option">
+                Nintendo 64
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
                 id="gamecube"
                 name="platforms"
                 value={"GameCube"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="gamecube">GameCube</label>
+              <label htmlFor="gamecube" className="label-option">
+                GameCube
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
                 id="wii"
                 name="platforms"
                 value={"Wii"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="wii">Wii</label>
+              <label htmlFor="wii" className="label-option">
+                Wii
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
                 id="wii-u"
                 name="platforms"
                 value={"Wii U"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="wii-u">Wii U</label>
+              <label htmlFor="wii-u" className="label-option">
+                Wii U
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
                 id="switch"
                 name="platforms"
                 value={"Switch"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="switch">Switch</label>
+              <label htmlFor="switch" className="label-option">
+                Switch
+              </label>
             </div>
           </div>
 
           <div>
-            <p>PlayStation</p>
-            <div>
+            <p className="label-t1">PlayStation</p>
+            <div className="input-option-container">
               <input
                 type="checkbox"
                 id="playstation"
                 name="platforms"
                 value={"PlayStation"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="playstation">PlayStation</label>
+              <label htmlFor="playstation" className="label-option">
+                PlayStation
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
                 id="playstation-2"
                 name="platforms"
                 value={"PlayStation 2"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="playstation-2">PlayStation 2</label>
+              <label htmlFor="playstation-2" className="label-option">
+                PlayStation 2
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
                 id="playstation-3"
                 name="platforms"
                 value={"PlayStation 3"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="playstation-3">PlayStation 3</label>
+              <label htmlFor="playstation-3" className="label-option">
+                PlayStation 3
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
                 id="playstation-4"
                 name="platforms"
                 value={"PlayStation 4"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="playstation-4">PlayStation 4</label>
+              <label htmlFor="playstation-4" className="label-option">
+                PlayStation 4
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
                 id="playstation-5"
                 name="platforms"
                 value={"PlayStation 5"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="playstation-5">PlayStation 5</label>
+              <label htmlFor="playstation-5" className="label-option">
+                PlayStation 5
+              </label>
             </div>
           </div>
 
           <div>
-            <p>Microsoft</p>
-            <div>
+            <p className="label-t1">Microsoft</p>
+            <div className="input-option-container">
               <input
                 type="checkbox"
-                id="playstation"
+                id="windows"
                 name="platforms"
-                value={"PlayStation"}
+                value={"Windows"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="playstation">Windows</label>
+              <label htmlFor="windows" className="label-option">
+                Windows
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
-                id="playstation"
+                id="xbox"
                 name="platforms"
-                value={"PlayStation"}
+                value={"Xbox"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="playstation">Xbox</label>
+              <label htmlFor="xbox" className="label-option">
+                Xbox
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
-                id="playstation"
+                id="xbox-360"
                 name="platforms"
-                value={"PlayStation"}
+                value={"Xbox 360"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="playstation">Xbox 360</label>
+              <label htmlFor="xbox-360" className="label-option">
+                Xbox 360
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
-                id="playstation"
+                id="xbox-one"
                 name="platforms"
-                value={"PlayStation"}
+                value={"Xbox One"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="playstation">Xbox One</label>
+              <label htmlFor="xbox-one" className="label-option">
+                Xbox One
+              </label>
             </div>
 
-            <div>
+            <div className="input-option-container">
               <input
                 type="checkbox"
-                id="playstation"
+                id="xbox-series-x-s"
                 name="platforms"
-                value={"PlayStation"}
+                value={"Xbox Series X/S"}
                 onChange={handleChange}
+                className="input-option"
               />
-              <label htmlFor="playstation">Xbox Series X/S</label>
+              <label htmlFor="xbox-series-x-s" className="label-option">
+                Xbox Series X/S
+              </label>
             </div>
           </div>
         </div>
 
-        <label>Rating:</label>
+        <label className="label-t1">Rating:</label>
         <StarRatingComponent
           id="rating"
           name="rating"
           starCount={5}
+          renderStarIcon={() => (
+            <span>
+              <IoIosStar />
+            </span>
+          )}
           value={game.rating}
           onStarClick={(value) => {
             setGame({ ...game, rating: value });
-            console.log(game.rating);
           }}
+          starColor="#ffffff99"
+          emptyStarColor="#000"
+          className="star-rating"
         />
 
         <button type="submit">Add Game</button>
