@@ -5,6 +5,7 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
+import StarRatingComponent from "react-star-rating-component";
 
 export const AddGame = () => {
   const [game, setGame] = useState({
@@ -16,6 +17,7 @@ export const AddGame = () => {
     status: "",
     genres: [],
     platforms: [],
+    rating: 0,
   });
 
   const navigate = useNavigate();
@@ -495,6 +497,18 @@ export const AddGame = () => {
             </div>
           </div>
         </div>
+
+        <label>Rating:</label>
+        <StarRatingComponent
+          id="rating"
+          name="rating"
+          starCount={5}
+          value={game.rating}
+          onStarClick={(value) => {
+            setGame({ ...game, rating: value });
+            console.log(game.rating);
+          }}
+        />
 
         <button type="submit">Add Game</button>
       </form>

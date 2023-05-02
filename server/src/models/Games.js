@@ -30,6 +30,9 @@ const GameSchema = new mongoose.Schema({
   platforms: {
     type: [String],
   },
+  rating: {
+    type: Number,
+  },
   // graphics: {
   //   characterDesign: {
   //     type: Number,
