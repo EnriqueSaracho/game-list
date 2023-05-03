@@ -397,6 +397,34 @@ export const AddGame = () => {
               Survival
             </label>
           </div>
+
+          <div className="input-option-container">
+            <input
+              type="checkbox"
+              id="sandbox"
+              name="genres"
+              value={"Sandbox"}
+              onChange={handleChange}
+              className="input-option"
+            />
+            <label htmlFor="sandbox" className="label-option">
+              Sandbox
+            </label>
+          </div>
+
+          <div className="input-option-container">
+            <input
+              type="checkbox"
+              id="hack-and-slash"
+              name="genres"
+              value={"Hack and Slash"}
+              onChange={handleChange}
+              className="input-option"
+            />
+            <label htmlFor="hack-and-slash" className="label-option">
+              Hack and Slash
+            </label>
+          </div>
         </div>
 
         {/* Platforms */}
