@@ -30,97 +30,89 @@ const GameSchema = new mongoose.Schema({
   platforms: {
     type: [String],
   },
+  mainCharacter: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  sideCharacters: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  mainStory: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  sideContent: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  lore: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  progression: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  gameFeel: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  variety: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  replayability: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  worldDesign: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  characterDesign: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  animations: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  realism: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  textures: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  frames: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  soundtrack: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
   rating: {
     type: Number,
   },
-  // graphics: {
-  //   characterDesign: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   textures: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   frames: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   animations: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  // },
-  // world: {
-  //   soundtrack: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   worldBuilding: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   lore: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   attentionToDetail: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   realism: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  // },
-  // gameplay: {
-  //   progression: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   satisfaction: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   unrepetitiveness: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  // },
-  // story: {
-  //   mainCharacter: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   sideCharacters: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   mainStory: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  //   sideContent: {
-  //     type: Number,
-  //     min: 1,
-  //     max: 5,
-  //   },
-  // },
 });
 
 // Creating 'GameModel' for 'games' MongoDB collection, using 'GameSchema'.

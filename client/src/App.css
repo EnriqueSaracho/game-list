@@ -271,6 +271,17 @@ legend {
   border-radius: 50%;
 }
 
+.input-rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.label-rating {
+  font-size: 1.3em;
+  font-weight: 300;
+  width: 180px;
+}
+
 .star-rating {
   font-size: 50px;
 }
