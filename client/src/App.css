@@ -15,6 +15,39 @@
   padding: 0;
 }
 
+/* Navigation bar */
+.navbar {
+  height: 60px;
+  background-color: var(--secondary);
+  color: var(--primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--primary);
+  display: block;
+  padding-left: 50px;
+  font-size: 1.7em;
+}
+
+.blur {
+  position: fixed;
+  top: 60px;
+  height: 20px;
+  width: 100%;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
 /* App */
 body {
   position: relative;
@@ -31,52 +64,35 @@ body {
   font-family: "Inter Tight", sans-serif;
 }
 
-.blur {
-  position: fixed;
-  top: 60px;
-  height: 20px;
-  width: 100%;
+button {
+  border: none;
   background-color: transparent;
-  backdrop-filter: blur(5px);
+  color: transparent;
+  cursor: pointer;
 }
 
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 90px;
-  left: 30px;
   border-radius: 50%;
   text-decoration: none;
-  font-size: 3em;
+  font-size: 48px;
   text-align: center;
   color: var(--secondary);
   backdrop-filter: blur(10px);
   opacity: 0.6;
   box-shadow: var(--shadow);
+  transition: all 0.15s ease-out 0s;
+}
+.btn:active {
+  opacity: 0.4;
 }
 
-/* Navigation bar */
-.navbar {
-  height: 60px;
-  background-color: var(--secondary);
-  color: var(--primary);
+.btn-1 {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
-}
-
-.navbar a {
-  text-decoration: none;
-  color: var(--primary);
-  display: block;
-  padding-left: 50px;
-  font-size: 1.7em;
+  top: 90px;
+  left: 30px;
 }
 
 /* Home */
@@ -113,7 +129,7 @@ body {
 
 /* Add Game */
 .add-game {
-  width: 80%;
+  width: 100%;
   margin: 20px auto;
   margin-bottom: 100px;
 }
@@ -127,11 +143,11 @@ body {
   margin-bottom: 10px;
 }
 
-.input-container {
+fieldset {
+  border: none;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 350px;
+  flex-direction: row;
+  justify-content: center;
   min-width: 500px;
   margin-bottom: 10px;
 }
@@ -143,10 +159,23 @@ body {
   text-align: center;
 }
 
+legend {
+  font-size: 1.7em;
+  font-weight: 300;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 .add-game-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.platform-icon {
+  text-align: center;
+  width: 100%;
+  font-size: 1.7em;
 }
 
 .label-t1 {

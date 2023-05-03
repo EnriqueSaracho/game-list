@@ -7,6 +7,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import StarRatingComponent from "react-star-rating-component";
 import { IoIosStar } from "react-icons/io";
+import { SiNintendo } from "react-icons/si";
+import { SiPlaystation } from "react-icons/si";
+import { SiXbox } from "react-icons/si";
+import { BsPlusCircleFill } from "react-icons/bs";
 
 export const AddGame = () => {
   const [game, setGame] = useState({
@@ -55,383 +59,396 @@ export const AddGame = () => {
 
   return (
     <div className="add-game">
-      <Link to="/" className="btn">
+      <Link to="/" className="btn btn-1">
         <BsFillXCircleFill />
       </Link>
       <h2 className="add-game-title">Add a new game</h2>
 
       {/* Add Game Form */}
       <form onSubmit={onSubmit} className="add-game-form">
-        <div>
-          <label htmlFor="name" className="label-t1">
-            Title:
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            onChange={handleChange}
-            className="input-t1"
-          />
+        <fieldset>
+          <div>
+            <label htmlFor="name" className="label-t1">
+              Title:
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              onChange={handleChange}
+              className="input-t1"
+              autoComplete="off"
+            />
 
-          <label htmlFor="franchise" className="label-t1">
-            Franchise:
-          </label>
-          <input
-            type="text"
-            id="franchise"
-            name="franchise"
-            onChange={handleChange}
-            className="input-t1"
-          />
+            <label htmlFor="franchise" className="label-t1">
+              Franchise:
+            </label>
+            <input
+              type="text"
+              id="franchise"
+              name="franchise"
+              onChange={handleChange}
+              className="input-t1"
+              autoComplete="off"
+            />
 
-          <label htmlFor="publisher" className="label-t1">
-            Publisher:
-          </label>
-          <input
-            type="text"
-            id="publisher"
-            name="publisher"
-            onChange={handleChange}
-            className="input-t1"
-          />
+            <label htmlFor="publisher" className="label-t1">
+              Publisher:
+            </label>
+            <input
+              type="text"
+              id="publisher"
+              name="publisher"
+              onChange={handleChange}
+              className="input-t1"
+              autoComplete="off"
+            />
 
-          <label htmlFor="release-date" className="label-t1">
-            Release date:
-          </label>
-          <DatePicker
-            id="release-date"
-            name="releaseDate"
-            dateFormat="dd/MM/yyyy"
-            selected={game.releaseDate}
-            onChange={(date) => {
-              setGame({ ...game, releaseDate: date });
-            }}
-            className="input-t1"
-          />
+            <label htmlFor="release-date" className="label-t1">
+              Release date:
+            </label>
+            <DatePicker
+              id="release-date"
+              name="releaseDate"
+              dateFormat="dd/MM/yyyy"
+              selected={game.releaseDate}
+              onChange={(date) => {
+                setGame({ ...game, releaseDate: date });
+              }}
+              className="input-t1"
+              autoComplete="off"
+            />
 
-          <label htmlFor="image-url" className="label-t1">
-            Image URL:
-          </label>
-          <input
-            type="text"
-            id="image-url"
-            name="imageUrl"
-            onChange={handleChange}
-            className="input-t1"
-          />
-        </div>
+            <label htmlFor="image-url" className="label-t1">
+              Image URL:
+            </label>
+            <input
+              type="text"
+              id="image-url"
+              name="imageUrl"
+              onChange={handleChange}
+              className="input-t1"
+              autoComplete="off"
+            />
+          </div>
+        </fieldset>
 
         {/* Status */}
-        <p className="options-title">Status:</p>
-        <div className="input-container">
-          <div className="input-option-container">
-            <input
-              type="radio"
-              id="not-played"
-              name="status"
-              value={"Not played"}
-              onChange={handleChange}
-              className="input-option input-radio"
-            />
-            <label htmlFor="not-played" className="label-option">
-              Not played
-            </label>
-          </div>
+        <fieldset>
+          <legend>Status:</legend>
+          <div>
+            <div className="input-option-container">
+              <input
+                type="radio"
+                id="not-played"
+                name="status"
+                value={"Not played"}
+                onChange={handleChange}
+                className="input-option input-radio"
+              />
+              <label htmlFor="not-played" className="label-option">
+                Not played
+              </label>
+            </div>
 
-          <div className="input-option-container">
-            <input
-              type="radio"
-              id="in-progress"
-              name="status"
-              value={"In progress"}
-              onChange={handleChange}
-              className="input-option input-radio"
-            />
-            <label htmlFor="in-progress" className="label-option">
-              In progress
-            </label>
-          </div>
+            <div className="input-option-container">
+              <input
+                type="radio"
+                id="in-progress"
+                name="status"
+                value={"In progress"}
+                onChange={handleChange}
+                className="input-option input-radio"
+              />
+              <label htmlFor="in-progress" className="label-option">
+                In progress
+              </label>
+            </div>
 
-          <div className="input-option-container">
-            <input
-              type="radio"
-              id="paused"
-              name="status"
-              value={"Paused"}
-              onChange={handleChange}
-              className="input-option input-radio"
-            />
-            <label htmlFor="paused" className="label-option">
-              Paused
-            </label>
-          </div>
+            <div className="input-option-container">
+              <input
+                type="radio"
+                id="paused"
+                name="status"
+                value={"Paused"}
+                onChange={handleChange}
+                className="input-option input-radio"
+              />
+              <label htmlFor="paused" className="label-option">
+                Paused
+              </label>
+            </div>
 
-          <div className="input-option-container">
-            <input
-              type="radio"
-              id="completed"
-              name="status"
-              value={"Completed"}
-              onChange={handleChange}
-              className="input-option input-radio"
-            />
-            <label htmlFor="completed" className="label-option">
-              Completed
-            </label>
-          </div>
+            <div className="input-option-container">
+              <input
+                type="radio"
+                id="completed"
+                name="status"
+                value={"Completed"}
+                onChange={handleChange}
+                className="input-option input-radio"
+              />
+              <label htmlFor="completed" className="label-option">
+                Completed
+              </label>
+            </div>
 
-          <div className="input-option-container">
-            <input
-              type="radio"
-              id="abandoned"
-              name="status"
-              value={"Abandoned"}
-              onChange={handleChange}
-              className="input-option input-radio"
-            />
-            <label htmlFor="abandoned" className="label-option">
-              Abandoned
-            </label>
+            <div className="input-option-container">
+              <input
+                type="radio"
+                id="abandoned"
+                name="status"
+                value={"Abandoned"}
+                onChange={handleChange}
+                className="input-option input-radio"
+              />
+              <label htmlFor="abandoned" className="label-option">
+                Abandoned
+              </label>
+            </div>
           </div>
-        </div>
+        </fieldset>
 
         {/* Genres */}
-        <p className="options-title">Genres:</p>
-        <div className="input-container">
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="action"
-              name="genres"
-              value={"Action"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="action" className="label-option">
-              Action
-            </label>
+        <fieldset>
+          <legend>Genres:</legend>
+          <div>
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="action"
+                name="genres"
+                value={"Action"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="action" className="label-option">
+                Action
+              </label>
+            </div>
+
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="adventure"
+                name="genres"
+                value={"Adventure"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="adventure" className="label-option">
+                Adventure
+              </label>
+            </div>
+
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="role-playing"
+                name="genres"
+                value={"Role-Playing (RPG)"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="role-playing" className="label-option">
+                Role Playing (RPG)
+              </label>
+            </div>
+
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="strategy"
+                name="genres"
+                value={"Strategy"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="strategy" className="label-option">
+                Strategy
+              </label>
+            </div>
+
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="simulation"
+                name="genres"
+                value={"Simulation"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="simulation" className="label-option">
+                Simulation
+              </label>
+            </div>
+
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="sports"
+                name="genres"
+                value={"Sports"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="sports" className="label-option">
+                Sports
+              </label>
+            </div>
+
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="racing"
+                name="genres"
+                value={"Racing"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="racing" className="label-option">
+                Racing
+              </label>
+            </div>
+
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="fighting"
+                name="genres"
+                value={"Fighting"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="fighting" className="label-option">
+                Fighting
+              </label>
+            </div>
           </div>
 
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="adventure"
-              name="genres"
-              value={"Adventure"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="adventure" className="label-option">
-              Adventure
-            </label>
-          </div>
+          <div>
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="platformer"
+                name="genres"
+                value={"Platformer"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="platformer" className="label-option">
+                Platformer
+              </label>
+            </div>
 
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="role-playing"
-              name="genres"
-              value={"Role-Playing (RPG)"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="role-playing" className="label-option">
-              Role Playing (RPG)
-            </label>
-          </div>
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="puzzle"
+                name="genres"
+                value={"Puzzle"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="puzzle" className="label-option">
+                Puzzle
+              </label>
+            </div>
 
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="strategy"
-              name="genres"
-              value={"Strategy"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="strategy" className="label-option">
-              Strategy
-            </label>
-          </div>
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="massively-multiplayer-online"
+                name="genres"
+                value={"Massively Multiplayer Online (MMO)"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label
+                htmlFor="massively-multiplayer-online"
+                className="label-option"
+              >
+                Massively Multiplayer Online (MMO)
+              </label>
+            </div>
 
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="simulation"
-              name="genres"
-              value={"Simulation"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="simulation" className="label-option">
-              Simulation
-            </label>
-          </div>
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="horror"
+                name="genres"
+                value={"Horror"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="horror" className="label-option">
+                Horror
+              </label>
+            </div>
 
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="sports"
-              name="genres"
-              value={"Sports"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="sports" className="label-option">
-              Sports
-            </label>
-          </div>
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="first-person-shooter"
+                name="genres"
+                value={"First Person Shooter (FPS)"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="first-person-shooter" className="label-option">
+                First Person Shooter (FPS)
+              </label>
+            </div>
 
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="racing"
-              name="genres"
-              value={"Racing"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="racing" className="label-option">
-              Racing
-            </label>
-          </div>
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="survival"
+                name="genres"
+                value={"Survival"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="survival" className="label-option">
+                Survival
+              </label>
+            </div>
 
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="fighting"
-              name="genres"
-              value={"Fighting"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="fighting" className="label-option">
-              Fighting
-            </label>
-          </div>
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="sandbox"
+                name="genres"
+                value={"Sandbox"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="sandbox" className="label-option">
+                Sandbox
+              </label>
+            </div>
 
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="platformer"
-              name="genres"
-              value={"Platformer"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="platformer" className="label-option">
-              Platformer
-            </label>
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="hack-and-slash"
+                name="genres"
+                value={"Hack and Slash"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="hack-and-slash" className="label-option">
+                Hack and Slash
+              </label>
+            </div>
           </div>
-
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="puzzle"
-              name="genres"
-              value={"Puzzle"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="puzzle" className="label-option">
-              Puzzle
-            </label>
-          </div>
-
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="massively-multiplayer-online"
-              name="genres"
-              value={"Massively Multiplayer Online (MMO)"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label
-              htmlFor="massively-multiplayer-online"
-              className="label-option"
-            >
-              Massively Multiplayer Online (MMO)
-            </label>
-          </div>
-
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="horror"
-              name="genres"
-              value={"Horror"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="horror" className="label-option">
-              Horror
-            </label>
-          </div>
-
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="first-person-shooter"
-              name="genres"
-              value={"First Person Shooter (FPS)"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="first-person-shooter" className="label-option">
-              First Person Shooter (FPS)
-            </label>
-          </div>
-
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="survival"
-              name="genres"
-              value={"Survival"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="survival" className="label-option">
-              Survival
-            </label>
-          </div>
-
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="sandbox"
-              name="genres"
-              value={"Sandbox"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="sandbox" className="label-option">
-              Sandbox
-            </label>
-          </div>
-
-          <div className="input-option-container">
-            <input
-              type="checkbox"
-              id="hack-and-slash"
-              name="genres"
-              value={"Hack and Slash"}
-              onChange={handleChange}
-              className="input-option"
-            />
-            <label htmlFor="hack-and-slash" className="label-option">
-              Hack and Slash
-            </label>
-          </div>
-        </div>
+        </fieldset>
 
         {/* Platforms */}
-        <p className="options-title">Platforms:</p>
-        <div className="input-super-container">
+        <fieldset>
+          <legend>Platforms:</legend>
           <div>
-            <p className="label-t1">Nintendo</p>
+            <SiNintendo className="platform-icon" />
             <div className="input-option-container">
               <input
                 type="checkbox"
@@ -504,7 +521,7 @@ export const AddGame = () => {
           </div>
 
           <div>
-            <p className="label-t1">PlayStation</p>
+            <SiPlaystation className="platform-icon" />
             <div className="input-option-container">
               <input
                 type="checkbox"
@@ -577,7 +594,7 @@ export const AddGame = () => {
           </div>
 
           <div>
-            <p className="label-t1">Microsoft</p>
+            <SiXbox className="platform-icon" />
             <div className="input-option-container">
               <input
                 type="checkbox"
@@ -648,7 +665,7 @@ export const AddGame = () => {
               </label>
             </div>
           </div>
-        </div>
+        </fieldset>
 
         <label className="label-t1">Rating:</label>
         <StarRatingComponent
@@ -669,7 +686,9 @@ export const AddGame = () => {
           className="star-rating"
         />
 
-        <button type="submit">Add Game</button>
+        <button type="submit" className="btn">
+          <BsPlusCircleFill />
+        </button>
       </form>
     </div>
   );

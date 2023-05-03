@@ -27,7 +27,7 @@ export const Home = () => {
 
   return (
     <div className="home">
-      <Link to="/add-game" className="btn">
+      <Link to="/add-game" className="btn btn-1">
         <BsPlusCircleFill />
       </Link>
       <ul className="game-list">
