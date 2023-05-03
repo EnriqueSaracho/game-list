@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { BsFillXCircleFill } from "react-icons/bs";
 import { useState } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import StarRatingComponent from "react-star-rating-component";
+import { BsFillXCircleFill } from "react-icons/bs";
 import { IoIosStar } from "react-icons/io";
 import { SiNintendo } from "react-icons/si";
 import { SiPlaystation } from "react-icons/si";
@@ -22,23 +22,24 @@ export const AddGame = () => {
     status: "",
     genres: [],
     platforms: [],
-    mainCharacter: 0,
-    sideCharacters: 0,
-    mainStory: 0,
-    sideContent: 0,
-    lore: 0,
-    progression: 0,
-    gameFeel: 0,
-    variety: 0,
-    replayability: 0,
-    worldDesign: 0,
-    characterDesign: 0,
-    animations: 0,
-    realism: 0,
-    textures: 0,
-    frames: 0,
-    soundtrack: 0,
-    rating: 0,
+    rating: {
+      mainCharacter: 0,
+      sideCharacters: 0,
+      mainStory: 0,
+      sideContent: 0,
+      lore: 0,
+      progression: 0,
+      gameFeel: 0,
+      variety: 0,
+      replayability: 0,
+      worldDesign: 0,
+      characterDesign: 0,
+      animations: 0,
+      realism: 0,
+      textures: 0,
+      frames: 0,
+      soundtrack: 0,
+    },
   });
 
   const navigate = useNavigate();
@@ -699,9 +700,12 @@ export const AddGame = () => {
                     <IoIosStar />
                   </span>
                 )}
-                value={game.mainCharacter}
+                value={game.rating.mainCharacter}
                 onStarClick={(value) => {
-                  setGame({ ...game, mainCharacter: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, mainCharacter: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -724,7 +728,10 @@ export const AddGame = () => {
                 )}
                 value={game.sideCharacters}
                 onStarClick={(value) => {
-                  setGame({ ...game, sideCharacters: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, sideCharacters: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -747,7 +754,10 @@ export const AddGame = () => {
                 )}
                 value={game.mainStory}
                 onStarClick={(value) => {
-                  setGame({ ...game, mainStory: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, mainStory: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -770,7 +780,10 @@ export const AddGame = () => {
                 )}
                 value={game.sideContent}
                 onStarClick={(value) => {
-                  setGame({ ...game, sideContent: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, sideContent: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -793,7 +806,10 @@ export const AddGame = () => {
                 )}
                 value={game.lore}
                 onStarClick={(value) => {
-                  setGame({ ...game, lore: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, lore: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -816,7 +832,10 @@ export const AddGame = () => {
                 )}
                 value={game.progression}
                 onStarClick={(value) => {
-                  setGame({ ...game, progression: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, progression: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -839,7 +858,10 @@ export const AddGame = () => {
                 )}
                 value={game.gameFeel}
                 onStarClick={(value) => {
-                  setGame({ ...game, gameFeel: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, gameFeel: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -862,7 +884,10 @@ export const AddGame = () => {
                 )}
                 value={game.variety}
                 onStarClick={(value) => {
-                  setGame({ ...game, variety: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, variety: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -885,7 +910,10 @@ export const AddGame = () => {
                 )}
                 value={game.replayability}
                 onStarClick={(value) => {
-                  setGame({ ...game, replayability: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, replayability: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -908,7 +936,10 @@ export const AddGame = () => {
                 )}
                 value={game.worldDesign}
                 onStarClick={(value) => {
-                  setGame({ ...game, worldDesign: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, worldDesign: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -931,7 +962,10 @@ export const AddGame = () => {
                 )}
                 value={game.characterDesign}
                 onStarClick={(value) => {
-                  setGame({ ...game, characterDesign: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, characterDesign: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -954,7 +988,10 @@ export const AddGame = () => {
                 )}
                 value={game.animations}
                 onStarClick={(value) => {
-                  setGame({ ...game, animations: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, animations: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -977,7 +1014,10 @@ export const AddGame = () => {
                 )}
                 value={game.realism}
                 onStarClick={(value) => {
-                  setGame({ ...game, realism: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, realism: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -1000,7 +1040,10 @@ export const AddGame = () => {
                 )}
                 value={game.textures}
                 onStarClick={(value) => {
-                  setGame({ ...game, textures: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, textures: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -1023,7 +1066,10 @@ export const AddGame = () => {
                 )}
                 value={game.frames}
                 onStarClick={(value) => {
-                  setGame({ ...game, frames: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, frames: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -1046,7 +1092,10 @@ export const AddGame = () => {
                 )}
                 value={game.soundtrack}
                 onStarClick={(value) => {
-                  setGame({ ...game, soundtrack: value });
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, soundtrack: value },
+                  });
                 }}
                 starColor="#fff"
                 emptyStarColor="#000"
@@ -1055,25 +1104,6 @@ export const AddGame = () => {
             </div>
           </div>
         </fieldset>
-
-        <label className="label-t1">Rating:</label>
-        <StarRatingComponent
-          id="rating"
-          name="rating"
-          starCount={5}
-          renderStarIcon={() => (
-            <span>
-              <IoIosStar />
-            </span>
-          )}
-          value={game.rating}
-          onStarClick={(value) => {
-            setGame({ ...game, rating: value });
-          }}
-          starColor="#fff"
-          emptyStarColor="#000"
-          className="star-rating"
-        />
 
         <button type="submit" className="btn">
           <BsPlusCircleFill />
