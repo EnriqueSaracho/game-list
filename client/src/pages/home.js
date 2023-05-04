@@ -81,23 +81,26 @@ export const Home = () => {
                     </span>
                   )}
                   value={
-                    (game.rating.mainCharacter +
-                      game.rating.sideCharacters +
-                      game.rating.mainStory +
-                      game.rating.sideContent +
-                      game.rating.lore +
-                      game.rating.progression +
-                      game.rating.gameFeel +
-                      game.rating.variety +
-                      game.rating.replayability +
-                      game.rating.worldDesign +
-                      game.rating.characterDesign +
-                      game.rating.animations +
-                      game.rating.realism +
-                      game.rating.textures +
-                      game.rating.frames +
-                      game.rating.soundtrack) /
-                    16
+                    Math.round(
+                      ((game.rating.mainCharacter +
+                        game.rating.sideCharacters +
+                        game.rating.mainStory +
+                        game.rating.sideContent +
+                        game.rating.lore +
+                        game.rating.progression +
+                        game.rating.gameFeel +
+                        game.rating.variety +
+                        game.rating.replayability +
+                        game.rating.worldDesign +
+                        game.rating.characterDesign +
+                        game.rating.animations +
+                        game.rating.realism +
+                        game.rating.textures +
+                        game.rating.frames +
+                        game.rating.soundtrack) /
+                        16) *
+                        2
+                    ) / 2
                   }
                   starColor="#fff"
                   emptyStarColor="#ffffff00"
