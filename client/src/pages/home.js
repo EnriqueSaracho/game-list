@@ -5,6 +5,7 @@ import StarRatingComponent from "react-star-rating-component";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { IoIosStar } from "react-icons/io";
 import { IoIosStarHalf } from "react-icons/io";
+import { BiMessageSquareEdit } from "react-icons/bi";
 
 // Page: Home.
 export const Home = () => {
@@ -87,6 +88,9 @@ export const Home = () => {
                   className="star-rating"
                 />
               </h3>
+              <Link>
+                <BiMessageSquareEdit className="btn info-btn" />
+              </Link>
             </div>
           </li>
         ))}

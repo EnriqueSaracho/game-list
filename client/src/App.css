@@ -95,6 +95,13 @@ button {
   left: 30px;
 }
 
+.info-btn {
+  box-shadow: none;
+  color: var(--secondary);
+  opacity: 1;
+  border-radius: 0;
+}
+
 /* Home */
 .game-list {
   width: 80%;
