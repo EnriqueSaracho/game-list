@@ -5,7 +5,8 @@ import StarRatingComponent from "react-star-rating-component";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { IoIosStar } from "react-icons/io";
 import { IoIosStarHalf } from "react-icons/io";
-import { BiMessageSquareEdit } from "react-icons/bi";
+import { TbEditCircle } from "react-icons/tb";
+import { TiDeleteOutline } from "react-icons/ti";
 
 // Page: Home.
 export const Home = () => {
@@ -89,8 +90,11 @@ export const Home = () => {
                 />
               </h3>
               <Link>
-                <BiMessageSquareEdit className="btn info-btn" />
+                <TbEditCircle className="btn info-btn" />
               </Link>
+              <button>
+                <TiDeleteOutline className="btn info-btn" />
+              </button>
             </div>
           </li>
         ))}
