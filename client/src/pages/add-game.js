@@ -11,6 +11,7 @@ import { SiNintendo } from "react-icons/si";
 import { SiPlaystation } from "react-icons/si";
 import { SiXbox } from "react-icons/si";
 import { BsPlusCircleFill } from "react-icons/bs";
+import { AiFillApple } from "react-icons/ai";
 
 export const AddGame = () => {
   const [game, setGame] = useState({
@@ -339,6 +340,20 @@ export const AddGame = () => {
               />
               <label htmlFor="fighting" className="label-option">
                 Fighting
+              </label>
+            </div>
+
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="stealth"
+                name="genres"
+                value={"Stealth"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="stealth" className="label-option">
+                Stealth
               </label>
             </div>
           </div>
@@ -679,6 +694,23 @@ export const AddGame = () => {
               />
               <label htmlFor="xbox-series-x-s" className="label-option">
                 Xbox Series X/S
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <AiFillApple className="platform-icon" />
+            <div className="input-option-container">
+              <input
+                type="checkbox"
+                id="mac-os"
+                name="platforms"
+                value={"macOS"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="mac-os" className="label-option">
+                macOS
               </label>
             </div>
           </div>
