@@ -30,5 +30,15 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Route handler: Delete a game from the list.
+router.delete("/:id", async (req, res) => {
+  try {
+    const response = await GameModel.findByIdAndDelete(req.params.id);
+    res.json(response);
+  } catch (err) {
+    res.json(err);
+  }
+});
+
 // Exporting router to index.js.
 export { router as gamesRouter };

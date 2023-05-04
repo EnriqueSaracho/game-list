@@ -29,6 +29,21 @@ export const Home = () => {
     fetchGame();
   }, []);
 
+  // Function: deletes a game from the database.
+  const deleteGame = async (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this game?"
+    );
+    if (confirmDelete) {
+      try {
+        await axios.delete(`http://localhost:3001/games/${id}`);
+        setGames(games.filter((game) => game._id !== id));
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
+
   return (
     <div className="home">
       <Link to="/add-game" className="btn btn-1">
@@ -92,7 +107,7 @@ export const Home = () => {
               <Link>
                 <TbEditCircle className="btn info-btn" />
               </Link>
-              <button>
+              <button onClick={() => deleteGame(game._id)}>
                 <TiDeleteOutline className="btn info-btn" />
               </button>
             </div>
