@@ -107,8 +107,8 @@ export const Home = () => {
                   className="star-rating"
                 />
               </h3>
-              <Link>
-                <TbEditCircle className="btn info-btn" />
+              <Link to={`/edit-game/${game._id}`} className="btn info-btn">
+                <TbEditCircle />
               </Link>
               <button onClick={() => deleteGame(game._id)}>
                 <TiDeleteOutline className="btn info-btn" />

@@ -17,6 +17,16 @@ router.get("/", async (req, res) => {
   }
 });
 
+//Route handler: get a single game.
+router.get("/:id", async (req, res) => {
+  try {
+    const response = await GameModel.findById(req.params.id);
+    res.json(response);
+  } catch (err) {
+    res.json(err);
+  }
+});
+
 // Route handler: Add a game to the list.
 router.post("/", async (req, res) => {
   // Creating new game in model.
@@ -34,6 +44,20 @@ router.post("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const response = await GameModel.findByIdAndDelete(req.params.id);
+    res.json(response);
+  } catch (err) {
+    res.json(err);
+  }
+});
+
+// Route handler: Update a game in the list.
+router.put("/:id", async (req, res) => {
+  try {
+    const response = await GameModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
     res.json(response);
   } catch (err) {
     res.json(err);
