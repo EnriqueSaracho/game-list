@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BsPlusCircleFill } from "react-icons/bs";
 import StarRatingComponent from "react-star-rating-component";
+import { BsPlusCircleFill } from "react-icons/bs";
+import { IoIosStar } from "react-icons/io";
+import { IoIosStarHalf } from "react-icons/io";
 
 // Page: Home.
 export const Home = () => {
@@ -51,7 +53,17 @@ export const Home = () => {
                   name="rating"
                   editing={false}
                   starCount={5}
-                  value={Math.round(
+                  renderStarIcon={() => (
+                    <span>
+                      <IoIosStar />
+                    </span>
+                  )}
+                  renderStarIconHalf={() => (
+                    <span>
+                      <IoIosStarHalf style={{ color: "#fff" }} />
+                    </span>
+                  )}
+                  value={
                     (game.rating.mainCharacter +
                       game.rating.sideCharacters +
                       game.rating.mainStory +
@@ -68,8 +80,11 @@ export const Home = () => {
                       game.rating.textures +
                       game.rating.frames +
                       game.rating.soundtrack) /
-                      16
-                  )}
+                    16
+                  }
+                  starColor="#fff"
+                  emptyStarColor="#ffffff00"
+                  className="star-rating"
                 />
               </h3>
             </div>
