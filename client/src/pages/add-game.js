@@ -76,17 +76,17 @@ export const AddGame = () => {
   };
 
   return (
-    <div className="add-game">
+    <div className="form-page">
       <Link to="/" className="btn btn-1">
         <BsFillXCircleFill />
       </Link>
-      <h2 className="add-game-title">Add a new game</h2>
+      <h2 className="game-form-title">Add a new game</h2>
 
       {/* Add Game Form */}
-      <form onSubmit={onSubmit} className="add-game-form">
+      <form onSubmit={onSubmit} className="game-form">
         <fieldset>
           <div>
-            <label htmlFor="name" className="label-t1">
+            <label htmlFor="name" className="label-text">
               Title:
             </label>
             <input
@@ -94,11 +94,11 @@ export const AddGame = () => {
               id="name"
               name="name"
               onChange={handleChange}
-              className="input-t1"
+              className="input-text"
               autoComplete="off"
             />
 
-            <label htmlFor="franchise" className="label-t1">
+            <label htmlFor="franchise" className="label-text">
               Franchise:
             </label>
             <input
@@ -106,11 +106,11 @@ export const AddGame = () => {
               id="franchise"
               name="franchise"
               onChange={handleChange}
-              className="input-t1"
+              className="input-text"
               autoComplete="off"
             />
 
-            <label htmlFor="publisher" className="label-t1">
+            <label htmlFor="publisher" className="label-text">
               Publisher:
             </label>
             <input
@@ -118,11 +118,11 @@ export const AddGame = () => {
               id="publisher"
               name="publisher"
               onChange={handleChange}
-              className="input-t1"
+              className="input-text"
               autoComplete="off"
             />
 
-            <label htmlFor="release-date" className="label-t1">
+            <label htmlFor="release-date" className="label-text">
               Release date:
             </label>
             <DatePicker
@@ -133,11 +133,11 @@ export const AddGame = () => {
               onChange={(date) => {
                 setGame({ ...game, releaseDate: date });
               }}
-              className="input-t1"
+              className="input-text"
               autoComplete="off"
             />
 
-            <label htmlFor="image-url" className="label-t1">
+            <label htmlFor="image-url" className="label-text">
               Image URL:
             </label>
             <input
@@ -145,7 +145,7 @@ export const AddGame = () => {
               id="image-url"
               name="imageUrl"
               onChange={handleChange}
-              className="input-t1"
+              className="input-text"
               autoComplete="off"
             />
           </div>
@@ -155,7 +155,7 @@ export const AddGame = () => {
         <fieldset>
           <legend>Status:</legend>
           <div>
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="radio"
                 id="not-played"
@@ -169,7 +169,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="radio"
                 id="in-progress"
@@ -183,7 +183,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="radio"
                 id="paused"
@@ -197,7 +197,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="radio"
                 id="completed"
@@ -211,7 +211,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="radio"
                 id="abandoned"
@@ -231,7 +231,7 @@ export const AddGame = () => {
         <fieldset>
           <legend>Genres:</legend>
           <div>
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="action"
@@ -245,7 +245,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="adventure"
@@ -259,7 +259,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="role-playing"
@@ -273,7 +273,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="strategy"
@@ -287,7 +287,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="simulation"
@@ -301,7 +301,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="sports"
@@ -315,7 +315,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="racing"
@@ -329,7 +329,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="fighting"
@@ -343,7 +343,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="stealth"
@@ -359,7 +359,7 @@ export const AddGame = () => {
           </div>
 
           <div>
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="platformer"
@@ -373,7 +373,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="puzzle"
@@ -387,7 +387,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="massively-multiplayer-online"
@@ -404,7 +404,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="horror"
@@ -418,7 +418,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="first-person-shooter"
@@ -432,7 +432,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="survival"
@@ -446,7 +446,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="sandbox"
@@ -460,7 +460,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="hack-and-slash"
@@ -481,7 +481,7 @@ export const AddGame = () => {
           <legend>Platforms:</legend>
           <div>
             <SiNintendo className="platform-icon" />
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="nintendo-64"
@@ -495,7 +495,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="gamecube"
@@ -509,7 +509,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="wii"
@@ -523,7 +523,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="wii-u"
@@ -537,7 +537,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="switch"
@@ -554,7 +554,7 @@ export const AddGame = () => {
 
           <div>
             <SiPlaystation className="platform-icon" />
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="playstation"
@@ -568,7 +568,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="playstation-2"
@@ -582,7 +582,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="playstation-3"
@@ -596,7 +596,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="playstation-4"
@@ -610,7 +610,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="playstation-5"
@@ -627,7 +627,7 @@ export const AddGame = () => {
 
           <div>
             <SiXbox className="platform-icon" />
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="windows"
@@ -641,7 +641,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="xbox"
@@ -655,7 +655,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="xbox-360"
@@ -669,7 +669,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="xbox-one"
@@ -683,7 +683,7 @@ export const AddGame = () => {
               </label>
             </div>
 
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="xbox-series-x-s"
@@ -700,7 +700,7 @@ export const AddGame = () => {
 
           <div>
             <AiFillApple className="platform-icon" />
-            <div className="input-option-container">
+            <div className="option-container">
               <input
                 type="checkbox"
                 id="mac-os"
@@ -716,10 +716,11 @@ export const AddGame = () => {
           </div>
         </fieldset>
 
+        {/* Rating */}
         <fieldset>
           <legend>Rating:</legend>
           <div>
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="main-character" className="label-rating">
                 Main Character(s):
               </label>
@@ -745,7 +746,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="side-characters" className="label-rating">
                 Side Characters:
               </label>
@@ -771,7 +772,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="main-story" className="label-rating">
                 Main Story:
               </label>
@@ -797,7 +798,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="side-content" className="label-rating">
                 Side Content:
               </label>
@@ -823,7 +824,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="lore" className="label-rating">
                 Lore:
               </label>
@@ -849,7 +850,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="progression" className="label-rating">
                 Progression:
               </label>
@@ -875,7 +876,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="game-feel" className="label-rating">
                 Game Feel:
               </label>
@@ -901,7 +902,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="variety" className="label-rating">
                 Variety:
               </label>
@@ -927,7 +928,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="replayability" className="label-rating">
                 Replayability:
               </label>
@@ -953,7 +954,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="world-design" className="label-rating">
                 World Design:
               </label>
@@ -979,7 +980,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="character-design" className="label-rating">
                 Character Design:
               </label>
@@ -1005,7 +1006,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="animations" className="label-rating">
                 Animations:
               </label>
@@ -1031,7 +1032,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="realism" className="label-rating">
                 Realism:
               </label>
@@ -1057,7 +1058,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="textures" className="label-rating">
                 Textures:
               </label>
@@ -1083,7 +1084,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="frames" className="label-rating">
                 Frames:
               </label>
@@ -1109,7 +1110,7 @@ export const AddGame = () => {
               />
             </div>
 
-            <div className="input-rating-container">
+            <div className="rating-container">
               <label htmlFor="soundtrack" className="label-rating">
                 Soundtrack:
               </label>

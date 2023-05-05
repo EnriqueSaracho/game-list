@@ -5,8 +5,8 @@ import StarRatingComponent from "react-star-rating-component";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { IoIosStar } from "react-icons/io";
 import { IoIosStarHalf } from "react-icons/io";
-import { TbEditCircle } from "react-icons/tb";
-import { TiDeleteOutline } from "react-icons/ti";
+import { BiMessageSquareEdit } from "react-icons/bi";
+import { BiMessageSquareX } from "react-icons/bi";
 
 // Page: Home.
 export const Home = () => {
@@ -54,65 +54,80 @@ export const Home = () => {
           <li key={game._id} className="game">
             <img src={game.imageUrl} alt={game.name} className="game-img" />
             <div className="game-info">
-              <h2 className="game-title">{game.name}</h2>
-              <p>
-                Release Date:{" "}
-                {new Date(game.releaseDate).toLocaleDateString("en-GB")}
-              </p>
-              <p>Publisher: {game.publisher}</p>
-              <p>Franchise: {game.franchise}</p>
-              <p>Status: {game.status}</p>
-              <p>Genres: {game.genres}</p>
-              <p>Platforms: {game.platforms}</p>
-              <h3>
-                Rating:
-                <StarRatingComponent
-                  name="rating"
-                  editing={false}
-                  starCount={5}
-                  renderStarIcon={() => (
-                    <span>
-                      <IoIosStar />
-                    </span>
-                  )}
-                  renderStarIconHalf={() => (
-                    <span>
-                      <IoIosStarHalf style={{ color: "#fff" }} />
-                    </span>
-                  )}
-                  value={
-                    Math.round(
-                      ((game.rating.mainCharacter +
-                        game.rating.sideCharacters +
-                        game.rating.mainStory +
-                        game.rating.sideContent +
-                        game.rating.lore +
-                        game.rating.progression +
-                        game.rating.gameFeel +
-                        game.rating.variety +
-                        game.rating.replayability +
-                        game.rating.worldDesign +
-                        game.rating.characterDesign +
-                        game.rating.animations +
-                        game.rating.realism +
-                        game.rating.textures +
-                        game.rating.frames +
-                        game.rating.soundtrack) /
-                        16) *
-                        2
-                    ) / 2
-                  }
-                  starColor="#fff"
-                  emptyStarColor="#ffffff00"
-                  className="star-rating"
-                />
-              </h3>
-              <Link to={`/edit-game/${game._id}`} className="btn info-btn">
-                <TbEditCircle />
-              </Link>
-              <button onClick={() => deleteGame(game._id)}>
-                <TiDeleteOutline className="btn info-btn" />
-              </button>
+              <div className="game-header">
+                <h2 className="game-title">{game.name}</h2>
+                <div className="info-btn-container">
+                  <Link to={`/edit-game/${game._id}`} className="btn info-btn">
+                    <BiMessageSquareEdit />
+                  </Link>
+                  <button onClick={() => deleteGame(game._id)}>
+                    <BiMessageSquareX className="btn info-btn" />
+                  </button>
+                </div>
+              </div>
+              <StarRatingComponent
+                name="rating"
+                editing={false}
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                renderStarIconHalf={() => (
+                  <span>
+                    <IoIosStarHalf style={{ color: "#fff" }} />
+                  </span>
+                )}
+                value={
+                  Math.round(
+                    ((game.rating.mainCharacter +
+                      game.rating.sideCharacters +
+                      game.rating.mainStory +
+                      game.rating.sideContent +
+                      game.rating.lore +
+                      game.rating.progression +
+                      game.rating.gameFeel +
+                      game.rating.variety +
+                      game.rating.replayability +
+                      game.rating.worldDesign +
+                      game.rating.characterDesign +
+                      game.rating.animations +
+                      game.rating.realism +
+                      game.rating.textures +
+                      game.rating.frames +
+                      game.rating.soundtrack) /
+                      16) *
+                      2
+                  ) / 2
+                }
+                starColor="#fff"
+                emptyStarColor="#ffffff00"
+                className="star-rating"
+              />
+              <div className="attrb-container">
+                <div>
+                  <p>
+                    Release Date:{" "}
+                    {new Date(game.releaseDate).toLocaleDateString("en-GB")}
+                  </p>
+                  <p>Publisher: {game.publisher}</p>
+                  <p>Franchise: {game.franchise}</p>
+                  <p>Status: {game.status}</p>
+                </div>
+                <ul className="attrb-list">
+                  Genres:{" "}
+                  {game.genres.map((genre) => (
+                    <li>{genre}</li>
+                  ))}
+                </ul>
+                <ul className="attrb-list">
+                  Platforms:{" "}
+                  {game.platforms.map((platform) => (
+                    <li>{platform}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </li>
         ))}
