@@ -96,8 +96,9 @@ export const Home = () => {
                       game.rating.realism +
                       game.rating.textures +
                       game.rating.frames +
+                      game.rating.stability +
                       game.rating.soundtrack) /
-                      16) *
+                      17) *
                       2
                   ) / 2
                 }

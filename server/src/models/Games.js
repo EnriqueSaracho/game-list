@@ -106,6 +106,11 @@ const GameSchema = new mongoose.Schema({
       min: 1,
       max: 5,
     },
+    stability: {
+      type: Number,
+      min: 1,
+      max: 5,
+    },
     soundtrack: {
       type: Number,
       min: 1,

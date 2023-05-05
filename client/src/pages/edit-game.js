@@ -1147,6 +1147,32 @@ export const EditGame = () => {
             </div>
 
             <div className="rating-container">
+              <label htmlFor="stability" className="label-rating">
+                Stability:
+              </label>
+              <StarRatingComponent
+                id="stability"
+                name="stability"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.stability}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, stability: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
               <label htmlFor="soundtrack" className="label-rating">
                 Soundtrack:
               </label>
