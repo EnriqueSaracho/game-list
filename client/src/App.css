@@ -101,12 +101,11 @@ button {
 
 /* Home */
 .game-list {
-  width: 80%;
   margin: 20px auto;
   margin-bottom: 100px;
   display: flex;
   flex-wrap: wrap;
-  max-width: 1170px;
+  max-width: 1285px;
 }
 
 .thumbnail {
@@ -115,8 +114,8 @@ button {
 
 .thumbnail-link {
   display: block;
-  width: 280px;
-  height: 400px;
+  width: 245px;
+  height: 350px;
   margin-right: 12px;
   margin-bottom: 12px;
   box-shadow: var(--shadow);
