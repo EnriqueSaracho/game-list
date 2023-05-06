@@ -80,6 +80,7 @@ export const Game = () => {
                     game.rating.sideCharacters +
                     game.rating.mainStory +
                     game.rating.sideContent +
+                    game.rating.cutscenes +
                     game.rating.lore +
                     game.rating.progression +
                     game.rating.gameFeel +
@@ -89,11 +90,11 @@ export const Game = () => {
                     game.rating.characterDesign +
                     game.rating.animations +
                     game.rating.realism +
-                    game.rating.textures +
+                    game.rating.graphics +
                     game.rating.frames +
                     game.rating.stability +
                     game.rating.soundtrack) /
-                    17) *
+                    18) *
                     2
                 ) / 2
               }
@@ -102,7 +103,8 @@ export const Game = () => {
               className="star-rating"
             />
             <p>{new Date(game.releaseDate).toLocaleDateString("en-GB")}</p>
-            <p>By {game.publisher}</p>
+            <p>Developer: {game.developer}</p>
+            <p>Publisher: {game.publisher}</p>
             <p>Series: {game.franchise}</p>
             <p>Status: {game.status}</p>
           </div>

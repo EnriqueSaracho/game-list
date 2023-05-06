@@ -93,7 +93,7 @@ export const EditGame = () => {
             />
 
             <label htmlFor="franchise" className="label-text">
-              Franchise:
+              Series:
             </label>
             <input
               type="text"
@@ -103,6 +103,19 @@ export const EditGame = () => {
               className="input-text"
               autoComplete="off"
               value={game.franchise}
+            />
+
+            <label htmlFor="developer" className="label-text">
+              Developer:
+            </label>
+            <input
+              type="text"
+              id="developer"
+              name="developer"
+              onChange={handleChange}
+              className="input-text"
+              autoComplete="off"
+              value={game.developer}
             />
 
             <label htmlFor="publisher" className="label-text">
@@ -494,6 +507,21 @@ export const EditGame = () => {
                 Survival
               </label>
             </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="third-person-shooter"
+                name="genres"
+                value={"Third-Person Shooter (TPS)"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.genres.includes("Third-Person Shooter (TPS)")}
+              />
+              <label htmlFor="third-person-shooter" className="label-option">
+                Third-Person Shooter (TPS)
+              </label>
+            </div>
           </div>
         </fieldset>
 
@@ -861,6 +889,32 @@ export const EditGame = () => {
             </div>
 
             <div className="rating-container">
+              <label htmlFor="cutscenes" className="label-rating">
+                Cutscenes:
+              </label>
+              <StarRatingComponent
+                id="cutscenes"
+                name="cutscenes"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.rating.cutscenes}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, cutscenes: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
               <label htmlFor="lore" className="label-rating">
                 Lore:
               </label>
@@ -1095,23 +1149,23 @@ export const EditGame = () => {
             </div>
 
             <div className="rating-container">
-              <label htmlFor="textures" className="label-rating">
-                Textures:
+              <label htmlFor="graphics" className="label-rating">
+                Graphics:
               </label>
               <StarRatingComponent
-                id="textures"
-                name="textures"
+                id="graphics"
+                name="graphics"
                 starCount={5}
                 renderStarIcon={() => (
                   <span>
                     <IoIosStar />
                   </span>
                 )}
-                value={game.rating.textures}
+                value={game.rating.graphics}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
-                    rating: { ...game.rating, textures: value },
+                    rating: { ...game.rating, graphics: value },
                   });
                 }}
                 starColor="#fff"

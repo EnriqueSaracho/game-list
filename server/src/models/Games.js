@@ -10,6 +10,9 @@ const GameSchema = new mongoose.Schema({
   franchise: {
     type: String,
   },
+  developer: {
+    type: String,
+  },
   publisher: {
     type: String,
   },
@@ -33,88 +36,57 @@ const GameSchema = new mongoose.Schema({
   rating: {
     mainCharacter: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     sideCharacters: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     mainStory: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     sideContent: {
       type: Number,
-      min: 1,
-      max: 5,
+    },
+    cutscenes: {
+      type: Number,
     },
     lore: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     progression: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     gameFeel: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     variety: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     replayability: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     worldDesign: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     characterDesign: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     animations: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     realism: {
       type: Number,
-      min: 1,
-      max: 5,
     },
-    textures: {
+    graphics: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     frames: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     stability: {
       type: Number,
-      min: 1,
-      max: 5,
     },
     soundtrack: {
       type: Number,
-      min: 1,
-      max: 5,
     },
   },
 });

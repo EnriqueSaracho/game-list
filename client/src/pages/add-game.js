@@ -17,6 +17,7 @@ export const AddGame = () => {
   const [game, setGame] = useState({
     name: "",
     franchise: "",
+    developer: "",
     publisher: "",
     releaseDate: new Date(),
     imageUrl: "",
@@ -28,6 +29,7 @@ export const AddGame = () => {
       sideCharacters: 0,
       mainStory: 0,
       sideContent: 0,
+      cutscenes: 0,
       lore: 0,
       progression: 0,
       gameFeel: 0,
@@ -37,7 +39,7 @@ export const AddGame = () => {
       characterDesign: 0,
       animations: 0,
       realism: 0,
-      textures: 0,
+      graphics: 0,
       frames: 0,
       soundtrack: 0,
     },
@@ -99,12 +101,24 @@ export const AddGame = () => {
             />
 
             <label htmlFor="franchise" className="label-text">
-              Franchise:
+              Series:
             </label>
             <input
               type="text"
               id="franchise"
               name="franchise"
+              onChange={handleChange}
+              className="input-text"
+              autoComplete="off"
+            />
+
+            <label htmlFor="developer" className="label-text">
+              Developer:
+            </label>
+            <input
+              type="text"
+              id="developer"
+              name="developer"
               onChange={handleChange}
               className="input-text"
               autoComplete="off"
@@ -473,6 +487,20 @@ export const AddGame = () => {
                 Survival
               </label>
             </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="third-person-shooter"
+                name="genres"
+                value={"Third-Person Shooter (TPS)"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="third-person-shooter" className="label-option">
+                Third-Person Shooter (TPS)
+              </label>
+            </div>
           </div>
         </fieldset>
 
@@ -825,6 +853,32 @@ export const AddGame = () => {
             </div>
 
             <div className="rating-container">
+              <label htmlFor="cutscenes" className="label-rating">
+                Cutscenes:
+              </label>
+              <StarRatingComponent
+                id="cutscenes"
+                name="cutscenes"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.cutscenes}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, cutscenes: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
               <label htmlFor="lore" className="label-rating">
                 Lore:
               </label>
@@ -1059,23 +1113,23 @@ export const AddGame = () => {
             </div>
 
             <div className="rating-container">
-              <label htmlFor="textures" className="label-rating">
-                Textures:
+              <label htmlFor="graphics" className="label-rating">
+                Graphics:
               </label>
               <StarRatingComponent
-                id="textures"
-                name="textures"
+                id="graphics"
+                name="graphics"
                 starCount={5}
                 renderStarIcon={() => (
                   <span>
                     <IoIosStar />
                   </span>
                 )}
-                value={game.textures}
+                value={game.graphics}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
-                    rating: { ...game.rating, textures: value },
+                    rating: { ...game.rating, graphics: value },
                   });
                 }}
                 starColor="#fff"
