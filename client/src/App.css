@@ -40,12 +40,15 @@
   z-index: 1000;
 }
 
-.navbar a {
+.navbar-title {
   text-decoration: none;
   color: var(--primary);
-  display: block;
   padding-left: 50px;
   font-size: 1.7em;
+  display: flex;
+  align-items: center;
+  width: 200px;
+  justify-content: space-between;
 }
 
 .blur {
