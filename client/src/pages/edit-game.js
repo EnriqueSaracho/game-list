@@ -266,6 +266,133 @@ export const EditGame = () => {
             <div className="option-container">
               <input
                 type="checkbox"
+                id="fighting"
+                name="genres"
+                value={"Fighting"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.genres.includes("Fighting")}
+              />
+              <label htmlFor="fighting" className="label-option">
+                Fighting
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="first-person-shooter"
+                name="genres"
+                value={"First Person Shooter (FPS)"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.genres.includes("First Person Shooter (FPS)")}
+              />
+              <label htmlFor="first-person-shooter" className="label-option">
+                First Person Shooter (FPS)
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="hack-and-slash"
+                name="genres"
+                value={"Hack and Slash"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.genres.includes("Hack and Slash")}
+              />
+              <label htmlFor="hack-and-slash" className="label-option">
+                Hack and Slash
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="horror"
+                name="genres"
+                value={"Horror"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.genres.includes("Horror")}
+              />
+              <label htmlFor="horror" className="label-option">
+                Horror
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="massively-multiplayer-online"
+                name="genres"
+                value={"Massively Multiplayer Online (MMO)"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.genres.includes(
+                  "Massively Multiplayer Online (MMO)"
+                )}
+              />
+              <label
+                htmlFor="massively-multiplayer-online"
+                className="label-option"
+              >
+                Massively Multiplayer Online (MMO)
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="platformer"
+                name="genres"
+                value={"Platformer"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.genres.includes("Platformer")}
+              />
+              <label htmlFor="platformer" className="label-option">
+                Platformer
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="puzzle"
+                name="genres"
+                value={"Puzzle"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.genres.includes("Puzzle")}
+              />
+              <label htmlFor="puzzle" className="label-option">
+                Puzzle
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="racing"
+                name="genres"
+                value={"Racing"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.genres.includes("Racing")}
+              />
+              <label htmlFor="racing" className="label-option">
+                Racing
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
                 id="role-playing"
                 name="genres"
                 value={"Role-Playing (RPG)"}
@@ -281,15 +408,15 @@ export const EditGame = () => {
             <div className="option-container">
               <input
                 type="checkbox"
-                id="strategy"
+                id="sandbox"
                 name="genres"
-                value={"Strategy"}
+                value={"Sandbox"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.genres.includes("Strategy")}
+                checked={game.genres.includes("Sandbox")}
               />
-              <label htmlFor="strategy" className="label-option">
-                Strategy
+              <label htmlFor="sandbox" className="label-option">
+                Sandbox
               </label>
             </div>
 
@@ -326,36 +453,6 @@ export const EditGame = () => {
             <div className="option-container">
               <input
                 type="checkbox"
-                id="racing"
-                name="genres"
-                value={"Racing"}
-                onChange={handleChange}
-                className="input-option"
-                checked={game.genres.includes("Racing")}
-              />
-              <label htmlFor="racing" className="label-option">
-                Racing
-              </label>
-            </div>
-
-            <div className="option-container">
-              <input
-                type="checkbox"
-                id="fighting"
-                name="genres"
-                value={"Fighting"}
-                onChange={handleChange}
-                className="input-option"
-                checked={game.genres.includes("Fighting")}
-              />
-              <label htmlFor="fighting" className="label-option">
-                Fighting
-              </label>
-            </div>
-
-            <div className="option-container">
-              <input
-                type="checkbox"
                 id="stealth"
                 name="genres"
                 value={"Stealth"}
@@ -367,86 +464,19 @@ export const EditGame = () => {
                 Stealth
               </label>
             </div>
-          </div>
-
-          <div>
-            <div className="option-container">
-              <input
-                type="checkbox"
-                id="platformer"
-                name="genres"
-                value={"Platformer"}
-                onChange={handleChange}
-                className="input-option"
-                checked={game.genres.includes("Platformer")}
-              />
-              <label htmlFor="platformer" className="label-option">
-                Platformer
-              </label>
-            </div>
 
             <div className="option-container">
               <input
                 type="checkbox"
-                id="puzzle"
+                id="strategy"
                 name="genres"
-                value={"Puzzle"}
+                value={"Strategy"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.genres.includes("Puzzle")}
+                checked={game.genres.includes("Strategy")}
               />
-              <label htmlFor="puzzle" className="label-option">
-                Puzzle
-              </label>
-            </div>
-
-            <div className="option-container">
-              <input
-                type="checkbox"
-                id="massively-multiplayer-online"
-                name="genres"
-                value={"Massively Multiplayer Online (MMO)"}
-                onChange={handleChange}
-                className="input-option"
-                checked={game.genres.includes(
-                  "Massively Multiplayer Online (MMO)"
-                )}
-              />
-              <label
-                htmlFor="massively-multiplayer-online"
-                className="label-option"
-              >
-                Massively Multiplayer Online (MMO)
-              </label>
-            </div>
-
-            <div className="option-container">
-              <input
-                type="checkbox"
-                id="horror"
-                name="genres"
-                value={"Horror"}
-                onChange={handleChange}
-                className="input-option"
-                checked={game.genres.includes("Horror")}
-              />
-              <label htmlFor="horror" className="label-option">
-                Horror
-              </label>
-            </div>
-
-            <div className="option-container">
-              <input
-                type="checkbox"
-                id="first-person-shooter"
-                name="genres"
-                value={"First Person Shooter (FPS)"}
-                onChange={handleChange}
-                className="input-option"
-                checked={game.genres.includes("First Person Shooter (FPS)")}
-              />
-              <label htmlFor="first-person-shooter" className="label-option">
-                First Person Shooter (FPS)
+              <label htmlFor="strategy" className="label-option">
+                Strategy
               </label>
             </div>
 
@@ -462,36 +492,6 @@ export const EditGame = () => {
               />
               <label htmlFor="survival" className="label-option">
                 Survival
-              </label>
-            </div>
-
-            <div className="option-container">
-              <input
-                type="checkbox"
-                id="sandbox"
-                name="genres"
-                value={"Sandbox"}
-                onChange={handleChange}
-                className="input-option"
-                checked={game.genres.includes("Sandbox")}
-              />
-              <label htmlFor="sandbox" className="label-option">
-                Sandbox
-              </label>
-            </div>
-
-            <div className="option-container">
-              <input
-                type="checkbox"
-                id="hack-and-slash"
-                name="genres"
-                value={"Hack and Slash"}
-                onChange={handleChange}
-                className="input-option"
-                checked={game.genres.includes("Hack and Slash")}
-              />
-              <label htmlFor="hack-and-slash" className="label-option">
-                Hack and Slash
               </label>
             </div>
           </div>
