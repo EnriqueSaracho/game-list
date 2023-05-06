@@ -212,6 +212,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   margin-left: 7px;
+  align-items: flex-start;
 }
 
 .attribute-list li {
@@ -221,7 +222,7 @@ button {
   box-shadow: var(--glass);
   border-radius: 5px;
   padding: 10px;
-  width: 151.6px;
+  /* width: 151.6px; */
   text-align: center;
 }
 .attribute-list li:hover {

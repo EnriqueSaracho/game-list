@@ -104,6 +104,7 @@ export const Game = () => {
             <p>{new Date(game.releaseDate).toLocaleDateString("en-GB")}</p>
             <p>By {game.publisher}</p>
             <p>Series: {game.franchise}</p>
+            <p>Status: {game.status}</p>
           </div>
           <div className="game-btn-container">
             <Link to={`/edit-game/${game._id}`} className="btn game-btn">

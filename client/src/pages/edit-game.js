@@ -1159,7 +1159,7 @@ export const EditGame = () => {
                     <IoIosStar />
                   </span>
                 )}
-                value={game.stability}
+                value={game.rating.stability}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
