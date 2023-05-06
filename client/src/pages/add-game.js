@@ -40,7 +40,6 @@ export const AddGame = () => {
       animations: 0,
       realism: 0,
       graphics: 0,
-      frames: 0,
       soundtrack: 0,
     },
   });
@@ -1130,32 +1129,6 @@ export const AddGame = () => {
                   setGame({
                     ...game,
                     rating: { ...game.rating, graphics: value },
-                  });
-                }}
-                starColor="#fff"
-                emptyStarColor="#000"
-                className="star-rating"
-              />
-            </div>
-
-            <div className="rating-container">
-              <label htmlFor="frames" className="label-rating">
-                Frames:
-              </label>
-              <StarRatingComponent
-                id="frames"
-                name="frames"
-                starCount={5}
-                renderStarIcon={() => (
-                  <span>
-                    <IoIosStar />
-                  </span>
-                )}
-                value={game.frames}
-                onStarClick={(value) => {
-                  setGame({
-                    ...game,
-                    rating: { ...game.rating, frames: value },
                   });
                 }}
                 starColor="#fff"

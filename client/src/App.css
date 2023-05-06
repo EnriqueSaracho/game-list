@@ -179,6 +179,12 @@ button {
   font-weight: 300;
 }
 
+.status-icon {
+  font-size: 3.5em;
+  color: var(--secondary);
+  margin-top: 5px;
+}
+
 .game-btn-container {
   display: flex;
   flex-direction: column;

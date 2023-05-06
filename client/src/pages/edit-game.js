@@ -1175,32 +1175,6 @@ export const EditGame = () => {
             </div>
 
             <div className="rating-container">
-              <label htmlFor="frames" className="label-rating">
-                Frames:
-              </label>
-              <StarRatingComponent
-                id="frames"
-                name="frames"
-                starCount={5}
-                renderStarIcon={() => (
-                  <span>
-                    <IoIosStar />
-                  </span>
-                )}
-                value={game.rating.frames}
-                onStarClick={(value) => {
-                  setGame({
-                    ...game,
-                    rating: { ...game.rating, frames: value },
-                  });
-                }}
-                starColor="#fff"
-                emptyStarColor="#000"
-                className="star-rating"
-              />
-            </div>
-
-            <div className="rating-container">
               <label htmlFor="stability" className="label-rating">
                 Stability:
               </label>

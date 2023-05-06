@@ -79,9 +79,6 @@ const GameSchema = new mongoose.Schema({
     graphics: {
       type: Number,
     },
-    frames: {
-      type: Number,
-    },
     stability: {
       type: Number,
     },

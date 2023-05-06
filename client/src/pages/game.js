@@ -9,6 +9,11 @@ import { IoIosStar } from "react-icons/io";
 import { IoIosStarHalf } from "react-icons/io";
 import { BiMessageSquareEdit } from "react-icons/bi";
 import { BiMessageSquareX } from "react-icons/bi";
+import { RiCheckboxBlankCircleLine } from "react-icons/ri";
+import { HiOutlineDotsCircleHorizontal } from "react-icons/hi";
+import { FiPauseCircle } from "react-icons/fi";
+import { BiCheckCircle } from "react-icons/bi";
+import { HiOutlineBan } from "react-icons/hi";
 
 export const Game = () => {
   const id = useParams();
@@ -60,53 +65,69 @@ export const Game = () => {
           <img src={game.imageUrl} alt={game.name} className="game-img" />
           <div className="game-header-info">
             <h2 className="game-title">{game.name}</h2>
-            <StarRatingComponent
-              name="rating"
-              editing={false}
-              starCount={5}
-              renderStarIcon={() => (
-                <span>
-                  <IoIosStar />
-                </span>
-              )}
-              renderStarIconHalf={() => (
-                <span>
-                  <IoIosStarHalf style={{ color: "#fff" }} />
-                </span>
-              )}
-              value={
-                Math.round(
-                  ((game.rating.mainCharacter +
-                    game.rating.sideCharacters +
-                    game.rating.mainStory +
-                    game.rating.sideContent +
-                    game.rating.cutscenes +
-                    game.rating.lore +
-                    game.rating.progression +
-                    game.rating.gameFeel +
-                    game.rating.variety +
-                    game.rating.replayability +
-                    game.rating.worldDesign +
-                    game.rating.characterDesign +
-                    game.rating.animations +
-                    game.rating.realism +
-                    game.rating.graphics +
-                    game.rating.frames +
-                    game.rating.stability +
-                    game.rating.soundtrack) /
-                    18) *
-                    2
-                ) / 2
-              }
-              starColor="#fff"
-              emptyStarColor="#ffffff00"
-              className="star-rating"
-            />
+            {game.rating.mainCharacter ? (
+              <StarRatingComponent
+                name="rating"
+                editing={false}
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                renderStarIconHalf={() => (
+                  <span>
+                    <IoIosStarHalf style={{ color: "#fff" }} />
+                  </span>
+                )}
+                value={
+                  Math.round(
+                    ((game.rating.mainCharacter +
+                      game.rating.sideCharacters +
+                      game.rating.mainStory +
+                      game.rating.sideContent +
+                      game.rating.cutscenes +
+                      game.rating.lore +
+                      game.rating.progression +
+                      game.rating.gameFeel +
+                      game.rating.variety +
+                      game.rating.replayability +
+                      game.rating.worldDesign +
+                      game.rating.characterDesign +
+                      game.rating.animations +
+                      game.rating.realism +
+                      game.rating.graphics +
+                      game.rating.stability +
+                      game.rating.soundtrack) /
+                      17) *
+                      2
+                  ) / 2
+                }
+                starColor="#fff"
+                emptyStarColor="#ffffff00"
+                className="star-rating"
+              />
+            ) : null}
             <p>{new Date(game.releaseDate).toLocaleDateString("en-GB")}</p>
             <p>Developer: {game.developer}</p>
             <p>Publisher: {game.publisher}</p>
             <p>Series: {game.franchise}</p>
             <p>Status: {game.status}</p>
+            {game.status === "Not played" ? (
+              <RiCheckboxBlankCircleLine className="status-icon" />
+            ) : null}
+            {game.status === "In progress" ? (
+              <HiOutlineDotsCircleHorizontal className="status-icon" />
+            ) : null}
+            {game.status === "Paused" ? (
+              <FiPauseCircle className="status-icon" />
+            ) : null}
+            {game.status === "Completed" ? (
+              <BiCheckCircle className="status-icon" />
+            ) : null}
+            {game.status === "Abandoned" ? (
+              <HiOutlineBan className="status-icon" />
+            ) : null}
           </div>
           <div className="game-btn-container">
             <Link to={`/edit-game/${game._id}`} className="btn game-btn">
