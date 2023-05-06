@@ -62,7 +62,7 @@ export const EditGame = () => {
     try {
       await axios.put(`http://localhost:3001/games/${id.id}`, game);
       alert("Game updated");
-      navigate("/");
+      navigate(`/game/${game._id}`);
     } catch (err) {
       console.error(err);
     }
@@ -70,7 +70,7 @@ export const EditGame = () => {
 
   return (
     <div className="form-page">
-      <Link to="/" className="btn btn-1">
+      <Link to={`/game/${game._id}`} className="btn btn-1">
         <BsFillXCircleFill />
       </Link>
       <h2 className="game-form-title">Edit game</h2>

@@ -30,7 +30,9 @@ export const Game = () => {
     fetchGame();
   }, [id]);
 
-  console.log(game);
+  if (!game) {
+    return <div>Loading...</div>;
+  }
 
   // Function: deletes a game from the database.
   const deleteGame = async (id) => {
