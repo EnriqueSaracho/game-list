@@ -4,6 +4,7 @@ import { Home } from "./pages/home";
 import { AddGame } from "./pages/add-game";
 import { Navbar } from "./components/navbar";
 import { EditGame } from "./pages/edit-game";
+import { Game } from "./pages/game";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <div className="blur"></div>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/game/:id" element={<Game />} />
           <Route path="/add-game" element={<AddGame />} />
           <Route path="/edit-game/:id" element={<EditGame />} />
         </Routes>

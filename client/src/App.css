@@ -11,7 +11,8 @@
     #1753c6
   );
   --other: #313131; /* Text */
-  --transparent: rgba(255, 255, 255, 0.6); /* Glass background */
+  --transparent: rgba(255, 255, 255, 0.6); /* Tansparent background */
+  --glass: inset 1px 1px 4px #fff, 0px 0px 5px #00000039; /* Glass background */
   --filter: blur(10px) brightness(1.2); /* Backdrop filter */
   --shadow: 5px 5px 5px rgb(0, 0, 0, 0.2); /* Box shadow */
   --focus-shadow: 0 0 10px #fff, inset 0 0 5px #fff, var(--shadow); /* :focus box shadow */
@@ -105,15 +106,24 @@ button {
   margin-bottom: 100px;
 }
 
+/* Game page */
 .game {
+  width: 80%;
+  margin: 20px auto;
+  margin-bottom: 100px;
+}
+
+.game-header {
+  height: 400px;
+  width: 800px;
+  margin: auto;
+  margin-bottom: 30px;
   background-color: var(--transparent);
   backdrop-filter: var(--filter);
   box-shadow: var(--shadow);
   border-radius: 20px;
-  margin-bottom: 23px;
-  color: var(--other);
   display: flex;
-  max-height: 400px;
+  color: var(--other);
 }
 
 .game-img {
@@ -123,13 +133,10 @@ button {
   border-radius: 20px 0 0 20px;
 }
 
-.game-info {
-  padding: 20px;
-}
-
-.game-header {
-  display: flex;
-  justify-content: space-between;
+.game-header-info {
+  padding: 30px;
+  font-size: 1.2em;
+  width: 450px;
 }
 
 .game-title {
@@ -137,30 +144,15 @@ button {
   font-weight: 300;
 }
 
-.attrb-container {
+.game-btn-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70px;
+  padding-top: 10px;
 }
 
-.attrb-list {
-  margin: 0 10px;
-}
-
-.attrb-list li {
-  list-style: none;
-  margin-bottom: 2px;
-  border: var(--focus-border);
-  box-shadow: var(--focus-shadow);
-  border-radius: 5px;
-  padding: 5px;
-  width: 150px;
-  text-align: center;
-}
-
-.info-btn-container {
-  display: flex;
-}
-
-.info-btn {
+.game-btn {
   box-shadow: none;
   color: var(--secondary);
   border-radius: 0;
@@ -168,12 +160,50 @@ button {
   width: fit-content;
   align-items: center;
 }
+.game-btn:hover {
+  opacity: 0.7;
+}
+
+.game-section {
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.game-section-title {
+  font-weight: 300;
+  font-size: 1.7em;
+  margin-bottom: 5px;
+}
+
+.attribute-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 7px;
+}
+
+.attribute-list li {
+  list-style: none;
+  margin-right: 7px;
+  margin-bottom: 7px;
+  box-shadow: var(--glass);
+  border-radius: 5px;
+  padding: 10px;
+  width: 151.6px;
+  text-align: center;
+}
+.attribute-list li:hover {
+  cursor: default;
+}
 
 /* Add Game & Edit Game */
 .game-form {
   width: 100%;
   margin: 20px auto;
   margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .game-form-title {
@@ -181,12 +211,6 @@ button {
   font-weight: 300;
   margin-bottom: 10px;
   text-align: center;
-}
-
-.game-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 fieldset {
