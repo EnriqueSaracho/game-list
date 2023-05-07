@@ -94,6 +94,9 @@ const GameSchema = new mongoose.Schema({
     graphics: {
       type: Number,
     },
+    total: {
+      type: Number,
+    },
   },
 });
 

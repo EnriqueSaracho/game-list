@@ -87,32 +87,7 @@ export const Game = () => {
                     <IoIosStarHalf style={{ color: "#fff" }} />
                   </span>
                 )}
-                value={
-                  Math.round(
-                    ((game.rating.mainCharacter +
-                      game.rating.sideCharacters +
-                      game.rating.plot +
-                      game.rating.emotionalImpact +
-                      game.rating.cutscenes +
-                      game.rating.pacing +
-                      game.rating.lore +
-                      game.rating.setting +
-                      game.rating.progression +
-                      game.rating.exploration +
-                      game.rating.immersion +
-                      game.rating.gameFeel +
-                      game.rating.variety +
-                      game.rating.replayability +
-                      game.rating.stability +
-                      game.rating.soundtrack +
-                      game.rating.worldDesign +
-                      game.rating.characterDesign +
-                      game.rating.animations +
-                      game.rating.graphics) /
-                      20) *
-                      2
-                  ) / 2
-                }
+                value={Math.round(game.rating.total * 2) / 2}
                 starColor="#fff"
                 emptyStarColor="#ffffff00"
                 className="star-rating"

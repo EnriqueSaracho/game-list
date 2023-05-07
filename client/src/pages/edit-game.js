@@ -58,6 +58,33 @@ export const EditGame = () => {
     console.log(game); // {CONSOLE.LOG}
   };
 
+  // Function: calculates total game rating.
+  const calculateTotal = () => {
+    const value =
+      (game.rating.mainCharacter +
+        game.rating.sideCharacters +
+        game.rating.plot +
+        game.rating.emotionalImpact +
+        game.rating.cutscenes +
+        game.rating.pacing +
+        game.rating.lore +
+        game.rating.setting +
+        game.rating.progression +
+        game.rating.exploration +
+        game.rating.immersion +
+        game.rating.gameFeel +
+        game.rating.variety +
+        game.rating.replayability +
+        game.rating.stability +
+        game.rating.soundtrack +
+        game.rating.worldDesign +
+        game.rating.characterDesign +
+        game.rating.animations +
+        game.rating.graphics) /
+      20;
+    setGame({ ...game, rating: { ...game.rating, total: value } });
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -1313,7 +1340,7 @@ export const EditGame = () => {
           </div>
         </fieldset>
 
-        <button type="submit" className="btn">
+        <button type="submit" className="btn" onClick={calculateTotal}>
           <BsPlusCircleFill />
         </button>
       </form>
