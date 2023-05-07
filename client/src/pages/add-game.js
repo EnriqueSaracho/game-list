@@ -12,6 +12,7 @@ import { SiPlaystation } from "react-icons/si";
 import { SiXbox } from "react-icons/si";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { AiFillApple } from "react-icons/ai";
+import { FaGamepad } from "react-icons/fa";
 
 export const AddGame = () => {
   const [game, setGame] = useState({
@@ -78,6 +79,12 @@ export const AddGame = () => {
 
   return (
     <div className="form-page">
+      <div className="navbar">
+        <Link to="/" className="navbar-title">
+          <FaGamepad /> Game List
+        </Link>
+      </div>
+      <div className="blur"></div>
       <Link to="/" className="btn btn-1">
         <BsFillXCircleFill />
       </Link>

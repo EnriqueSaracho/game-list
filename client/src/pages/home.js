@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BsPlusCircleFill } from "react-icons/bs";
+import { FaGamepad } from "react-icons/fa";
 
 // Page: Home.
 export const Home = () => {
@@ -26,6 +27,12 @@ export const Home = () => {
 
   return (
     <div className="home">
+      <div className="navbar">
+        <Link to="/" className="navbar-title">
+          <FaGamepad /> Game List
+        </Link>
+      </div>
+      <div className="blur"></div>
       <Link to="/add-game" className="btn btn-1">
         <BsPlusCircleFill />
       </Link>

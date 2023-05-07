@@ -14,6 +14,7 @@ import { HiOutlineDotsCircleHorizontal } from "react-icons/hi";
 import { FiPauseCircle } from "react-icons/fi";
 import { BiCheckCircle } from "react-icons/bi";
 import { HiOutlineBan } from "react-icons/hi";
+import { FaGamepad } from "react-icons/fa";
 
 export const Game = () => {
   const id = useParams();
@@ -56,6 +57,12 @@ export const Game = () => {
 
   return (
     <div className="game-page">
+      <div className="navbar">
+        <Link to="/" className="navbar-title">
+          <FaGamepad /> Game List
+        </Link>
+      </div>
+      <div className="blur"></div>
       <Link to="/" className="btn btn-1">
         <BsFillArrowLeftCircleFill />
       </Link>

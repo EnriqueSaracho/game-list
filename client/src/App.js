@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/home";
 import { AddGame } from "./pages/add-game";
-import { Navbar } from "./components/navbar";
+// import { Navbar } from "./components/navbar";
 import { EditGame } from "./pages/edit-game";
 import { Game } from "./pages/game";
 
@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
-        <div className="blur"></div>
+        {/* <Navbar /> */}
+        {/* <div className="blur"></div> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/game/:id" element={<Game />} />
