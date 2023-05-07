@@ -95,6 +95,8 @@ export const Game = () => {
                       game.rating.sideContent +
                       game.rating.cutscenes +
                       game.rating.lore +
+                      game.rating.pacing +
+                      game.rating.levelDesign +
                       game.rating.progression +
                       game.rating.gameFeel +
                       game.rating.variety +
@@ -106,7 +108,7 @@ export const Game = () => {
                       game.rating.graphics +
                       game.rating.stability +
                       game.rating.soundtrack) /
-                      17) *
+                      19) *
                       2
                   ) / 2
                 }

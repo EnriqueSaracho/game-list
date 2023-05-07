@@ -43,12 +43,18 @@
 .navbar-title {
   text-decoration: none;
   color: var(--primary);
-  padding-left: 50px;
+  margin-left: 50px;
+  padding: 5px;
   font-size: 1.7em;
   display: flex;
   align-items: center;
-  width: 200px;
+  width: 170px;
   justify-content: space-between;
+  transition: all 0.15s ease-out 0s;
+}
+.navbar-title:focus {
+  outline: none;
+  border-bottom: 3px solid var(--primary);
 }
 
 .blur {

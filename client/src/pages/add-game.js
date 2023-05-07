@@ -911,6 +911,58 @@ export const AddGame = () => {
             </div>
 
             <div className="rating-container">
+              <label htmlFor="pacing" className="label-rating">
+                Pacing:
+              </label>
+              <StarRatingComponent
+                id="pacing"
+                name="pacing"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.pacing}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, pacing: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
+              <label htmlFor="level-design" className="label-rating">
+                Level Design:
+              </label>
+              <StarRatingComponent
+                id="level-design"
+                name="levelDesign"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.levelDesign}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, levelDesign: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
               <label htmlFor="progression" className="label-rating">
                 Progression:
               </label>

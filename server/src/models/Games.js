@@ -52,6 +52,12 @@ const GameSchema = new mongoose.Schema({
     lore: {
       type: Number,
     },
+    pacing: {
+      type: Number,
+    },
+    levelDesign: {
+      type: Number,
+    },
     progression: {
       type: Number,
     },

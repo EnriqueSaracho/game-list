@@ -26,6 +26,8 @@ export const Home = () => {
             nextGame.rating.sideContent +
             nextGame.rating.cutscenes +
             nextGame.rating.lore +
+            nextGame.rating.pacing +
+            nextGame.rating.levelDesign +
             nextGame.rating.progression +
             nextGame.rating.gameFeel +
             nextGame.rating.variety +
@@ -37,13 +39,15 @@ export const Home = () => {
             nextGame.rating.graphics +
             nextGame.rating.stability +
             nextGame.rating.soundtrack) /
-            17 -
+            19 -
           (prevGame.rating.mainCharacter +
             prevGame.rating.sideCharacters +
             prevGame.rating.mainStory +
             prevGame.rating.sideContent +
             prevGame.rating.cutscenes +
             prevGame.rating.lore +
+            prevGame.rating.pacing +
+            prevGame.rating.levelDesign +
             prevGame.rating.progression +
             prevGame.rating.gameFeel +
             prevGame.rating.variety +
@@ -55,7 +59,7 @@ export const Home = () => {
             prevGame.rating.graphics +
             prevGame.rating.stability +
             prevGame.rating.soundtrack) /
-            17
+            19
         );
       });
     } else if (sortTerm === "name") {
