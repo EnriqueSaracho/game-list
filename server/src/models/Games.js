@@ -40,25 +40,31 @@ const GameSchema = new mongoose.Schema({
     sideCharacters: {
       type: Number,
     },
-    mainStory: {
+    plot: {
       type: Number,
     },
-    sideContent: {
+    emotionalImpact: {
       type: Number,
     },
     cutscenes: {
       type: Number,
     },
-    lore: {
-      type: Number,
-    },
     pacing: {
       type: Number,
     },
-    levelDesign: {
+    lore: {
+      type: Number,
+    },
+    setting: {
       type: Number,
     },
     progression: {
+      type: Number,
+    },
+    exploration: {
+      type: Number,
+    },
+    immersion: {
       type: Number,
     },
     gameFeel: {
@@ -70,6 +76,12 @@ const GameSchema = new mongoose.Schema({
     replayability: {
       type: Number,
     },
+    stability: {
+      type: Number,
+    },
+    soundtrack: {
+      type: Number,
+    },
     worldDesign: {
       type: Number,
     },
@@ -79,16 +91,7 @@ const GameSchema = new mongoose.Schema({
     animations: {
       type: Number,
     },
-    realism: {
-      type: Number,
-    },
     graphics: {
-      type: Number,
-    },
-    stability: {
-      type: Number,
-    },
-    soundtrack: {
       type: Number,
     },
   },

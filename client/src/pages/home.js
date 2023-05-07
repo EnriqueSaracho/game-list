@@ -22,44 +22,46 @@ export const Home = () => {
         return (
           (nextGame.rating.mainCharacter +
             nextGame.rating.sideCharacters +
-            nextGame.rating.mainStory +
-            nextGame.rating.sideContent +
+            nextGame.rating.plot +
+            nextGame.rating.emotionalImpact +
             nextGame.rating.cutscenes +
-            nextGame.rating.lore +
             nextGame.rating.pacing +
-            nextGame.rating.levelDesign +
+            nextGame.rating.lore +
+            nextGame.rating.setting +
             nextGame.rating.progression +
+            nextGame.rating.exploration +
+            nextGame.rating.immersion +
             nextGame.rating.gameFeel +
             nextGame.rating.variety +
             nextGame.rating.replayability +
+            nextGame.rating.stability +
+            nextGame.rating.soundtrack +
             nextGame.rating.worldDesign +
             nextGame.rating.characterDesign +
             nextGame.rating.animations +
-            nextGame.rating.realism +
-            nextGame.rating.graphics +
-            nextGame.rating.stability +
-            nextGame.rating.soundtrack) /
-            19 -
+            nextGame.rating.graphics) /
+            20 -
           (prevGame.rating.mainCharacter +
             prevGame.rating.sideCharacters +
-            prevGame.rating.mainStory +
-            prevGame.rating.sideContent +
+            prevGame.rating.plot +
+            prevGame.rating.emotionalImpact +
             prevGame.rating.cutscenes +
-            prevGame.rating.lore +
             prevGame.rating.pacing +
-            prevGame.rating.levelDesign +
+            prevGame.rating.lore +
+            prevGame.rating.setting +
             prevGame.rating.progression +
+            prevGame.rating.exploration +
+            prevGame.rating.immersion +
             prevGame.rating.gameFeel +
             prevGame.rating.variety +
             prevGame.rating.replayability +
+            prevGame.rating.stability +
+            prevGame.rating.soundtrack +
             prevGame.rating.worldDesign +
             prevGame.rating.characterDesign +
             prevGame.rating.animations +
-            prevGame.rating.realism +
-            prevGame.rating.graphics +
-            prevGame.rating.stability +
-            prevGame.rating.soundtrack) /
-            19
+            prevGame.rating.graphics) /
+            20
         );
       });
     } else if (sortTerm === "name") {

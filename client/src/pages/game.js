@@ -91,24 +91,25 @@ export const Game = () => {
                   Math.round(
                     ((game.rating.mainCharacter +
                       game.rating.sideCharacters +
-                      game.rating.mainStory +
-                      game.rating.sideContent +
+                      game.rating.plot +
+                      game.rating.emotionalImpact +
                       game.rating.cutscenes +
-                      game.rating.lore +
                       game.rating.pacing +
-                      game.rating.levelDesign +
+                      game.rating.lore +
+                      game.rating.setting +
                       game.rating.progression +
+                      game.rating.exploration +
+                      game.rating.immersion +
                       game.rating.gameFeel +
                       game.rating.variety +
                       game.rating.replayability +
+                      game.rating.stability +
+                      game.rating.soundtrack +
                       game.rating.worldDesign +
                       game.rating.characterDesign +
                       game.rating.animations +
-                      game.rating.realism +
-                      game.rating.graphics +
-                      game.rating.stability +
-                      game.rating.soundtrack) /
-                      19) *
+                      game.rating.graphics) /
+                      20) *
                       2
                   ) / 2
                 }

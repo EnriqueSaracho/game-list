@@ -28,20 +28,24 @@ export const AddGame = () => {
     rating: {
       mainCharacter: 0,
       sideCharacters: 0,
-      mainStory: 0,
-      sideContent: 0,
+      plot: 0,
+      emotionalImpact: 0,
       cutscenes: 0,
+      pacing: 0,
       lore: 0,
+      setting: 0,
       progression: 0,
+      exploration: 0,
+      immersion: 0,
       gameFeel: 0,
       variety: 0,
       replayability: 0,
+      stability: 0,
+      soundtrack: 0,
       worldDesign: 0,
       characterDesign: 0,
       animations: 0,
-      realism: 0,
       graphics: 0,
-      soundtrack: 0,
     },
   });
 
@@ -756,7 +760,7 @@ export const AddGame = () => {
           <div>
             <div className="rating-container">
               <label htmlFor="main-character" className="label-rating">
-                Main Character(s):
+                Main character(s):
               </label>
               <StarRatingComponent
                 id="main-character"
@@ -782,7 +786,7 @@ export const AddGame = () => {
 
             <div className="rating-container">
               <label htmlFor="side-characters" className="label-rating">
-                Side Characters:
+                Side characters:
               </label>
               <StarRatingComponent
                 id="side-characters"
@@ -793,7 +797,7 @@ export const AddGame = () => {
                     <IoIosStar />
                   </span>
                 )}
-                value={game.sideCharacters}
+                value={game.rating.sideCharacters}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
@@ -807,23 +811,23 @@ export const AddGame = () => {
             </div>
 
             <div className="rating-container">
-              <label htmlFor="main-story" className="label-rating">
-                Main Story:
+              <label htmlFor="plot" className="label-rating">
+                Plot:
               </label>
               <StarRatingComponent
-                id="main-story"
-                name="mainStory"
+                id="plot"
+                name="plot"
                 starCount={5}
                 renderStarIcon={() => (
                   <span>
                     <IoIosStar />
                   </span>
                 )}
-                value={game.mainStory}
+                value={game.rating.plot}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
-                    rating: { ...game.rating, mainStory: value },
+                    rating: { ...game.rating, plot: value },
                   });
                 }}
                 starColor="#fff"
@@ -833,23 +837,23 @@ export const AddGame = () => {
             </div>
 
             <div className="rating-container">
-              <label htmlFor="side-content" className="label-rating">
-                Side Content:
+              <label htmlFor="emotional-impact" className="label-rating">
+                Emotional impact:
               </label>
               <StarRatingComponent
-                id="side-content"
-                name="sideContent"
+                id="emotional-impact"
+                name="emotionalImpact"
                 starCount={5}
                 renderStarIcon={() => (
                   <span>
                     <IoIosStar />
                   </span>
                 )}
-                value={game.sideContent}
+                value={game.rating.emotionalImpact}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
-                    rating: { ...game.rating, sideContent: value },
+                    rating: { ...game.rating, emotionalImpact: value },
                   });
                 }}
                 starColor="#fff"
@@ -871,37 +875,11 @@ export const AddGame = () => {
                     <IoIosStar />
                   </span>
                 )}
-                value={game.cutscenes}
+                value={game.rating.cutscenes}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
                     rating: { ...game.rating, cutscenes: value },
-                  });
-                }}
-                starColor="#fff"
-                emptyStarColor="#000"
-                className="star-rating"
-              />
-            </div>
-
-            <div className="rating-container">
-              <label htmlFor="lore" className="label-rating">
-                Lore:
-              </label>
-              <StarRatingComponent
-                id="lore"
-                name="lore"
-                starCount={5}
-                renderStarIcon={() => (
-                  <span>
-                    <IoIosStar />
-                  </span>
-                )}
-                value={game.lore}
-                onStarClick={(value) => {
-                  setGame({
-                    ...game,
-                    rating: { ...game.rating, lore: value },
                   });
                 }}
                 starColor="#fff"
@@ -923,7 +901,7 @@ export const AddGame = () => {
                     <IoIosStar />
                   </span>
                 )}
-                value={game.pacing}
+                value={game.rating.pacing}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
@@ -937,23 +915,49 @@ export const AddGame = () => {
             </div>
 
             <div className="rating-container">
-              <label htmlFor="level-design" className="label-rating">
-                Level Design:
+              <label htmlFor="lore" className="label-rating">
+                Lore:
               </label>
               <StarRatingComponent
-                id="level-design"
-                name="levelDesign"
+                id="lore"
+                name="lore"
                 starCount={5}
                 renderStarIcon={() => (
                   <span>
                     <IoIosStar />
                   </span>
                 )}
-                value={game.levelDesign}
+                value={game.rating.lore}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
-                    rating: { ...game.rating, levelDesign: value },
+                    rating: { ...game.rating, lore: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
+              <label htmlFor="setting" className="label-rating">
+                Setting:
+              </label>
+              <StarRatingComponent
+                id="setting"
+                name="setting"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.rating.setting}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, setting: value },
                   });
                 }}
                 starColor="#fff"
@@ -975,7 +979,7 @@ export const AddGame = () => {
                     <IoIosStar />
                   </span>
                 )}
-                value={game.progression}
+                value={game.rating.progression}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
@@ -989,8 +993,60 @@ export const AddGame = () => {
             </div>
 
             <div className="rating-container">
+              <label htmlFor="exploration" className="label-rating">
+                Exploration:
+              </label>
+              <StarRatingComponent
+                id="exploration"
+                name="exploration"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.rating.exploration}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, exploration: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
+              <label htmlFor="immersion" className="label-rating">
+                Immersion:
+              </label>
+              <StarRatingComponent
+                id="immersion"
+                name="immersion"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.rating.immersion}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, immersion: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
               <label htmlFor="game-feel" className="label-rating">
-                Game Feel:
+                Game feel:
               </label>
               <StarRatingComponent
                 id="game-feel"
@@ -1001,7 +1057,7 @@ export const AddGame = () => {
                     <IoIosStar />
                   </span>
                 )}
-                value={game.gameFeel}
+                value={game.rating.gameFeel}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
@@ -1027,7 +1083,7 @@ export const AddGame = () => {
                     <IoIosStar />
                   </span>
                 )}
-                value={game.variety}
+                value={game.rating.variety}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
@@ -1053,141 +1109,11 @@ export const AddGame = () => {
                     <IoIosStar />
                   </span>
                 )}
-                value={game.replayability}
+                value={game.rating.replayability}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
                     rating: { ...game.rating, replayability: value },
-                  });
-                }}
-                starColor="#fff"
-                emptyStarColor="#000"
-                className="star-rating"
-              />
-            </div>
-
-            <div className="rating-container">
-              <label htmlFor="world-design" className="label-rating">
-                World Design:
-              </label>
-              <StarRatingComponent
-                id="world-design"
-                name="worldDesign"
-                starCount={5}
-                renderStarIcon={() => (
-                  <span>
-                    <IoIosStar />
-                  </span>
-                )}
-                value={game.worldDesign}
-                onStarClick={(value) => {
-                  setGame({
-                    ...game,
-                    rating: { ...game.rating, worldDesign: value },
-                  });
-                }}
-                starColor="#fff"
-                emptyStarColor="#000"
-                className="star-rating"
-              />
-            </div>
-
-            <div className="rating-container">
-              <label htmlFor="character-design" className="label-rating">
-                Character Design:
-              </label>
-              <StarRatingComponent
-                id="character-design"
-                name="characterDesign"
-                starCount={5}
-                renderStarIcon={() => (
-                  <span>
-                    <IoIosStar />
-                  </span>
-                )}
-                value={game.characterDesign}
-                onStarClick={(value) => {
-                  setGame({
-                    ...game,
-                    rating: { ...game.rating, characterDesign: value },
-                  });
-                }}
-                starColor="#fff"
-                emptyStarColor="#000"
-                className="star-rating"
-              />
-            </div>
-
-            <div className="rating-container">
-              <label htmlFor="animations" className="label-rating">
-                Animations:
-              </label>
-              <StarRatingComponent
-                id="animations"
-                name="animations"
-                starCount={5}
-                renderStarIcon={() => (
-                  <span>
-                    <IoIosStar />
-                  </span>
-                )}
-                value={game.animations}
-                onStarClick={(value) => {
-                  setGame({
-                    ...game,
-                    rating: { ...game.rating, animations: value },
-                  });
-                }}
-                starColor="#fff"
-                emptyStarColor="#000"
-                className="star-rating"
-              />
-            </div>
-
-            <div className="rating-container">
-              <label htmlFor="realism" className="label-rating">
-                Realism:
-              </label>
-              <StarRatingComponent
-                id="realism"
-                name="realism"
-                starCount={5}
-                renderStarIcon={() => (
-                  <span>
-                    <IoIosStar />
-                  </span>
-                )}
-                value={game.realism}
-                onStarClick={(value) => {
-                  setGame({
-                    ...game,
-                    rating: { ...game.rating, realism: value },
-                  });
-                }}
-                starColor="#fff"
-                emptyStarColor="#000"
-                className="star-rating"
-              />
-            </div>
-
-            <div className="rating-container">
-              <label htmlFor="graphics" className="label-rating">
-                Graphics:
-              </label>
-              <StarRatingComponent
-                id="graphics"
-                name="graphics"
-                starCount={5}
-                renderStarIcon={() => (
-                  <span>
-                    <IoIosStar />
-                  </span>
-                )}
-                value={game.graphics}
-                onStarClick={(value) => {
-                  setGame({
-                    ...game,
-                    rating: { ...game.rating, graphics: value },
                   });
                 }}
                 starColor="#fff"
@@ -1209,7 +1135,7 @@ export const AddGame = () => {
                     <IoIosStar />
                   </span>
                 )}
-                value={game.stability}
+                value={game.rating.stability}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
@@ -1235,11 +1161,115 @@ export const AddGame = () => {
                     <IoIosStar />
                   </span>
                 )}
-                value={game.soundtrack}
+                value={game.rating.soundtrack}
                 onStarClick={(value) => {
                   setGame({
                     ...game,
                     rating: { ...game.rating, soundtrack: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
+              <label htmlFor="world-design" className="label-rating">
+                World design:
+              </label>
+              <StarRatingComponent
+                id="world-design"
+                name="worldDesign"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.rating.worldDesign}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, worldDesign: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
+              <label htmlFor="character-design" className="label-rating">
+                Character design:
+              </label>
+              <StarRatingComponent
+                id="character-design"
+                name="characterDesign"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.rating.characterDesign}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, characterDesign: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
+              <label htmlFor="animations" className="label-rating">
+                Animations:
+              </label>
+              <StarRatingComponent
+                id="animations"
+                name="animations"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.rating.animations}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, animations: value },
+                  });
+                }}
+                starColor="#fff"
+                emptyStarColor="#000"
+                className="star-rating"
+              />
+            </div>
+
+            <div className="rating-container">
+              <label htmlFor="graphics" className="label-rating">
+                Graphics:
+              </label>
+              <StarRatingComponent
+                id="graphics"
+                name="graphics"
+                starCount={5}
+                renderStarIcon={() => (
+                  <span>
+                    <IoIosStar />
+                  </span>
+                )}
+                value={game.rating.graphics}
+                onStarClick={(value) => {
+                  setGame({
+                    ...game,
+                    rating: { ...game.rating, graphics: value },
                   });
                 }}
                 starColor="#fff"
