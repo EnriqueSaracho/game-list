@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { FaGamepad } from "react-icons/fa";
+import { BsSearch } from "react-icons/bs";
 
 // Page: Home.
 export const Home = () => {
@@ -34,12 +35,20 @@ export const Home = () => {
         <Link to="/" className="navbar-title">
           <FaGamepad /> Game List
         </Link>
-        <input
-          type="text"
-          onChange={(event) => {
-            setSearchTerm(event.target.value);
-          }}
-        />
+        <div className="searchbar-container">
+          <label htmlFor="searchbar">
+            <BsSearch />
+          </label>
+          <input
+            type="text"
+            onChange={(event) => {
+              setSearchTerm(event.target.value);
+            }}
+            id="searchbar"
+            className="searchbar"
+            placeholder="Search"
+          />
+        </div>
       </div>
       <div className="blur"></div>
       <Link to="/add-game" className="btn btn-1">
