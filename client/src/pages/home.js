@@ -9,6 +9,9 @@ export const Home = () => {
   // State Object: keeps track of all the games in database.
   const [games, setGames] = useState([]);
 
+  // State Object: keeps track of searchbar
+  const [searchTerm, setSearchTerm] = useState("");
+
   // On Render Function: get the games from database.
   useEffect(() => {
     // Function: gets games from database
@@ -31,23 +34,41 @@ export const Home = () => {
         <Link to="/" className="navbar-title">
           <FaGamepad /> Game List
         </Link>
+        <input
+          type="text"
+          onChange={(event) => {
+            setSearchTerm(event.target.value);
+          }}
+        />
       </div>
       <div className="blur"></div>
       <Link to="/add-game" className="btn btn-1">
         <BsPlusCircleFill />
       </Link>
       <ul className="game-list">
-        {games.map((game) => (
-          <li key={game._id} className="thumbnail">
-            <Link to={`/game/${game._id}`} className="thumbnail-link">
-              <img
-                src={game.imageUrl}
-                alt={game.name}
-                className="thumbnail-img"
-              />
-            </Link>
-          </li>
-        ))}
+        {games
+          .filter((game) => {
+            if (searchTerm === "") {
+              return game;
+            } else if (
+              game.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return game;
+            } else {
+              return null;
+            }
+          })
+          .map((game) => (
+            <li key={game._id} className="thumbnail">
+              <Link to={`/game/${game._id}`} className="thumbnail-link">
+                <img
+                  src={game.imageUrl}
+                  alt={game.name}
+                  className="thumbnail-img"
+                />
+              </Link>
+            </li>
+          ))}
       </ul>
     </div>
   );
