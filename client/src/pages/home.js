@@ -4,14 +4,71 @@ import { Link } from "react-router-dom";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { FaGamepad } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
+import { BsSortDown } from "react-icons/bs";
 
 // Page: Home.
 export const Home = () => {
   // State Object: keeps track of all the games in database.
   const [games, setGames] = useState([]);
 
-  // State Object: keeps track of searchbar
+  // State Objects: keeps track of the navbar terms.
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortTerm, setSortTerm] = useState("rating");
+
+  // Function: sorts games.
+  const sortGames = () => {
+    if (sortTerm === "rating") {
+      return games.sort((prevGame, nextGame) => {
+        return (
+          (nextGame.rating.mainCharacter +
+            nextGame.rating.sideCharacters +
+            nextGame.rating.mainStory +
+            nextGame.rating.sideContent +
+            nextGame.rating.cutscenes +
+            nextGame.rating.lore +
+            nextGame.rating.progression +
+            nextGame.rating.gameFeel +
+            nextGame.rating.variety +
+            nextGame.rating.replayability +
+            nextGame.rating.worldDesign +
+            nextGame.rating.characterDesign +
+            nextGame.rating.animations +
+            nextGame.rating.realism +
+            nextGame.rating.graphics +
+            nextGame.rating.stability +
+            nextGame.rating.soundtrack) /
+            17 -
+          (prevGame.rating.mainCharacter +
+            prevGame.rating.sideCharacters +
+            prevGame.rating.mainStory +
+            prevGame.rating.sideContent +
+            prevGame.rating.cutscenes +
+            prevGame.rating.lore +
+            prevGame.rating.progression +
+            prevGame.rating.gameFeel +
+            prevGame.rating.variety +
+            prevGame.rating.replayability +
+            prevGame.rating.worldDesign +
+            prevGame.rating.characterDesign +
+            prevGame.rating.animations +
+            prevGame.rating.realism +
+            prevGame.rating.graphics +
+            prevGame.rating.stability +
+            prevGame.rating.soundtrack) /
+            17
+        );
+      });
+    } else if (sortTerm === "name") {
+      return games.sort((prevGame, nextGame) => {
+        return prevGame.name.localeCompare(nextGame.name);
+      });
+    } else if (sortTerm === "releaseDate") {
+      return games.sort((prevGame, nextGame) => {
+        return new Date(nextGame.releaseDate) - new Date(prevGame.releaseDate);
+      });
+    }
+    return games;
+  };
 
   // On Render Function: get the games from database.
   useEffect(() => {
@@ -29,13 +86,15 @@ export const Home = () => {
     fetchGame();
   }, []);
 
+  sortGames();
+
   return (
     <div className="home">
       <div className="navbar">
         <Link to="/" className="navbar-title">
           <FaGamepad /> Game List
         </Link>
-        <div className="searchbar-container">
+        <div className="navbar-container">
           <label htmlFor="searchbar">
             <BsSearch />
           </label>
@@ -45,15 +104,33 @@ export const Home = () => {
               setSearchTerm(event.target.value);
             }}
             id="searchbar"
-            className="searchbar"
+            className="navbar-input"
             placeholder="Search"
           />
+        </div>
+        <div className="navbar-container">
+          <label htmlFor="sort">
+            <BsSortDown />
+          </label>
+          <select
+            id="sort"
+            className="navbar-input"
+            onChange={(event) => {
+              setSortTerm(event.target.value);
+              console.log(sortTerm);
+            }}
+          >
+            <option value="name">Title</option>
+            <option value="rating">Rating</option>
+            <option value="releaseDate">Release date</option>
+          </select>
         </div>
       </div>
       <div className="blur"></div>
       <Link to="/add-game" className="btn btn-1">
         <BsPlusCircleFill />
       </Link>
+
       <ul className="game-list">
         {games
           .filter((game) => {
