@@ -13,68 +13,30 @@ export const Home = () => {
 
   // State Objects: keeps track of the navbar terms.
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortTerm, setSortTerm] = useState("rating");
+  const [sortTerm, setSortTerm] = useState("");
 
   // Function: sorts games.
   const sortGames = () => {
+    const sortedGames = games;
     if (sortTerm === "rating") {
-      return games.sort((prevGame, nextGame) => {
-        return (
-          (nextGame.rating.mainCharacter +
-            nextGame.rating.sideCharacters +
-            nextGame.rating.plot +
-            nextGame.rating.emotionalImpact +
-            nextGame.rating.cutscenes +
-            nextGame.rating.pacing +
-            nextGame.rating.lore +
-            nextGame.rating.setting +
-            nextGame.rating.progression +
-            nextGame.rating.exploration +
-            nextGame.rating.immersion +
-            nextGame.rating.gameFeel +
-            nextGame.rating.variety +
-            nextGame.rating.replayability +
-            nextGame.rating.stability +
-            nextGame.rating.soundtrack +
-            nextGame.rating.worldDesign +
-            nextGame.rating.characterDesign +
-            nextGame.rating.animations +
-            nextGame.rating.graphics) /
-            20 -
-          (prevGame.rating.mainCharacter +
-            prevGame.rating.sideCharacters +
-            prevGame.rating.plot +
-            prevGame.rating.emotionalImpact +
-            prevGame.rating.cutscenes +
-            prevGame.rating.pacing +
-            prevGame.rating.lore +
-            prevGame.rating.setting +
-            prevGame.rating.progression +
-            prevGame.rating.exploration +
-            prevGame.rating.immersion +
-            prevGame.rating.gameFeel +
-            prevGame.rating.variety +
-            prevGame.rating.replayability +
-            prevGame.rating.stability +
-            prevGame.rating.soundtrack +
-            prevGame.rating.worldDesign +
-            prevGame.rating.characterDesign +
-            prevGame.rating.animations +
-            prevGame.rating.graphics) /
-            20
-        );
+      return sortedGames.sort((prevGame, nextGame) => {
+        const prevRating = prevGame.rating?.total ?? -Infinity;
+        const nextRating = nextGame.rating?.total ?? -Infinity;
+        return nextRating - prevRating;
       });
     } else if (sortTerm === "name") {
-      return games.sort((prevGame, nextGame) => {
+      return sortedGames.sort((prevGame, nextGame) => {
         return prevGame.name.localeCompare(nextGame.name);
       });
     } else if (sortTerm === "releaseDate") {
-      return games.sort((prevGame, nextGame) => {
+      return sortedGames.sort((prevGame, nextGame) => {
         return new Date(nextGame.releaseDate) - new Date(prevGame.releaseDate);
       });
     }
     return games;
   };
+
+  sortGames();
 
   // On Render Function: get the games from database.
   useEffect(() => {
@@ -91,8 +53,6 @@ export const Home = () => {
     // Can't have an "on render" async function, so we call the async function inside the "on render" one.
     fetchGame();
   }, []);
-
-  sortGames();
 
   return (
     <div className="home">
