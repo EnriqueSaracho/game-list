@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { FaGamepad } from "react-icons/fa";
@@ -11,11 +12,20 @@ export const Home = () => {
   // State Object: keeps track of all the games in database.
   const [games, setGames] = useState([]);
 
+  // State Object: cookies.
+  const [cookies, setCookies] = useCookies(["sortTerm"]);
+
   // State Objects: keeps track of the navbar terms.
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortTerm, setSortTerm] = useState("");
+  const initialSortTerm = cookies.sortTerm || "rating";
+  const [sortTerm, setSortTerm] = useState(initialSortTerm);
 
-  // Function: sorts games.
+  // Functions: sorts games.
+  const handleSortTermChange = (event) => {
+    const newSortTerm = event.target.value;
+    setSortTerm(newSortTerm);
+    setCookies("sortTerm", newSortTerm, { path: "/" });
+  };
   const sortGames = () => {
     const sortedGames = games;
     if (sortTerm === "rating") {
@@ -81,10 +91,7 @@ export const Home = () => {
           <select
             id="sort"
             className="navbar-input"
-            onChange={(event) => {
-              setSortTerm(event.target.value);
-              console.log(sortTerm);
-            }}
+            onChange={handleSortTermChange}
           >
             <option value="name">Title</option>
             <option value="rating">Rating</option>
