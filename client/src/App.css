@@ -364,6 +364,7 @@ legend {
   appearance: none;
   height: 40px;
   width: 40px;
+  min-width: 40px;
   border-radius: 3px;
   transition: all 0.15s ease-out 0s;
   background-color: var(--transparent);
@@ -525,6 +526,7 @@ legend {
   }
 }
 
+/* Laptop or tablet */
 @media only screen and (max-width: 1024px) {
   .navbar-title {
     margin-left: 35px;
@@ -593,6 +595,7 @@ legend {
   }
 }
 
+/* Small tablet */
 @media only screen and (max-width: 768px) {
   .navbar {
     justify-content: center;
@@ -617,6 +620,17 @@ legend {
 
   .game-list {
     margin-top: 12px;
+  }
+
+  fieldset {
+    min-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .option-container {
+    width: 75vw;
   }
 }
 
@@ -683,6 +697,17 @@ legend {
     margin-right: 2px;
     margin-bottom: 2px;
   }
+
+  fieldset {
+    min-width: 0;
+    width: 90vw;
+  }
+  .label-text {
+    text-align: center;
+  }
+  .input-text {
+    width: 90vw;
+  }
 }
 
 @media only screen and (max-width: 505px) {
@@ -721,6 +746,13 @@ legend {
     height: 200px;
     margin-right: 3px;
     margin-bottom: 3px;
+  }
+  .rating-container {
+    width: 95vw;
+    flex-direction: column;
+  }
+  .label-rating {
+    text-align: center;
   }
 }
 
