@@ -99,6 +99,9 @@ export const EditGame = () => {
   return (
     <div className="form-page">
       <div className="navbar">
+        <Link to="/" className="navbar-title mobile">
+          <FaGamepad />
+        </Link>
         <Link to="/" className="navbar-title">
           <FaGamepad /> Game List
         </Link>

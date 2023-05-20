@@ -144,6 +144,7 @@ button {
   position: fixed;
   top: 90px;
   left: 30px;
+  z-index: 1000;
 }
 
 /* Home */
@@ -232,9 +233,10 @@ button {
 }
 
 .status-icon {
-  font-size: 3.5em;
+  font-size: inherit;
   color: var(--secondary);
-  margin-top: 5px;
+  vertical-align: middle;
+  margin-left: 0.2em;
 }
 
 .game-btn-container {
@@ -554,6 +556,28 @@ legend {
     margin-right: 9px;
     margin-bottom: 9px;
   }
+
+  .game-header {
+    width: 730px;
+    height: 343px;
+  }
+  .game-img {
+    width: 240px;
+    height: 343px;
+  }
+  .game-header-info {
+    width: 420px;
+    padding: 25px;
+  }
+  .game-title {
+    font-size: 1.7em;
+  }
+  .star-rating {
+    font-size: 45px;
+  }
+  .game-header-info p {
+    font-size: 0.95em;
+  }
 }
 
 @media only screen and (max-width: 980px) {
@@ -593,6 +617,28 @@ legend {
     margin-right: 6px;
     margin-bottom: 6px;
   }
+
+  .game-header {
+    width: 620px;
+    height: 286px;
+  }
+  .game-img {
+    width: 200px;
+    height: 286px;
+  }
+  .game-header-info {
+    width: 350px;
+    padding: 15px;
+  }
+  .game-title {
+    font-size: 1.5em;
+  }
+  .star-rating {
+    font-size: 40px;
+  }
+  .game-header-info p {
+    font-size: 0.9em;
+  }
 }
 
 /* Small tablet */
@@ -628,9 +674,23 @@ legend {
     flex-direction: column;
     align-items: center;
   }
-
   .option-container {
     width: 75vw;
+  }
+
+  .game {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .game-section-title {
+    text-align: center;
+  }
+  .attribute-list {
+    justify-content: center;
   }
 }
 
@@ -671,6 +731,28 @@ legend {
     margin-right: 3px;
     margin-bottom: 3px;
   }
+
+  .game-header {
+    width: 510px;
+    height: 226px;
+  }
+  .game-img {
+    width: 160px;
+    height: 226px;
+  }
+  .game-header-info {
+    width: 280px;
+    padding: 11px;
+  }
+  .game-title {
+    font-size: 1.2em;
+  }
+  .star-rating {
+    font-size: 35px;
+  }
+  .game-header-info p {
+    font-size: 0.8em;
+  }
 }
 
 @media only screen and (max-width: 595px) {
@@ -707,6 +789,28 @@ legend {
   }
   .input-text {
     width: 90vw;
+  }
+
+  .game-header {
+    width: 340px;
+    height: 171px;
+  }
+  .game-img {
+    width: 120px;
+    height: 171px;
+  }
+  .game-header-info {
+    width: 150px;
+    padding: 8px;
+  }
+  .game-title {
+    font-size: 0.9em;
+  }
+  .star-rating {
+    font-size: 22px;
+  }
+  .game-header-info p {
+    font-size: 0.65em;
   }
 }
 

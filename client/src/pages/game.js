@@ -58,6 +58,9 @@ export const Game = () => {
   return (
     <div className="game-page">
       <div className="navbar">
+        <Link to="/" className="navbar-title mobile">
+          <FaGamepad />
+        </Link>
         <Link to="/" className="navbar-title">
           <FaGamepad /> Game List
         </Link>
@@ -97,22 +100,24 @@ export const Game = () => {
             <p>Developer: {game.developer}</p>
             <p>Publisher: {game.publisher}</p>
             <p>Series: {game.franchise}</p>
-            <p>Status: {game.status}</p>
-            {game.status === "Not played" ? (
-              <RiCheckboxBlankCircleLine className="status-icon" />
-            ) : null}
-            {game.status === "In progress" ? (
-              <HiOutlineDotsCircleHorizontal className="status-icon" />
-            ) : null}
-            {game.status === "Paused" ? (
-              <FiPauseCircle className="status-icon" />
-            ) : null}
-            {game.status === "Completed" ? (
-              <BiCheckCircle className="status-icon" />
-            ) : null}
-            {game.status === "Abandoned" ? (
-              <HiOutlineBan className="status-icon" />
-            ) : null}
+            <p>
+              Status: {game.status}
+              {game.status === "Not played" ? (
+                <RiCheckboxBlankCircleLine className="status-icon" />
+              ) : null}
+              {game.status === "In progress" ? (
+                <HiOutlineDotsCircleHorizontal className="status-icon" />
+              ) : null}
+              {game.status === "Paused" ? (
+                <FiPauseCircle className="status-icon" />
+              ) : null}
+              {game.status === "Completed" ? (
+                <BiCheckCircle className="status-icon" />
+              ) : null}
+              {game.status === "Abandoned" ? (
+                <HiOutlineBan className="status-icon" />
+              ) : null}
+            </p>
           </div>
           <div className="game-btn-container">
             <Link to={`/edit-game/${game._id}`} className="btn game-btn">
