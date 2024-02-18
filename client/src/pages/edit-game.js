@@ -639,6 +639,7 @@ export const EditGame = () => {
           <legend>Platforms:</legend>
           <div>
             <SiNintendo className="platform-icon" />
+
             <div className="option-container">
               <input
                 type="checkbox"
@@ -647,10 +648,37 @@ export const EditGame = () => {
                 value={"Nintendo 64"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("Nintendo 64")}
               />
               <label htmlFor="nintendo-64" className="label-option">
                 Nintendo 64
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="game-boy-color"
+                name="platforms"
+                value={"Game Boy Color"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="game-boy-color" className="label-option">
+                Game Boy Color
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="game-boy-advance"
+                name="platforms"
+                value={"Game Boy Advance"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="game-boy-advance" className="label-option">
+                Game Boy Advance
               </label>
             </div>
 
@@ -662,10 +690,37 @@ export const EditGame = () => {
                 value={"GameCube"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("GameCube")}
               />
               <label htmlFor="gamecube" className="label-option">
                 GameCube
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="nintendo-ds"
+                name="platforms"
+                value={"Nintendo DS"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="nintendo-ds" className="label-option">
+                Nintendo DS
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="nintendo-3ds"
+                name="platforms"
+                value={"Nintendo 3DS"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="nintendo-3ds" className="label-option">
+                Nintendo 3DS
               </label>
             </div>
 
@@ -677,7 +732,6 @@ export const EditGame = () => {
                 value={"Wii"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("Wii")}
               />
               <label htmlFor="wii" className="label-option">
                 Wii
@@ -692,7 +746,6 @@ export const EditGame = () => {
                 value={"Wii U"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("Wii U")}
               />
               <label htmlFor="wii-u" className="label-option">
                 Wii U
@@ -702,21 +755,21 @@ export const EditGame = () => {
             <div className="option-container">
               <input
                 type="checkbox"
-                id="switch"
+                id="nintendo-switch"
                 name="platforms"
-                value={"Switch"}
+                value={"Nintendo Switch"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("Switch")}
               />
-              <label htmlFor="switch" className="label-option">
-                Switch
+              <label htmlFor="nintendo-switch" className="label-option">
+                Nintendo Switch
               </label>
             </div>
           </div>
 
           <div>
             <SiPlaystation className="platform-icon" />
+
             <div className="option-container">
               <input
                 type="checkbox"
@@ -725,7 +778,6 @@ export const EditGame = () => {
                 value={"PlayStation"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("PlayStation")}
               />
               <label htmlFor="playstation" className="label-option">
                 PlayStation
@@ -740,10 +792,23 @@ export const EditGame = () => {
                 value={"PlayStation 2"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("PlayStation 2")}
               />
               <label htmlFor="playstation-2" className="label-option">
                 PlayStation 2
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="playstation-portable"
+                name="platforms"
+                value={"PlayStation Portable"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="playstation-portable" className="label-option">
+                PlayStation Portable
               </label>
             </div>
 
@@ -755,10 +820,23 @@ export const EditGame = () => {
                 value={"PlayStation 3"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("PlayStation 3")}
               />
               <label htmlFor="playstation-3" className="label-option">
                 PlayStation 3
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="playstation-vita"
+                name="platforms"
+                value={"PlayStation Vita"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="playstation-vita" className="label-option">
+                PlayStation Vita
               </label>
             </div>
 
@@ -770,7 +848,6 @@ export const EditGame = () => {
                 value={"PlayStation 4"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("PlayStation 4")}
               />
               <label htmlFor="playstation-4" className="label-option">
                 PlayStation 4
@@ -785,7 +862,6 @@ export const EditGame = () => {
                 value={"PlayStation 5"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("PlayStation 5")}
               />
               <label htmlFor="playstation-5" className="label-option">
                 PlayStation 5
@@ -804,7 +880,6 @@ export const EditGame = () => {
                 value={"Xbox"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("Xbox")}
               />
               <label htmlFor="xbox" className="label-option">
                 Xbox
@@ -819,7 +894,6 @@ export const EditGame = () => {
                 value={"Xbox 360"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("Xbox 360")}
               />
               <label htmlFor="xbox-360" className="label-option">
                 Xbox 360
@@ -834,7 +908,6 @@ export const EditGame = () => {
                 value={"Xbox One"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("Xbox One")}
               />
               <label htmlFor="xbox-one" className="label-option">
                 Xbox One
@@ -849,7 +922,6 @@ export const EditGame = () => {
                 value={"Xbox Series X/S"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("Xbox Series X/S")}
               />
               <label htmlFor="xbox-series-x-s" className="label-option">
                 Xbox Series X/S
@@ -867,7 +939,6 @@ export const EditGame = () => {
                 value={"Microsoft Windows"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("Windows")}
               />
               <label htmlFor="windows" className="label-option">
                 Microsoft Windows
@@ -882,7 +953,6 @@ export const EditGame = () => {
                 value={"macOS"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("macOS")}
               />
               <label htmlFor="mac-os" className="label-option">
                 macOS

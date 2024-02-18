@@ -611,6 +611,7 @@ export const AddGame = () => {
           <legend>Platforms:</legend>
           <div>
             <SiNintendo className="platform-icon" />
+
             <div className="option-container">
               <input
                 type="checkbox"
@@ -628,6 +629,34 @@ export const AddGame = () => {
             <div className="option-container">
               <input
                 type="checkbox"
+                id="game-boy-color"
+                name="platforms"
+                value={"Game Boy Color"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="game-boy-color" className="label-option">
+                Game Boy Color
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="game-boy-advance"
+                name="platforms"
+                value={"Game Boy Advance"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="game-boy-advance" className="label-option">
+                Game Boy Advance
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
                 id="gamecube"
                 name="platforms"
                 value={"GameCube"}
@@ -636,6 +665,34 @@ export const AddGame = () => {
               />
               <label htmlFor="gamecube" className="label-option">
                 GameCube
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="nintendo-ds"
+                name="platforms"
+                value={"Nintendo DS"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="nintendo-ds" className="label-option">
+                Nintendo DS
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="nintendo-3ds"
+                name="platforms"
+                value={"Nintendo 3DS"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="nintendo-3ds" className="label-option">
+                Nintendo 3DS
               </label>
             </div>
 
@@ -670,20 +727,21 @@ export const AddGame = () => {
             <div className="option-container">
               <input
                 type="checkbox"
-                id="switch"
+                id="nintendo-switch"
                 name="platforms"
-                value={"Switch"}
+                value={"Nintendo Switch"}
                 onChange={handleChange}
                 className="input-option"
               />
-              <label htmlFor="switch" className="label-option">
-                Switch
+              <label htmlFor="nintendo-switch" className="label-option">
+                Nintendo Switch
               </label>
             </div>
           </div>
 
           <div>
             <SiPlaystation className="platform-icon" />
+
             <div className="option-container">
               <input
                 type="checkbox"
@@ -715,6 +773,20 @@ export const AddGame = () => {
             <div className="option-container">
               <input
                 type="checkbox"
+                id="playstation-portable"
+                name="platforms"
+                value={"PlayStation Portable"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="playstation-portable" className="label-option">
+                PlayStation Portable
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
                 id="playstation-3"
                 name="platforms"
                 value={"PlayStation 3"}
@@ -723,6 +795,20 @@ export const AddGame = () => {
               />
               <label htmlFor="playstation-3" className="label-option">
                 PlayStation 3
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="playstation-vita"
+                name="platforms"
+                value={"PlayStation Vita"}
+                onChange={handleChange}
+                className="input-option"
+              />
+              <label htmlFor="playstation-vita" className="label-option">
+                PlayStation Vita
               </label>
             </div>
 
@@ -757,6 +843,7 @@ export const AddGame = () => {
 
           <div>
             <SiXbox className="platform-icon" />
+
             <div className="option-container">
               <input
                 type="checkbox"

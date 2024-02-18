@@ -159,20 +159,42 @@ export const Game = () => {
 
         <div className="game-section game-section-info">
           <p>
-            Release date:{" "}
+            <b>Release date:</b>{" "}
             {new Date(game.releaseDate).toLocaleDateString("en-GB")}
           </p>
-          <p>Series: {game.franchise}</p>
-          <p>Developer(s): {game.developer}</p>
-          <p>Publisher(s): {game.publisher}</p>
-          <p>Director(s): {game.director}</p>
-          <p>Producer(s): {game.producer}</p>
-          <p>Designer(s): {game.designer}</p>
-          <p>Programmer(s): {game.programmer}</p>
-          <p>Artist(s): {game.artist}</p>
-          <p>Writer: {game.writer}</p>
-          <p>Composer: {game.composer}</p>
-          <p>Engine: {game.engine}</p>
+          <p>
+            <b>Series:</b> {game.franchise}
+          </p>
+          <p>
+            <b>Developer(s):</b> {game.developer}
+          </p>
+          <p>
+            <b>Publisher(s):</b> {game.publisher}
+          </p>
+          <p>
+            <b>Director(s):</b> {game.director}
+          </p>
+          <p>
+            <b>Producer(s):</b> {game.producer}
+          </p>
+          <p>
+            <b>Designer(s):</b> {game.designer}
+          </p>
+          <p>
+            <b>Programmer(s):</b> {game.programmer}
+          </p>
+          <p>
+            <b>Artist(s):</b> {game.artist}
+          </p>
+          <p>
+            <b>Writer:</b> {game.writer}
+          </p>
+          <p>
+            <b>Composer:</b> {game.composer}
+          </p>
+          <p>
+            <b>Engine:</b> {game.engine}
+          </p>
         </div>
       </div>
     </div>
