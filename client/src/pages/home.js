@@ -30,8 +30,8 @@ export const Home = () => {
     const sortedGames = games;
     if (sortTerm === "rating") {
       return sortedGames.sort((prevGame, nextGame) => {
-        const prevRating = prevGame.rating?.total ?? -Infinity;
-        const nextRating = nextGame.rating?.total ?? -Infinity;
+        const prevRating = prevGame.rating ?? -Infinity;
+        const nextRating = nextGame.rating ?? -Infinity;
         return nextRating - prevRating;
       });
     } else if (sortTerm === "name") {

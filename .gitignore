@@ -25,3 +25,8 @@ Thumbs.db
 
 # Ignore connection string file
 config.env
+
+# Ignore batch file
+GameList.bat
+# Ignore shorcut
+Ludi.lnk

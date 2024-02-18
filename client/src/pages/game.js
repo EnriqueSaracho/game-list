@@ -5,8 +5,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import StarRatingComponent from "react-star-rating-component";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+
 import { IoIosStar } from "react-icons/io";
+
 import { IoIosStarHalf } from "react-icons/io";
+
 import { BiMessageSquareEdit } from "react-icons/bi";
 import { BiMessageSquareX } from "react-icons/bi";
 import { RiCheckboxBlankCircleLine } from "react-icons/ri";
@@ -75,7 +78,7 @@ export const Game = () => {
           <img src={game.imageUrl} alt={game.name} className="game-img" />
           <div className="game-header-info">
             <h2 className="game-title">{game.name}</h2>
-            {game.rating.mainCharacter ? (
+            {game.rating ? (
               <StarRatingComponent
                 name="rating"
                 editing={false}
@@ -90,7 +93,7 @@ export const Game = () => {
                     <IoIosStarHalf style={{ color: "#fff" }} />
                   </span>
                 )}
-                value={Math.round(game.rating.total * 2) / 2}
+                value={game.rating / 2}
                 starColor="#fff"
                 emptyStarColor="#ffffff00"
                 className="star-rating"
