@@ -4,9 +4,7 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
-import StarRatingComponent from "react-star-rating-component";
 import { BsFillXCircleFill } from "react-icons/bs";
-import { IoIosStar } from "react-icons/io";
 import { SiNintendo } from "react-icons/si";
 import { SiPlaystation } from "react-icons/si";
 import { SiXbox } from "react-icons/si";
@@ -54,8 +52,6 @@ export const EditGame = () => {
     } else {
       setGame({ ...game, [name]: value });
     }
-
-    console.log(game); // {CONSOLE.LOG}
   };
 
   const onSubmit = async (event) => {
@@ -696,20 +692,6 @@ export const EditGame = () => {
 
           <div>
             <SiXbox className="platform-icon" />
-            <div className="option-container">
-              <input
-                type="checkbox"
-                id="windows"
-                name="platforms"
-                value={"Windows"}
-                onChange={handleChange}
-                className="input-option"
-                checked={game.platforms.includes("Windows")}
-              />
-              <label htmlFor="windows" className="label-option">
-                Windows
-              </label>
-            </div>
 
             <div className="option-container">
               <input
@@ -773,7 +755,22 @@ export const EditGame = () => {
           </div>
 
           <div>
-            <AiFillApple className="platform-icon" />
+            <p className="platform-icon">PC</p>
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="windows"
+                name="platforms"
+                value={"Windows"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.platforms.includes("Windows")}
+              />
+              <label htmlFor="windows" className="label-option">
+                Windows
+              </label>
+            </div>
+
             <div className="option-container">
               <input
                 type="checkbox"
@@ -788,31 +785,168 @@ export const EditGame = () => {
                 macOS
               </label>
             </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="linux"
+                name="platforms"
+                value={"Linux"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.platforms.includes("Linux")}
+              />
+              <label htmlFor="linux" className="label-option">
+                Linux
+              </label>
+            </div>
           </div>
         </fieldset>
 
+        {/* Rating */}
         <fieldset>
           <legend>Rating:</legend>
           <div>
-            <div className="rating-container">
-              <StarRatingComponent
-                id="rating"
+            <div className="option-container">
+              <input
+                type="radio"
+                id="rating-1"
                 name="rating"
-                starCount={10}
-                renderStarIcon={() => (
-                  <span>
-                    <IoIosStar />
-                  </span>
-                )}
-                value={game.rating}
-                onStarClick={(value) => {
-                  setGame({ ...game, rating: value });
-                  console.log("Rating updated");
-                }}
-                starColor="#fff"
-                emptyStarColor="#000"
-                className="star-rating"
+                value={1}
+                onChange={handleChange}
+                className="input-option input-radio"
+                checked={game.rating == 1}
               />
+              <label htmlFor="rating-1" className="label-option">
+                1 - Abysmal
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="radio"
+                id="rating-2"
+                name="rating"
+                value={2}
+                onChange={handleChange}
+                className="input-option input-radio"
+                checked={game.rating == 2}
+              />
+              <label htmlFor="rating-2" className="label-option">
+                2 - Terrible
+              </label>
+            </div>
+            <div className="option-container">
+              <input
+                type="radio"
+                id="rating-3"
+                name="rating"
+                value={3}
+                onChange={handleChange}
+                className="input-option input-radio"
+                checked={game.rating == 3}
+              />
+              <label htmlFor="rating-3" className="label-option">
+                3 - Poor
+              </label>
+            </div>
+            <div className="option-container">
+              <input
+                type="radio"
+                id="rating-4"
+                name="rating"
+                value={4}
+                onChange={handleChange}
+                className="input-option input-radio"
+                checked={game.rating == 4}
+              />
+              <label htmlFor="rating-4" className="label-option">
+                4 - Mediocre
+              </label>
+            </div>
+            <div className="option-container">
+              <input
+                type="radio"
+                id="rating-5"
+                name="rating"
+                value={5}
+                onChange={handleChange}
+                className="input-option input-radio"
+                checked={game.rating == 5}
+              />
+              <label htmlFor="rating-5" className="label-option">
+                5 - Average
+              </label>
+            </div>
+            <div className="option-container">
+              <input
+                type="radio"
+                id="rating-6"
+                name="rating"
+                value={6}
+                onChange={handleChange}
+                className="input-option input-radio"
+                checked={game.rating == 6}
+              />
+              <label htmlFor="rating-6" className="label-option">
+                6 - Decent
+              </label>
+            </div>
+            <div className="option-container">
+              <input
+                type="radio"
+                id="rating-7"
+                name="rating"
+                value={7}
+                onChange={handleChange}
+                className="input-option input-radio"
+                checked={game.rating == 7}
+              />
+              <label htmlFor="rating-7" className="label-option">
+                7 - Good
+              </label>
+            </div>
+            <div className="option-container">
+              <input
+                type="radio"
+                id="rating-8"
+                name="rating"
+                value={8}
+                onChange={handleChange}
+                className="input-option input-radio"
+                checked={game.rating == 8}
+              />
+              <label htmlFor="rating-8" className="label-option">
+                8 - Great
+              </label>
+            </div>
+            <div className="option-container">
+              <input
+                type="radio"
+                id="rating-9"
+                name="rating"
+                value={9}
+                onChange={handleChange}
+                className="input-option input-radio"
+                checked={game.rating == 9}
+              />
+              <label htmlFor="rating-9" className="label-option">
+                9 - Excellent
+              </label>
+            </div>
+            <div className="option-container">
+              <input
+                type="radio"
+                id="rating-10"
+                name="rating"
+                value={10}
+                onChange={handleChange}
+                className="input-option input-radio"
+                checked={game.rating == 10}
+              />
+              <label htmlFor="rating-10" className="label-option">
+                10 - Outstanding
+              </label>
             </div>
           </div>
         </fieldset>

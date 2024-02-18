@@ -359,7 +359,6 @@ legend {
 
 .input-option {
   -webkit-appearance: none;
-  -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
   -o-appearance: none;
@@ -416,6 +415,7 @@ legend {
   text-align: center;
   width: 100%;
   font-size: 1.7em;
+  font-weight: bold;
 }
 
 .rating-container {
