@@ -99,12 +99,8 @@ export const Game = () => {
                 className="star-rating"
               />
             ) : null}
-            <p>{new Date(game.releaseDate).toLocaleDateString("en-GB")}</p>
-            <p>Developer: {game.developer}</p>
-            <p>Publisher: {game.publisher}</p>
-            <p>Series: {game.franchise}</p>
             <p>
-              Status: {game.status}
+              {game.status}
               {game.status === "Not played" ? (
                 <RiCheckboxBlankCircleLine className="status-icon" />
               ) : null}
@@ -121,6 +117,8 @@ export const Game = () => {
                 <HiOutlineBan className="status-icon" />
               ) : null}
             </p>
+            <p>{game.developer}</p>
+            <p>{new Date(game.releaseDate).getFullYear()}</p>
           </div>
           <div className="game-btn-container">
             <Link to={`/edit-game/${game._id}`} className="btn game-btn">
@@ -131,6 +129,7 @@ export const Game = () => {
             </button>
           </div>
         </div>
+
         <div className="game-section">
           <h3 className="game-section-title">Genres:</h3>
           <ul className="attribute-list">
@@ -139,6 +138,7 @@ export const Game = () => {
             ))}
           </ul>
         </div>
+
         <div className="game-section">
           <h3 className="game-section-title">Platforms:</h3>
           <ul className="attribute-list">
@@ -146,6 +146,33 @@ export const Game = () => {
               <li>{platform}</li>
             ))}
           </ul>
+        </div>
+
+        <div className="game-section">
+          <h3 className="game-section-title">Modes:</h3>
+          <ul className="attribute-list">
+            {game.modes.map((mode) => (
+              <li>{mode}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="game-section game-section-info">
+          <p>
+            Release date:{" "}
+            {new Date(game.releaseDate).toLocaleDateString("en-GB")}
+          </p>
+          <p>Series: {game.franchise}</p>
+          <p>Developer(s): {game.developer}</p>
+          <p>Publisher(s): {game.publisher}</p>
+          <p>Director(s): {game.director}</p>
+          <p>Producer(s): {game.producer}</p>
+          <p>Designer(s): {game.designer}</p>
+          <p>Programmer(s): {game.programmer}</p>
+          <p>Artist(s): {game.artist}</p>
+          <p>Writer: {game.writer}</p>
+          <p>Composer: {game.composer}</p>
+          <p>Engine: {game.engine}</p>
         </div>
       </div>
     </div>

@@ -16,6 +16,30 @@ const GameSchema = new mongoose.Schema({
   publisher: {
     type: String,
   },
+  director: {
+    type: String,
+  },
+  producer: {
+    type: String,
+  },
+  designer: {
+    type: String,
+  },
+  programmer: {
+    type: String,
+  },
+  artist: {
+    type: String,
+  },
+  writer: {
+    type: String,
+  },
+  composer: {
+    type: String,
+  },
+  engine: {
+    type: String,
+  },
   releaseDate: {
     type: Date,
   },
@@ -31,6 +55,9 @@ const GameSchema = new mongoose.Schema({
     type: [String],
   },
   platforms: {
+    type: [String],
+  },
+  modes: {
     type: [String],
   },
   rating: {

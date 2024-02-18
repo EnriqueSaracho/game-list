@@ -227,6 +227,10 @@ button {
   width: 450px;
 }
 
+.game-header-info p {
+  font-size: 1.2em;
+}
+
 .game-title {
   font-size: 2em;
   font-weight: 300;
@@ -263,6 +267,15 @@ button {
   max-width: 800px;
   margin: auto;
   margin-bottom: 5px;
+}
+
+.game-section-info {
+  font-size: 1.2em;
+  font-weight: 300;
+  padding: 20px 20px;
+  margin-top: 15px;
+  box-shadow: var(--glass);
+  border-radius: 5px;
 }
 
 .game-section-title {
