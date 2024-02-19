@@ -38,15 +38,15 @@ export const Game = () => {
    *  500 - fifth gen
    */
   const platformPriority = {
-    "Nintendo 64": 101,
-    "Game Boy Color": 11,
-    "Game Boy Advance": 21,
-    GameCube: 201,
-    "Nintendo DS": 31,
-    "Nintendo 3DS": 41,
-    Wii: 301,
-    "Wii U": 401,
-    "Nintendo Switch": 501,
+    "Nintendo 64": 103,
+    "Game Boy Color": 13,
+    "Game Boy Advance": 23,
+    GameCube: 203,
+    "Nintendo DS": 33,
+    "Nintendo 3DS": 43,
+    Wii: 303,
+    "Wii U": 403,
+    "Nintendo Switch": 503,
     PlayStation: 102,
     "PlayStation 2": 202,
     "PlayStation Portable": 32,
@@ -58,10 +58,11 @@ export const Game = () => {
     "Xbox 360": 303,
     "Xbox One": 403,
     "Xbox Series X/S": 503,
-    "Microsoft Windows": 0,
-    macOS: 1,
-    Linux: 2,
-    Stadia: 3,
+    "Microsoft Windows": 9,
+    macOS: 8,
+    Linux: 7,
+    "Google Stadia": 6,
+    "Amazon Luna": 5,
   };
 
   useEffect(() => {
@@ -208,43 +209,67 @@ export const Game = () => {
         </div>
 
         <div className="game-section game-section-info">
-          <p>
-            <b>Release date:</b>{" "}
-            {new Date(game.releaseDate).toLocaleDateString("en-GB")}
-          </p>
-          <p>
-            <b>Series:</b> {game.franchise}
-          </p>
-          <p>
-            <b>Developer(s):</b> {game.developer}
-          </p>
-          <p>
-            <b>Publisher(s):</b> {game.publisher}
-          </p>
-          <p>
-            <b>Director(s):</b> {game.director}
-          </p>
-          <p>
-            <b>Producer(s):</b> {game.producer}
-          </p>
-          <p>
-            <b>Designer(s):</b> {game.designer}
-          </p>
-          <p>
-            <b>Programmer(s):</b> {game.programmer}
-          </p>
-          <p>
-            <b>Artist(s):</b> {game.artist}
-          </p>
-          <p>
-            <b>Writer:</b> {game.writer}
-          </p>
-          <p>
-            <b>Composer:</b> {game.composer}
-          </p>
-          <p>
-            <b>Engine:</b> {game.engine}
-          </p>
+          {game.releaseDate && (
+            <p>
+              <b>Release date:</b>{" "}
+              {new Date(game.releaseDate).toLocaleDateString("en-GB")}
+            </p>
+          )}
+          {game.franchise && (
+            <p>
+              <b>Series:</b> {game.franchise}
+            </p>
+          )}
+          {game.developer && (
+            <p>
+              <b>Developer(s):</b> {game.developer}
+            </p>
+          )}
+          {game.publisher && (
+            <p>
+              <b>Publisher(s):</b> {game.publisher}
+            </p>
+          )}
+          {game.director && (
+            <p>
+              <b>Director(s):</b> {game.director}
+            </p>
+          )}
+          {game.producer && (
+            <p>
+              <b>Producer(s):</b> {game.producer}
+            </p>
+          )}
+          {game.designer && (
+            <p>
+              <b>Designer(s):</b> {game.designer}
+            </p>
+          )}
+          {game.programmer && (
+            <p>
+              <b>Programmer(s):</b> {game.programmer}
+            </p>
+          )}
+          {game.artist && (
+            <p>
+              <b>Artist(s):</b> {game.artist}
+            </p>
+          )}
+          {game.writer && (
+            <p>
+              <b>Writer:</b> {game.writer}
+            </p>
+          )}
+          {game.composer && (
+            <p>
+              <b>Composer:</b> {game.composer}
+            </p>
+          )}
+          {game.engine && (
+            <p>
+              <b>Engine:</b> {game.engine}
+            </p>
+          )}
         </div>
       </div>
     </div>

@@ -971,15 +971,30 @@ export const AddGame = () => {
             <div className="option-container">
               <input
                 type="checkbox"
-                id="stadia"
+                id="google-stadia"
                 name="platforms"
-                value={"Stadia"}
+                value={"Google Stadia"}
                 onChange={handleChange}
                 className="input-option"
-                checked={game.platforms.includes("Stadia")}
+                checked={game.platforms.includes("Google Stadia")}
               />
-              <label htmlFor="stadia" className="label-option">
-                Stadia
+              <label htmlFor="google-stadia" className="label-option">
+                Google Stadia
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="amazon-luna"
+                name="platforms"
+                value={"Amazon Luna"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.platforms.includes("Amazon Luna")}
+              />
+              <label htmlFor="amazon-luna" className="label-option">
+                Amazon Luna
               </label>
             </div>
           </div>
