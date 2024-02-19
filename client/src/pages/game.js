@@ -21,6 +21,49 @@ export const Game = () => {
   const [game, setGame] = useState(null);
   const navigate = useNavigate();
 
+  /**
+   * Single digit: PC
+   *
+   * Two digit: Portable
+   *  10 - first gen
+   *  20 - second gen
+   *  30 - third gen
+   *  40 - fourth gen
+   *
+   * Three digit: Console
+   *  100 - first gen
+   *  200 - second gen
+   *  300 - third gen
+   *  400 - fourth gen
+   *  500 - fifth gen
+   */
+  const platformPriority = {
+    "Nintendo 64": 101,
+    "Game Boy Color": 11,
+    "Game Boy Advance": 21,
+    GameCube: 201,
+    "Nintendo DS": 31,
+    "Nintendo 3DS": 41,
+    Wii: 301,
+    "Wii U": 401,
+    "Nintendo Switch": 501,
+    PlayStation: 102,
+    "PlayStation 2": 202,
+    "PlayStation Portable": 32,
+    "PlayStation 3": 302,
+    "PlayStation Vita": 42,
+    "PlayStation 4": 402,
+    "PlayStation 5": 502,
+    Xbox: 203,
+    "Xbox 360": 303,
+    "Xbox One": 403,
+    "Xbox Series X/S": 503,
+    "Microsoft Windows": 0,
+    macOS: 1,
+    Linux: 2,
+    Stadia: 3,
+  };
+
   useEffect(() => {
     const fetchGame = async () => {
       try {
@@ -139,18 +182,28 @@ export const Game = () => {
         <div className="game-section">
           <h3 className="game-section-title">Platforms:</h3>
           <ul className="attribute-list">
-            {game.platforms.map((platform) => (
-              <li>{platform}</li>
-            ))}
+            {game.platforms
+              .sort((platform1, platform2) => {
+                const priority1 = platformPriority[platform1];
+                const priority2 = platformPriority[platform2];
+                return priority1 - priority2;
+              })
+              .reverse()
+              .map((platform) => (
+                <li>{platform}</li>
+              ))}
           </ul>
         </div>
 
         <div className="game-section">
           <h3 className="game-section-title">Modes:</h3>
           <ul className="attribute-list">
-            {game.modes.map((mode) => (
-              <li>{mode}</li>
-            ))}
+            {game.modes
+              .sort()
+              .reverse()
+              .map((mode) => (
+                <li>{mode}</li>
+              ))}
           </ul>
         </div>
 
