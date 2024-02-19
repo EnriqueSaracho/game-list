@@ -5,11 +5,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import StarRatingComponent from "react-star-rating-component";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
-
 import { IoIosStar } from "react-icons/io";
-
 import { IoIosStarHalf } from "react-icons/io";
-
 import { BiMessageSquareEdit } from "react-icons/bi";
 import { BiMessageSquareX } from "react-icons/bi";
 import { RiCheckboxBlankCircleLine } from "react-icons/ri";
@@ -133,7 +130,7 @@ export const Game = () => {
         <div className="game-section">
           <h3 className="game-section-title">Genres:</h3>
           <ul className="attribute-list">
-            {game.genres.map((genre) => (
+            {game.genres.sort().map((genre) => (
               <li>{genre}</li>
             ))}
           </ul>
