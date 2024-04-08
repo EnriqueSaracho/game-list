@@ -10,6 +10,7 @@ import { SiPlaystation } from "react-icons/si";
 import { SiXbox } from "react-icons/si";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { FaGamepad } from "react-icons/fa";
+import { ImMobile } from "react-icons/im";
 
 export const EditGame = () => {
   const id = useParams();
@@ -462,6 +463,21 @@ export const EditGame = () => {
                 className="label-option"
               >
                 Massively Multiplayer Online (MMO)
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="park-simualtor"
+                name="genres"
+                value={"Park simulator"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.genres.includes("Park simulator")}
+              />
+              <label htmlFor="park-simulator" className="label-option">
+                Park simulator
               </label>
             </div>
 
@@ -951,6 +967,7 @@ export const EditGame = () => {
 
           <div>
             <p className="platform-icon">PC</p>
+
             <div className="option-container">
               <input
                 type="checkbox"
@@ -1023,6 +1040,39 @@ export const EditGame = () => {
               />
               <label htmlFor="amazon-luna" className="label-option">
                 Amazon Luna
+              </label>
+            </div>
+          </div>
+          <div>
+            <ImMobile className="platform-icon" />
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="android"
+                name="platforms"
+                value={"Android"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.platforms.includes("Android")}
+              />
+              <label htmlFor="android" className="label-option">
+                Android
+              </label>
+            </div>
+
+            <div className="option-container">
+              <input
+                type="checkbox"
+                id="ios"
+                name="platforms"
+                value={"iOS"}
+                onChange={handleChange}
+                className="input-option"
+                checked={game.platforms.includes("iOS")}
+              />
+              <label htmlFor="ios" className="label-option">
+                iOS
               </label>
             </div>
           </div>

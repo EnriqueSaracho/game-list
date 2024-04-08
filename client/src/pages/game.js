@@ -22,47 +22,49 @@ export const Game = () => {
   const navigate = useNavigate();
 
   /**
-   * Single digit: PC
-   *
-   * Two digit: Portable
-   *  10 - first gen
-   *  20 - second gen
-   *  30 - third gen
-   *  40 - fourth gen
-   *
-   * Three digit: Console
+   * Single digit: Mobile
+   * Two digits: PC
+   * Three digits: Portable
    *  100 - first gen
    *  200 - second gen
    *  300 - third gen
    *  400 - fourth gen
-   *  500 - fifth gen
+   *
+   * Three digit: Console
+   *  1000 - first gen
+   *  2000 - second gen
+   *  3000 - third gen
+   *  4000 - fourth gen
+   *  5000 - fifth gen
    */
   const platformPriority = {
-    "Nintendo 64": 103,
-    "Game Boy Color": 13,
-    "Game Boy Advance": 23,
-    GameCube: 203,
-    "Nintendo DS": 33,
-    "Nintendo 3DS": 43,
-    Wii: 303,
-    "Wii U": 403,
-    "Nintendo Switch": 503,
-    PlayStation: 102,
-    "PlayStation 2": 202,
-    "PlayStation Portable": 32,
-    "PlayStation 3": 302,
-    "PlayStation Vita": 42,
-    "PlayStation 4": 402,
-    "PlayStation 5": 502,
-    Xbox: 203,
-    "Xbox 360": 303,
-    "Xbox One": 403,
-    "Xbox Series X/S": 503,
-    "Microsoft Windows": 9,
-    macOS: 8,
-    Linux: 7,
-    "Google Stadia": 6,
-    "Amazon Luna": 5,
+    "Nintendo 64": 1003,
+    "Game Boy Color": 103,
+    "Game Boy Advance": 203,
+    GameCube: 2003,
+    "Nintendo DS": 303,
+    "Nintendo 3DS": 403,
+    Wii: 3003,
+    "Wii U": 4003,
+    "Nintendo Switch": 5003,
+    PlayStation: 1002,
+    "PlayStation 2": 2002,
+    "PlayStation Portable": 302,
+    "PlayStation 3": 3002,
+    "PlayStation Vita": 402,
+    "PlayStation 4": 4002,
+    "PlayStation 5": 5002,
+    Xbox: 2003,
+    "Xbox 360": 3003,
+    "Xbox One": 4003,
+    "Xbox Series X/S": 5003,
+    "Microsoft Windows": 19,
+    macOS: 18,
+    Linux: 17,
+    "Google Stadia": 16,
+    "Amazon Luna": 15,
+    Android: 9,
+    iOS: 8,
   };
 
   useEffect(() => {
@@ -158,7 +160,7 @@ export const Game = () => {
                 <HiOutlineBan className="status-icon" />
               ) : null}
             </p>
-            <p>{game.developer}</p>
+            <p>By {game.developer}</p>
             <p>{new Date(game.releaseDate).getFullYear()}</p>
           </div>
           <div className="game-btn-container">
