@@ -32,5 +32,6 @@ GameList.bat
 # Ignore shorcut
 Ludi.lnk
 
-# Ignore Dockerfile
+# Ignore Dockerfile and .dockerignore
 Dockerfile
+.dockerignore
